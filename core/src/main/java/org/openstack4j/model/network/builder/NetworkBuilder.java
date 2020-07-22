@@ -65,4 +65,9 @@ public interface NetworkBuilder extends Builder<NetworkBuilder, Network> {
      * @see Network#isDefault()
      */
     NetworkBuilder isDefault(Boolean isDefault);
+
+    /**
+     * @See Network#getMTU()
+     */
+    NetworkBuilder mtu(Integer mtu);
 }

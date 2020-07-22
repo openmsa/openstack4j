@@ -285,7 +285,7 @@ public class NeutronNetwork implements Network {
         return java.util.Objects.hash(name, status, subnets,
                 providerPhyNet, adminStateUp, tenantId, networkType,
                 routerExternal, id, shared, providerSegID, availabilityZoneHints, availabilityZones, portSecurityEnabled,
-                createdTime, updatedTime, isDefault);
+                createdTime, updatedTime, isDefault, mtu);
     }
 
     /**
@@ -315,7 +315,8 @@ public class NeutronNetwork implements Network {
                     java.util.Objects.equals(portSecurityEnabled, that.portSecurityEnabled) &&
                     java.util.Objects.equals(createdTime, that.createdTime) &&
                     java.util.Objects.equals(updatedTime, that.updatedTime) &&
-                    java.util.Objects.equals(isDefault, that.isDefault)) {
+                    java.util.Objects.equals(isDefault, that.isDefault) &&
+                    java.util.Objects.equals(mtu, that.mtu)) {
                 return true;
             }
         }
@@ -423,6 +424,10 @@ public class NeutronNetwork implements Network {
         @Override
         public NetworkBuilder isDefault(Boolean isDefault) {
             m.isDefault = isDefault;
+            return this;
+        }
+        public NetworkBuilder mtu(Integer mtu) {
+            m.mtu = mtu;
             return this;
         }
     }

@@ -275,7 +275,7 @@ public class NeutronNetwork implements Network {
         return java.util.Objects.hash(name, status, subnets,
                 providerPhyNet, adminStateUp, tenantId, networkType,
                 routerExternal, id, shared, providerSegID, availabilityZoneHints, availabilityZones, portSecurityEnabled,
-                createdTime, updatedTime);
+                createdTime, updatedTime, mtu);
     }
 
     /**
@@ -304,7 +304,8 @@ public class NeutronNetwork implements Network {
                     java.util.Objects.equals(availabilityZones, that.availabilityZones) &&
                     java.util.Objects.equals(portSecurityEnabled, that.portSecurityEnabled) &&
                     java.util.Objects.equals(createdTime, that.createdTime) &&
-                    java.util.Objects.equals(updatedTime, that.updatedTime)) {
+                    java.util.Objects.equals(updatedTime, that.updatedTime) &&
+                    java.util.Objects.equals(mtu, that.mtu)) {
                 return true;
             }
         }
@@ -402,10 +403,16 @@ public class NeutronNetwork implements Network {
             m.availabilityZoneHints.add(availabilityZone);
             return this;
         }
-        
+
         @Override
         public NetworkBuilder isPortSecurityEnabled(Boolean portSecurityEnabled) {
             m.portSecurityEnabled = portSecurityEnabled;
+            return this;
+        }
+
+        @Override
+        public NetworkBuilder mtu(Integer mtu) {
+            m.mtu = mtu;
             return this;
         }
     }

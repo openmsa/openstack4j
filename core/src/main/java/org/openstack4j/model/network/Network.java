@@ -78,4 +78,9 @@ public interface Network extends Resource, TimeEntity, Buildable<NetworkBuilder>
      * @return true if the port security enabled is shared
      */
     Boolean isPortSecurityEnabled();
+
+    /**
+     * @return the dns domain name.
+     */
+    String getDnsDomain();
 }

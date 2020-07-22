@@ -65,4 +65,9 @@ public interface NetworkBuilder extends Builder<NetworkBuilder, Network> {
      * @See Network#getMTU()
      */
     NetworkBuilder mtu(Integer mtu);
+
+    /**
+     * @see Network#getDnsDomain()
+     */
+    NetworkBuilder dnsDomain(String dnsDomain);
 }

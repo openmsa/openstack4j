@@ -56,6 +56,8 @@ public class NeutronNetwork implements Network {
     private Date createdTime;
     @JsonProperty("updated_at")
     private Date updatedTime;
+    @JsonProperty("dns_domain")
+    private String dnsDomain;
 
     /**
      * The maximum transmission unit (MTU) value to address fragmentation. Minimum value is 68 for IPv4, and 1280 for IPv6.
@@ -252,6 +254,11 @@ public class NeutronNetwork implements Network {
         return updatedTime;
     }
 
+    @Override
+    public String getDnsDomain() {
+        return dnsDomain;
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -264,6 +271,7 @@ public class NeutronNetwork implements Network {
                 .add("mtu", mtu).add("availabilityZoneHints", availabilityZoneHints).add("availabilityZones", availabilityZones)
                 .add("portSecurityEnabled", portSecurityEnabled)
                 .add("created_at", createdTime).add("updated_at", updatedTime)
+                .add("dns_domain", dnsDomain)
                 .toString();
     }
 
@@ -275,7 +283,7 @@ public class NeutronNetwork implements Network {
         return java.util.Objects.hash(name, status, subnets,
                 providerPhyNet, adminStateUp, tenantId, networkType,
                 routerExternal, id, shared, providerSegID, availabilityZoneHints, availabilityZones, portSecurityEnabled,
-                createdTime, updatedTime, mtu);
+                createdTime, updatedTime, mtu, dnsDomain);
     }
 
     /**
@@ -305,7 +313,8 @@ public class NeutronNetwork implements Network {
                     java.util.Objects.equals(portSecurityEnabled, that.portSecurityEnabled) &&
                     java.util.Objects.equals(createdTime, that.createdTime) &&
                     java.util.Objects.equals(updatedTime, that.updatedTime) &&
-                    java.util.Objects.equals(mtu, that.mtu)) {
+                    java.util.Objects.equals(mtu, that.mtu) &&
+                    java.util.Objects.equals(dnsDomain, that.dnsDomain)) {
                 return true;
             }
         }
@@ -415,5 +424,12 @@ public class NeutronNetwork implements Network {
             m.mtu = mtu;
             return this;
         }
+
+        @Override
+        public NetworkBuilder dnsDomain(String dnsDomain) {
+            m.dnsDomain = dnsDomain;
+            return this;
+        }
     }
+
 }

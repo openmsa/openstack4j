@@ -83,4 +83,9 @@ public interface Network extends Resource, TimeEntity, Buildable<NetworkBuilder>
      * @return the dns domain name.
      */
     String getDnsDomain();
+
+    /**
+     * @return The ID of the QoS policy associated with the network.
+     */
+    String getQosPolicyId();
 }

@@ -55,9 +55,14 @@ public interface NetworkBuilder extends Builder<NetworkBuilder, Network> {
      * @see Network#getAvailabilityZoneHints()
      */
     NetworkBuilder addAvailabilityZoneHints(String availabilityZone);
-    
+
     /**
      * @see Network#isPortSecurityEnabled()
      */
     NetworkBuilder isPortSecurityEnabled(Boolean portSecurityEnabled);
+
+    /**
+     * @See Network#getMTU()
+     */
+    NetworkBuilder mtu(Integer mtu);
 }

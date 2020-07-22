@@ -80,4 +80,9 @@ public interface NetworkBuilder extends Builder<NetworkBuilder, Network> {
      * @see Network#getQosPolicyId()
      */
     NetworkBuilder qosPolicyId(String id);
+
+    /**
+     * @see Network#getVlanTransparent()
+     */
+    NetworkBuilder vlanTransparent(boolean value);
 }

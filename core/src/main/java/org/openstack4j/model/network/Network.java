@@ -88,4 +88,9 @@ public interface Network extends Resource, TimeEntity, Buildable<NetworkBuilder>
      * @return The ID of the QoS policy associated with the network.
      */
     String getQosPolicyId();
+
+    /**
+     * @return Indicates the VLAN transparency mode of the network, which is VLAN transparent (true) or not VLAN transparent (false).
+     */
+    Boolean getVlanTransparent();
 }

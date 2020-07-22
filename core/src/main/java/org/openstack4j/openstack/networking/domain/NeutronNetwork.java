@@ -60,6 +60,8 @@ public class NeutronNetwork implements Network {
     private Boolean isDefault;
     @JsonProperty("dns_domain")
     private String dnsDomain;
+    @JsonProperty("qos_policy_id")
+    private String qosPolicyId;
 
     /**
      * The maximum transmission unit (MTU) value to address fragmentation. Minimum value is 68 for IPv4, and 1280 for IPv6.
@@ -261,6 +263,11 @@ public class NeutronNetwork implements Network {
         return dnsDomain;
     }
 
+    @Override
+    public String getQosPolicyId() {
+        return qosPolicyId;
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -281,7 +288,7 @@ public class NeutronNetwork implements Network {
                 .add("mtu", mtu).add("availabilityZoneHints", availabilityZoneHints).add("availabilityZones", availabilityZones)
                 .add("portSecurityEnabled", portSecurityEnabled)
                 .add("created_at", createdTime).add("updated_at", updatedTime).add("isDefault", isDefault)
-                .add("dns_domain", dnsDomain)
+                .add("dns_domain", dnsDomain).add("qos_policy_id", qosPolicyId)
                 .toString();
     }
 
@@ -293,7 +300,7 @@ public class NeutronNetwork implements Network {
         return java.util.Objects.hash(name, status, subnets,
                 providerPhyNet, adminStateUp, tenantId, networkType,
                 routerExternal, id, shared, providerSegID, availabilityZoneHints, availabilityZones, portSecurityEnabled,
-                createdTime, updatedTime, isDefault, mtu, dnsDomain);
+                createdTime, updatedTime, isDefault, mtu, dnsDomain, qosPolicyId);
     }
 
     /**
@@ -325,7 +332,8 @@ public class NeutronNetwork implements Network {
                     java.util.Objects.equals(updatedTime, that.updatedTime) &&
                     java.util.Objects.equals(isDefault, that.isDefault) &&
                     java.util.Objects.equals(mtu, that.mtu) &&
-                    java.util.Objects.equals(dnsDomain, that.dnsDomain)) {
+                    java.util.Objects.equals(dnsDomain, that.dnsDomain) &&
+                    java.util.Objects.equals(qosPolicyId, that.qosPolicyId)) {
                 return true;
             }
         }
@@ -445,6 +453,11 @@ public class NeutronNetwork implements Network {
             m.dnsDomain = dnsDomain;
             return this;
         }
-    }
 
+        @Override
+        public NetworkBuilder qosPolicyId(String id) {
+            m.qosPolicyId = id;
+            return this;
+        }
+    }
 }

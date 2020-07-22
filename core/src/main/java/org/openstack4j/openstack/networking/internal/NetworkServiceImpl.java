@@ -5,8 +5,10 @@ import java.util.Map;
 
 import org.openstack4j.api.networking.NetworkService;
 import org.openstack4j.model.common.ActionResponse;
+import org.openstack4j.model.common.Extension;
 import org.openstack4j.model.network.Network;
 import org.openstack4j.model.network.NetworkUpdate;
+import org.openstack4j.openstack.common.ExtensionValue;
 import org.openstack4j.openstack.networking.domain.NeutronNetwork;
 import org.openstack4j.openstack.networking.domain.NeutronNetwork.Networks;
 
@@ -76,6 +78,11 @@ public class NetworkServiceImpl extends BaseNetworkingServices implements Networ
         checkNotNull(networkId);
         checkNotNull(network, "network");
         return put(NeutronNetwork.class, uri("/networks/%s", networkId)).entity(network).execute();
+    }
+
+    @Override
+    public List<? extends Extension> listExtensions() {
+        return get(ExtensionValue.Extensions.class, uri("/extensions")).execute().getList();
     }
 
 }

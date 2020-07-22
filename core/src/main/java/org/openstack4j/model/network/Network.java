@@ -85,4 +85,9 @@ public interface Network extends Resource, TimeEntity, Buildable<NetworkBuilder>
      */
     @JsonProperty("is_default")
     boolean isDefault();
+
+    /**
+     * @return the dns domain name.
+     */
+    String getDnsDomain();
 }

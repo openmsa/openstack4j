@@ -70,4 +70,9 @@ public interface NetworkBuilder extends Builder<NetworkBuilder, Network> {
      * @see Network#getDnsDomain()
      */
     NetworkBuilder dnsDomain(String dnsDomain);
+
+    /**
+     * @see Network#getQosPolicyId()
+     */
+    NetworkBuilder qosPolicyId(String id);
 }

@@ -60,6 +60,8 @@ public class NeutronNetwork implements Network {
     private String dnsDomain;
     @JsonProperty("qos_policy_id")
     private String qosPolicyId;
+    @JsonProperty("transparent_vlan")
+    private Boolean vlanTransparent;
 
     /**
      * The maximum transmission unit (MTU) value to address fragmentation. Minimum value is 68 for IPv4, and 1280 for IPv6.
@@ -266,6 +268,11 @@ public class NeutronNetwork implements Network {
         return qosPolicyId;
     }
 
+    @Override
+    public Boolean getVlanTransparent() {
+        return vlanTransparent;
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -278,7 +285,7 @@ public class NeutronNetwork implements Network {
                 .add("mtu", mtu).add("availabilityZoneHints", availabilityZoneHints).add("availabilityZones", availabilityZones)
                 .add("portSecurityEnabled", portSecurityEnabled)
                 .add("created_at", createdTime).add("updated_at", updatedTime)
-                .add("dns_domain", dnsDomain).add("qos_policy_id", qosPolicyId)
+                .add("dns_domain", dnsDomain).add("qos_policy_id", qosPolicyId).add("vlan_transparent", vlanTransparent)
                 .toString();
     }
 
@@ -290,7 +297,7 @@ public class NeutronNetwork implements Network {
         return java.util.Objects.hash(name, status, subnets,
                 providerPhyNet, adminStateUp, tenantId, networkType,
                 routerExternal, id, shared, providerSegID, availabilityZoneHints, availabilityZones, portSecurityEnabled,
-                createdTime, updatedTime, mtu, dnsDomain, qosPolicyId);
+                createdTime, updatedTime, mtu, dnsDomain, qosPolicyId, vlanTransparent);
     }
 
     /**
@@ -322,7 +329,8 @@ public class NeutronNetwork implements Network {
                     java.util.Objects.equals(updatedTime, that.updatedTime) &&
                     java.util.Objects.equals(mtu, that.mtu) &&
                     java.util.Objects.equals(dnsDomain, that.dnsDomain) &&
-                    java.util.Objects.equals(qosPolicyId, that.qosPolicyId)) {
+                    java.util.Objects.equals(qosPolicyId, that.qosPolicyId) &&
+                    java.util.Objects.equals(vlanTransparent, that.vlanTransparent)) {
                 return true;
             }
         }
@@ -442,6 +450,12 @@ public class NeutronNetwork implements Network {
         @Override
         public NetworkBuilder qosPolicyId(String id) {
             m.qosPolicyId = id;
+            return this;
+        }
+
+        @Override
+        public NetworkBuilder vlanTransparent(boolean value) {
+            m.vlanTransparent = value;
             return this;
         }
     }

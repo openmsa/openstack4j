@@ -35,6 +35,22 @@ public class MagnumCluster implements Cluster {
     private String keypair;
     @JsonProperty("name")
     private String name;
+    @JsonProperty("master_addresses")
+    private List<String> masterAddresses;
+    @JsonProperty("api_address")
+    private String apiAddress;
+    @JsonProperty("fixed_network")
+    private String fixedNetwork;
+    @JsonProperty("fixed_subnet")
+    private String fixedSubnet;
+    @JsonProperty("coe_version")
+    private String coesVersion;
+    @JsonProperty("node_addresses")
+    private List<String> nodeAddresses;
+    @JsonProperty("floating_ip_enabled")
+    private Boolean floatingIpEnable;
+    @JsonProperty("master_lb_enabled")
+    private Boolean masterLbEnable;
 
     public static ClusterBuilder builder() {
         return new ClusterConcreteBuilder();
@@ -90,11 +106,54 @@ public class MagnumCluster implements Cluster {
     }
 
     @Override
+    public List<String> getMasterAddresses() {
+        return masterAddresses;
+    }
+
+    @Override
+    public String getApiAddress() {
+        return apiAddress;
+    }
+
+    @Override
+    public String getFixedNetwork() {
+        return fixedNetwork;
+    }
+
+    @Override
+    public String getFixedSubnet() {
+        return fixedSubnet;
+    }
+
+    @Override
+    public String getCoesVersion() {
+        return coesVersion;
+    }
+
+    @Override
+    public List<String> getNodeAddresses() {
+        return nodeAddresses;
+    }
+
+    @Override
+    public Boolean getFloatingIpEnable() {
+        return floatingIpEnable;
+    }
+
+    @Override
+    public Boolean getMasterLbEnable() {
+        return masterLbEnable;
+    }
+
+    @Override
     public String toString() {
         return MoreObjects.toStringHelper(this).omitNullValues().add("status", status)
                 .add("clusterTemplateId", clusterTemplateId).add("uuid", uuid).add("links", links)
                 .add("stackId", stackId).add("masterCount", masterCount).add("createTimeout", createTimeout)
                 .add("nodeCount", nodeCount).add("discoveryUrl", discoveryUrl).add("keypair", keypair).add("name", name)
+                .add("masterAddresses", masterAddresses).add("fixedNetwork", fixedNetwork).add("fixedSubnet", fixedSubnet)
+                .add("coeVersion", coesVersion).add("nodeAddresses", nodeAddresses).add("floatingIpEnable", floatingIpEnable)
+                .add("masterLbEnable", masterLbEnable)
                 .toString();
     }
 
@@ -187,6 +246,30 @@ public class MagnumCluster implements Cluster {
         @Override
         public ClusterBuilder name(String name) {
             model.name = name;
+            return this;
+        }
+
+        @Override
+        public ClusterBuilder fixedNetwork(String fixedNetwork) {
+            model.fixedNetwork = fixedNetwork;
+            return this;
+        }
+
+        @Override
+        public ClusterBuilder fixedSubnet(String fixedSubnet) {
+            model.fixedSubnet = fixedSubnet;
+            return this;
+        }
+
+        @Override
+        public ClusterBuilder floatingIpEnable(Boolean floating) {
+            model.floatingIpEnable = floating;
+            return this;
+        }
+
+        @Override
+        public ClusterBuilder masterLbEnable(Boolean masterLb) {
+            model.masterLbEnable = masterLb;
             return this;
         }
     }

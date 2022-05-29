@@ -61,4 +61,24 @@ public interface ClusterBuilder extends Builder<ClusterBuilder, Cluster> {
      */
     ClusterBuilder name(String name);
 
+    /**
+     * @see Cluster#getFixedNetwork()
+     */
+    ClusterBuilder fixedNetwork(String name);
+
+    /**
+     * @see Cluster#getFixedSubnet()
+     */
+    ClusterBuilder fixedSubnet(String name);
+
+    /**
+     * @see Cluster#getFloatingIpEnable()
+     */
+    ClusterBuilder floatingIpEnable(Boolean floating);
+
+    /**
+     * @see Cluster#getMasterLbEnable()
+     */
+    ClusterBuilder masterLbEnable(Boolean masterLb);
+
 }

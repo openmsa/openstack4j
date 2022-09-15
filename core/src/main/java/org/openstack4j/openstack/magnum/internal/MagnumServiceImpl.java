@@ -214,7 +214,7 @@ public class MagnumServiceImpl extends BaseOpenStackService implements MagnumSer
     @Override
     public Cluster showCluster(String id) {
         Objects.requireNonNull(id);
-        return get(Cluster.class, uri("%s/%s", MAGNUM_CLUSTERS, id)).serviceType(ServiceType.MAGNUM).execute();
+        return get(MagnumCluster.class, uri("%s/%s", MAGNUM_CLUSTERS, id)).serviceType(ServiceType.MAGNUM).execute();
     }
 
     @Override

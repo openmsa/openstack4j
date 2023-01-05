@@ -1,5 +1,6 @@
 package org.openstack4j.api.telemetry;
 
+import org.openstack4j.api.telemetry.gnocchi.ResourcesService;
 import org.openstack4j.common.RestService;
 
 /**
@@ -42,7 +43,7 @@ public interface TelemetryService extends RestService {
      *
      * @return the Resource service API
      */
-    ResourceService resources();
+    ResourcesService resources();
 
     /**
      * Access to capabilities service API
@@ -50,4 +51,11 @@ public interface TelemetryService extends RestService {
      * @return the capabilities service API
      */
     CapabilitiesService capabilities();
+
+    /**
+     * Access to gnocchi service API
+     *
+     * @return The gnocchi service API
+     */
+    GnocchiService gnocchi();
 }

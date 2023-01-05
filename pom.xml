@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.openstack4j.core</groupId>
     <artifactId>ubi-openstack4j-parent</artifactId>
-    <version>3.11-SNAPSHOT</version>
+    <version>3.11</version>
     <name>OpenStack4j Parent</name>
     <description>OpenStack Java API</description>
     <url>http://github.com/openstack4j/openstack4j/</url>
@@ -35,7 +35,7 @@
         <connection>scm:git:git@github.com:openmsa/openstack4j.git</connection>
         <developerConnection>scm:git:git@github.com:openmsa/openstack4j.git</developerConnection>
         <url>http://github.com/openmsa/openstack4j/</url>
-        <tag>HEAD</tag>
+        <tag>ubi-openstack4j-parent-3.11</tag>
     </scm>
     <mailingLists>
         <mailingList>
@@ -308,6 +308,7 @@
             <id>release</id>
             <build>
                 <plugins>
+			<!--
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -333,6 +334,7 @@
                             </execution>
                         </executions>
                     </plugin>
+			-->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>

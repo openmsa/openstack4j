@@ -43,14 +43,7 @@ public class HttpClientFactory {
      * @return CloseableHttpClient
      */
     CloseableHttpClient getClient(Config config) {
-        if (client == null) {
-            synchronized (this) {
-                if (client == null) {
-                    client = buildClient(config);
-                }
-            }
-        }
-        return client;
+        return buildClient(config);
     }
 
     private CloseableHttpClient buildClient(Config config) {

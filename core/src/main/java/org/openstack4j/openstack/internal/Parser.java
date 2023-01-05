@@ -163,8 +163,9 @@ public final class Parser {
         }
     }
 
-    private static String trimTZ(String toParse) {
-        Matcher matcher = TZ_PATTERN.matcher(toParse);
+    private static String trimTZ(String toParseIn) {
+        Matcher matcher = TZ_PATTERN.matcher(toParseIn);
+        String toParse = toParseIn;
         if (matcher.find()) {
             toParse = matcher.group(1);
         }

@@ -12,6 +12,7 @@ import org.openstack4j.api.OSClient.OSClientV2;
 import org.openstack4j.api.OSClient.OSClientV3;
 import org.openstack4j.api.artifact.ArtifactService;
 import org.openstack4j.api.barbican.BarbicanService;
+import org.openstack4j.api.blazar.BlazarService;
 import org.openstack4j.api.client.CloudProvider;
 import org.openstack4j.api.compute.ComputeService;
 import org.openstack4j.api.dns.v2.DNSService;
@@ -47,6 +48,10 @@ import org.openstack4j.openstack.identity.v2.functions.ServiceToServiceType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.annotations.VisibleForTesting;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Sets;
+
 /**
  * A client which has been identified. Any calls spawned from this session will
  * automatically utilize the original authentication that was successfully
@@ -58,7 +63,7 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
 
     private static final Logger LOG = LoggerFactory.getLogger(OSClientSession.class);
     @SuppressWarnings("rawtypes")
-    private static final ThreadLocal<OSClientSession> sessions = new ThreadLocal<OSClientSession>();
+    private static final ThreadLocal<OSClientSession> sessions = new ThreadLocal<>();
 
     Config config;
     Facing perspective;
@@ -74,22 +79,22 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
     }
 
     @SuppressWarnings("unchecked")
-    public R useConfig(Config config) {
+    public R useConfig(final Config config) {
         this.config = config;
         return (R) this;
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     @SuppressWarnings("unchecked")
-    public T useRegion(String region) {
+    public T useRegion(final String region) {
         this.region = region;
         return (T) this;
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public T removeRegion() {
         return useRegion(null);
@@ -110,56 +115,56 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public ComputeService compute() {
         return Apis.getComputeServices();
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public NetworkingService networking() {
         return Apis.getNetworkingServices();
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public PlacementService placement() {
         return Apis.getPlacementServices();
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public ServiceFunctionChainService sfc() {
         return Apis.getSfcServices();
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public OctaviaService octavia() {
         return Apis.getOctaviaService();
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public ArtifactService artifact() {
         return Apis.getArtifactServices();
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public TackerService tacker() {
         return Apis.getTackerServices();
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public ImageService images() {
         return Apis.getImageService();
@@ -170,106 +175,110 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public BlockStorageService blockStorage() {
         return Apis.get(BlockStorageService.class);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public TelemetryService telemetry() {
         return Apis.get(TelemetryService.class);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public ShareService share() {
         return Apis.get(ShareService.class);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public HeatService heat() {
         return Apis.getHeatServices();
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public AppCatalogService murano() {
         return Apis.getMuranoServices();
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public MagnumService magnum() {
         return Apis.getMagnumService();
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public SenlinService senlin() {
         return Apis.getSenlinServices();
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public ObjectStorageService objectStorage() {
         return Apis.get(ObjectStorageService.class);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public SaharaService sahara() {
         return Apis.getSaharaServices();
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public WorkflowService workflow() {
         return Apis.getWorkflowServices();
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public BarbicanService barbican() {
         return Apis.getBarbicanServices();
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public DNSService dns() {
         return Apis.getDNSService();
     }
 
+    public BlazarService blazar() {
+        return null;
+    }
+
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     @SuppressWarnings("unchecked")
-    public T perspective(Facing perspective) {
+    public T perspective(final Facing perspective) {
         this.perspective = perspective;
         return (T) this;
     }
 
     public CloudProvider getProvider() {
-        return (provider == null) ? CloudProvider.UNKNOWN: provider;
+        return (provider == null) ? CloudProvider.UNKNOWN : provider;
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
-    public T headers(Map<String, String> headers) {
+    public T headers(final Map<String, String> headers) {
         this.headers = headers;
         return (T) this;
     }
@@ -279,98 +288,98 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public boolean supportsCompute() {
         return getSupportedServices().contains(ServiceType.COMPUTE);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public boolean supportsIdentity() {
         return getSupportedServices().contains(ServiceType.IDENTITY);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public boolean supportsNetwork() {
         return getSupportedServices().contains(ServiceType.NETWORK);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public boolean supportsPlacement() {
         return getSupportedServices().contains(ServiceType.PLACEMENT);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public boolean supportsImage() {
         return getSupportedServices().contains(ServiceType.IMAGE);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public boolean supportsHeat() {
         return getSupportedServices().contains(ServiceType.ORCHESTRATION);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public boolean supportsMurano() {
         return getSupportedServices().contains(ServiceType.APP_CATALOG);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public boolean supportsBlockStorage() {
         return getSupportedServices().contains(ServiceType.BLOCK_STORAGE);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public boolean supportsObjectStorage() {
         return getSupportedServices().contains(ServiceType.OBJECT_STORAGE);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public boolean supportsTelemetry() {
         return getSupportedServices().contains(ServiceType.TELEMETRY);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public boolean supportsTelemetry_aodh() {
         return getSupportedServices().contains(ServiceType.TELEMETRY_AODH);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public boolean supportsShare() {
         return getSupportedServices().contains(ServiceType.SHARE);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public boolean supportsTrove() {
         return getSupportedServices().contains(ServiceType.DATABASE);
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public boolean supportsDNS() {
         return getSupportedServices().contains(ServiceType.DNS);
@@ -385,7 +394,7 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
     }
 
     /**
-     * {@inheritDoc}
+     * inheritDoc
      */
     public GbpService gbp() {
         return Apis.getGbpServices();
@@ -402,7 +411,8 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
 
         Access access;
 
-        private OSClientSessionV2(Access access, String endpoint, Facing perspective, CloudProvider provider, Config config) {
+        private OSClientSessionV2(final Access access, final String endpoint, final Facing perspective,
+                final CloudProvider provider, final Config config) {
             this.access = access;
             this.config = config;
             this.perspective = perspective;
@@ -410,17 +420,18 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
             sessions.set(this);
         }
 
-        private OSClientSessionV2(Access access, OSClientSessionV2 parent, String region) {
+        private OSClientSessionV2(final Access access, final OSClientSessionV2 parent, final String region) {
             this.access = parent.access;
             this.perspective = parent.perspective;
             this.region = region;
         }
 
-        public static OSClientSessionV2 createSession(Access access) {
+        public static OSClientSessionV2 createSession(final Access access) {
             return new OSClientSessionV2(access, access.getEndpoint(), null, null, null);
         }
 
-        public static OSClientSessionV2 createSession(Access access, Facing perspective, CloudProvider provider, Config config) {
+        public static OSClientSessionV2 createSession(final Access access, final Facing perspective,
+                final CloudProvider provider, final Config config) {
             return new OSClientSessionV2(access, access.getEndpoint(), perspective, provider, config);
         }
 
@@ -439,12 +450,12 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
             return AuthVersion.V2;
         }
 
-        private String addNATIfApplicable(String url) {
-            if (config != null && config.isBehindNAT()) {
+        private String addNATIfApplicable(final String url) {
+            if ((config != null) && config.isBehindNAT()) {
                 try {
-                    URI uri = new URI(url);
+                    final URI uri = new URI(url);
                     return url.replace(uri.getHost(), config.getEndpointNATResolution());
-                } catch (URISyntaxException e) {
+                } catch (final URISyntaxException e) {
                     LOG.error(e.getMessage(), e);
                 }
             }
@@ -452,18 +463,17 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
         }
 
         /**
-         * {@inheritDoc}
+         * inheritDoc
          */
         @Override
-        public String getEndpoint(ServiceType service) {
+        public String getEndpoint(final ServiceType service) {
 
-            final EndpointURLResolver eUrlResolver = (config != null && config.getEndpointURLResolver() != null) ? config.getEndpointURLResolver(): fallbackEndpointUrlResolver;
+            final EndpointURLResolver eUrlResolver = ((config != null) && (config.getEndpointURLResolver() != null))
+                    ? config.getEndpointURLResolver()
+                    : fallbackEndpointUrlResolver;
 
-            return addNATIfApplicable(eUrlResolver.findURLV2(URLResolverParams
-                    .create(access, service)
-                    .resolver(config != null ? config.getV2Resolver(): null)
-                    .perspective(perspective)
-                    .region(region)));
+            return addNATIfApplicable(eUrlResolver.findURLV2(URLResolverParams.create(access, service)
+                    .resolver(config != null ? config.getV2Resolver() : null).perspective(perspective).region(region)));
         }
 
         @Override
@@ -472,7 +482,7 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
         }
 
         /**
-         * {@inheritDoc}
+         * inheritDoc
          */
         @Override
         public org.openstack4j.api.identity.v2.IdentityService identity() {
@@ -495,7 +505,8 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
         protected String reqId;
         Token token;
 
-        private OSClientSessionV3(Token token, String endpoint, Facing perspective, CloudProvider provider, Config config) {
+        private OSClientSessionV3(final Token token, final String endpoint, final Facing perspective,
+                final CloudProvider provider, final Config config) {
             this.token = token;
             this.config = config;
             this.perspective = perspective;
@@ -503,17 +514,18 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
             sessions.set(this);
         }
 
-        private OSClientSessionV3(Token token, OSClientSessionV3 parent, String region) {
+        private OSClientSessionV3(final Token token, final OSClientSessionV3 parent, final String region) {
             this.token = parent.token;
             this.perspective = parent.perspective;
             this.region = region;
         }
 
-        public static OSClientSessionV3 createSession(Token token) {
+        public static OSClientSessionV3 createSession(final Token token) {
             return new OSClientSessionV3(token, token.getEndpoint(), null, null, null);
         }
 
-        public static OSClientSessionV3 createSession(Token token, Facing perspective, CloudProvider provider, Config config) {
+        public static OSClientSessionV3 createSession(final Token token, final Facing perspective,
+                final CloudProvider provider, final Config config) {
             return new OSClientSessionV3(token, token.getEndpoint(), perspective, provider, config);
         }
 
@@ -527,7 +539,7 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
         }
 
         /**
-         * {@inheritDoc}
+         * inheritDoc
          */
         @Override
         public String getEndpoint() {
@@ -539,12 +551,12 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
             return AuthVersion.V3;
         }
 
-        private String addNATIfApplicable(String url) {
-            if (config != null && config.isBehindNAT()) {
+        private String addNATIfApplicable(final String url) {
+            if ((config != null) && config.isBehindNAT()) {
                 try {
-                    URI uri = new URI(url);
+                    final URI uri = new URI(url);
                     return url.replace(uri.getHost(), config.getEndpointNATResolution());
-                } catch (URISyntaxException e) {
+                } catch (final URISyntaxException e) {
                     LoggerFactory.getLogger(OSClientSessionV3.class).error(e.getMessage(), e);
                 }
             }
@@ -552,22 +564,21 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
         }
 
         /**
-         * {@inheritDoc}
+         * inheritDoc
          */
         @Override
-        public String getEndpoint(ServiceType service) {
+        public String getEndpoint(final ServiceType service) {
 
-            final EndpointURLResolver eUrlResolver = (config != null && config.getEndpointURLResolver() != null) ? config.getEndpointURLResolver(): fallbackEndpointUrlResolver;
+            final EndpointURLResolver eUrlResolver = ((config != null) && (config.getEndpointURLResolver() != null))
+                    ? config.getEndpointURLResolver()
+                    : fallbackEndpointUrlResolver;
 
-            return addNATIfApplicable(eUrlResolver.findURLV3(URLResolverParams
-                    .create(token, service)
-                    .resolver(config != null ? config.getResolver(): null)
-                    .perspective(perspective)
-                    .region(region)));
+            return addNATIfApplicable(eUrlResolver.findURLV3(URLResolverParams.create(token, service)
+                    .resolver(config != null ? config.getResolver() : null).perspective(perspective).region(region)));
         }
 
         /**
-         * {@inheritDoc}
+         * inheritDoc
          */
         @Override
         public String getTokenId() {
@@ -575,7 +586,7 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
         }
 
         /**
-         * {@inheritDoc}
+         * inheritDoc
          */
         @Override
         public org.openstack4j.api.identity.v3.IdentityService identity() {
@@ -583,7 +594,7 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
         }
 
         /**
-         * {@inheritDoc}
+         * inheritDoc
          */
         @Override
         public Set<ServiceType> getSupportedServices() {
@@ -601,5 +612,8 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
 
     }
 
+    public static void set(final OSClientSession os) {
+        sessions.set(os);
+    }
 
 }

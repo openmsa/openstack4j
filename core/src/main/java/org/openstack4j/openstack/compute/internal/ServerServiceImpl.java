@@ -265,8 +265,9 @@ public class ServerServiceImpl extends BaseComputeServices implements ServerServ
      * {@inheritDoc}
      */
     @Override
-    public VNCConsole getVNCConsole(String serverId, Type type) {
+    public VNCConsole getVNCConsole(String serverId, Type typeIn) {
         checkNotNull(serverId);
+        Type type = typeIn;
         if (type == null)
             type = Type.NOVNC;
 
@@ -325,8 +326,9 @@ public class ServerServiceImpl extends BaseComputeServices implements ServerServ
      * {@inheritDoc}
      */
     @Override
-    public ActionResponse liveMigrate(String serverId, LiveMigrateOptions options) {
+    public ActionResponse liveMigrate(String serverId, LiveMigrateOptions optionsIn) {
         checkNotNull(serverId);
+        LiveMigrateOptions options = optionsIn;
         if (options == null)
             options = LiveMigrateOptions.create();
         return invokeAction(serverId, LiveMigrationAction.create(options));

@@ -1,23 +1,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.github.openstack4j.core</groupId>
-        <artifactId>openstack4j-parent</artifactId>
+        <artifactId>ubi-openstack4j-parent</artifactId>
         <version>3.11-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.openstack4j.core.connectors</groupId>
-    <artifactId>openstack4j-connectors</artifactId>
+    <artifactId>ubi-openstack4j-connectors</artifactId>
     <name>OpenStack4j Connectors</name>
     <description>OpenStack Java API Connectors</description>
     <url>http://github.com/openstack4j/openstack4j/</url>
     <packaging>pom</packaging>
 
     <modules>
-        <module>jersey2</module>
-        <module>resteasy</module>
+        <!--<module>jersey2</module>
+        <module>resteasy</module>-->
         <module>httpclient</module>
-        <module>okhttp</module>
-        <module>http-connector</module>
+        <!--<module>okhttp</module>
+        <module>http-connector</module>-->
     </modules>
 
     <dependencies>

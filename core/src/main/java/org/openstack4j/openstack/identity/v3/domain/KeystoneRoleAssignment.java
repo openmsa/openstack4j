@@ -3,11 +3,12 @@ package org.openstack4j.openstack.identity.v3.domain;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.identity.v3.RoleAssignment;
 import org.openstack4j.openstack.common.ListResult;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * v3 role assignment implementation

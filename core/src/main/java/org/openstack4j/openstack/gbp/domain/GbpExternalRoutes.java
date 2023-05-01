@@ -1,9 +1,10 @@
 package org.openstack4j.openstack.gbp.domain;
 
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.gbp.ExternalRoutes;
 import org.openstack4j.model.gbp.builder.ExternalRoutesBuilder;
+
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Model implementation for External Routes

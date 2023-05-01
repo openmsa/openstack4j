@@ -1,9 +1,9 @@
 package org.openstack4j.openstack.common;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.common.QuotaDetails;
 
-import static com.google.common.base.MoreObjects.toStringHelper;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Quota Details Entity describing quota usage
@@ -38,7 +38,7 @@ public class QuotaDetailsEntity implements QuotaDetails {
 
     @Override
     public String toString() {
-        return toStringHelper(this).add("in_use", inUse).add("limit", limit).add("reserved", reserved).toString();
+        return MoreObjects.toStringHelper(this).add("in_use", inUse).add("limit", limit).add("reserved", reserved).toString();
     }
 
 }

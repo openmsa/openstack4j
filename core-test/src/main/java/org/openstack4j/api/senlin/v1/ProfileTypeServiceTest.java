@@ -1,15 +1,15 @@
 package org.openstack4j.api.senlin.v1;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Logger;
 
-import com.google.common.base.Preconditions;
 import org.openstack4j.api.AbstractTest;
 import org.openstack4j.model.senlin.ProfileType;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
 
 /**
  * Test cases for profileType on Senlin
@@ -32,7 +32,7 @@ public class ProfileTypeServiceTest extends AbstractTest {
         respondWith(PROFILETYPES);
         List<? extends ProfileType> profileTypeList = osv3().senlin().profileType().list();
         assertEquals(3, profileTypeList.size());
-        Preconditions.checkNotNull(profileTypeList.get(0));
+        Objects.requireNonNull(profileTypeList.get(0));
         Logger.getLogger(getClass().getName()).info(getClass().getName() + " : ProfileType from List : " + profileTypeList.get(0));
         assertEquals(profileTypeList.get(0).getName(), "os.heat.stack");
     }

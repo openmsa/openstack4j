@@ -2,10 +2,11 @@ package org.openstack4j.openstack.telemetry.domain;
 
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.telemetry.Meter.Type;
 import org.openstack4j.model.telemetry.MeterSample;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * A single measurement for a given meter and resource.

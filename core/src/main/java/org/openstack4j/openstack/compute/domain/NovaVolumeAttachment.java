@@ -1,10 +1,11 @@
 package org.openstack4j.openstack.compute.domain;
 
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.compute.VolumeAttachment;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import org.openstack4j.model.compute.VolumeAttachment;
 
 /**
  * return a description for this volume attachment job

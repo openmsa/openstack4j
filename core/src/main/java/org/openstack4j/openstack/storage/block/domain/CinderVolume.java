@@ -4,16 +4,17 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.storage.block.Volume;
+import org.openstack4j.model.storage.block.VolumeAttachment;
+import org.openstack4j.model.storage.block.builder.VolumeBuilder;
+import org.openstack4j.openstack.common.ListResult;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import org.openstack4j.model.storage.block.Volume;
-import org.openstack4j.model.storage.block.VolumeAttachment;
-import org.openstack4j.model.storage.block.builder.VolumeBuilder;
-import org.openstack4j.openstack.common.ListResult;
 
 /**
  * An OpenStack Volume

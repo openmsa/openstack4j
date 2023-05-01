@@ -4,12 +4,13 @@ import java.net.URI;
 import java.util.Date;
 import java.util.List;
 
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.common.Extension;
+import org.openstack4j.model.common.Link;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import org.openstack4j.model.common.Extension;
-import org.openstack4j.model.common.Link;
 
 /**
  * Represents an Extension which adds additional functionality to the OpenStack API

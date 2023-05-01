@@ -1,18 +1,5 @@
 package org.openstack4j.openstack.image.domain.functions;
 
-import javax.annotation.Nullable;
-import java.util.Map;
-
-import com.google.common.base.Function;
-import com.google.common.collect.Maps;
-import org.openstack4j.core.transport.HttpResponse;
-import org.openstack4j.model.image.ContainerFormat;
-import org.openstack4j.model.image.DiskFormat;
-import org.openstack4j.model.image.Image;
-import org.openstack4j.model.image.Image.Status;
-import org.openstack4j.model.image.builder.ImageBuilder;
-import org.openstack4j.openstack.image.domain.GlanceImage;
-
 import static org.openstack4j.openstack.image.domain.ImageHeader.CHECKSUM;
 import static org.openstack4j.openstack.image.domain.ImageHeader.CONTAINER_FORMAT;
 import static org.openstack4j.openstack.image.domain.ImageHeader.CREATED_AT;
@@ -33,6 +20,20 @@ import static org.openstack4j.openstack.image.domain.ImageHeader.UPDATED_AT;
 import static org.openstack4j.openstack.internal.Parser.asBoolean;
 import static org.openstack4j.openstack.internal.Parser.asDate;
 import static org.openstack4j.openstack.internal.Parser.asLong;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Function;
+
+import javax.annotation.Nullable;
+
+import org.openstack4j.core.transport.HttpResponse;
+import org.openstack4j.model.image.ContainerFormat;
+import org.openstack4j.model.image.DiskFormat;
+import org.openstack4j.model.image.Image;
+import org.openstack4j.model.image.Image.Status;
+import org.openstack4j.model.image.builder.ImageBuilder;
+import org.openstack4j.openstack.image.domain.GlanceImage;
 
 /**
  * When retrieving a specific image the Glance API returns headers in the response.  This function is responsible for parsing the headers into
@@ -82,7 +83,7 @@ public class ImageFromHeadersFunction implements Function<HttpResponse, Image> {
         for (String k : from.headers().keySet()) {
             if (k.indexOf(property) > -1) {
                 if (properties == null)
-                    properties = Maps.newHashMap();
+                    properties = new HashMap<>();
                 properties.put(k.substring(property.length()).toLowerCase(), from.headers().get(k));
             }
         }

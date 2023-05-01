@@ -1,17 +1,25 @@
 package org.openstack4j.openstack.networking.domain;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.common.builder.ResourceBuilder;
+import org.openstack4j.model.network.AllowedAddressPair;
+import org.openstack4j.model.network.ExtraDhcpOptCreate;
+import org.openstack4j.model.network.IP;
+import org.openstack4j.model.network.Port;
+import org.openstack4j.model.network.State;
+import org.openstack4j.model.network.builder.PortBuilder;
+import org.openstack4j.openstack.common.ListResult;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
-import org.openstack4j.model.common.builder.ResourceBuilder;
-import org.openstack4j.model.network.*;
-import org.openstack4j.model.network.builder.PortBuilder;
-import org.openstack4j.openstack.common.ListResult;
 
 /**
  * A Neutron Port
@@ -441,7 +449,7 @@ public class NeutronPort implements Port {
         @Override
         public PortBuilder fixedIp(String address, String subnetId) {
             if (m.fixedIps == null)
-                m.fixedIps = Sets.newHashSet();
+                m.fixedIps = new HashSet<>();
 
             m.fixedIps.add(new NeutronIP(address, subnetId));
             return this;
@@ -450,7 +458,7 @@ public class NeutronPort implements Port {
         @Override
         public PortBuilder removeFixedIp(String address, String subnetId) {
             if (m.fixedIps == null)
-                m.fixedIps = Sets.newHashSet();
+                m.fixedIps = new HashSet<>();
 
             m.fixedIps.removeIf(fixedIP ->
                     fixedIP.getSubnetId() != null && fixedIP.getSubnetId().equals(subnetId) &&
@@ -462,7 +470,7 @@ public class NeutronPort implements Port {
         @Override
         public PortBuilder allowedAddressPair(String ipAddress, String macAddress) {
             if (m.allowedAddressPairs == null)
-                m.allowedAddressPairs = Sets.newHashSet();
+                m.allowedAddressPairs = new HashSet<>();
 
             m.allowedAddressPairs.add(new NeutronAllowedAddressPair(ipAddress, macAddress));
             return this;
@@ -471,7 +479,7 @@ public class NeutronPort implements Port {
         @Override
         public PortBuilder removeAddressPair(String ipAddress, String macAddress) {
             if (m.allowedAddressPairs == null)
-                m.allowedAddressPairs = Sets.newHashSet();
+                m.allowedAddressPairs = new HashSet<>();
 
             m.allowedAddressPairs.removeIf(allowedAddress ->
                     allowedAddress.getIpAddress() != null && allowedAddress.getIpAddress().equals(ipAddress) &&
@@ -530,7 +538,7 @@ public class NeutronPort implements Port {
         @Override
         public PortBuilder extraDhcpOpt(ExtraDhcpOptCreate extraDhcpOptCreate) {
             if (m.extraDhcpOptCreates == null)
-                m.extraDhcpOptCreates = Lists.newArrayList();
+                m.extraDhcpOptCreates = new ArrayList<>();
             m.extraDhcpOptCreates.add((NeutronExtraDhcpOptCreate) extraDhcpOptCreate);
             return this;
         }

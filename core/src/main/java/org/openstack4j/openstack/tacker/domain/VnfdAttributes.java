@@ -1,8 +1,9 @@
 package org.openstack4j.openstack.tacker.domain;
 
+import org.openstack4j.api.MoreObjects;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
 
 /**
  * @author Vishvesh Deshmukh

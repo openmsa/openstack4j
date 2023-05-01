@@ -2,14 +2,15 @@ package org.openstack4j.openstack.identity.v2.domain;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.identity.v2.Endpoint;
 import org.openstack4j.model.identity.v2.builder.EndpointBuilder;
 import org.openstack4j.openstack.common.ListResult;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Endpoint Model is used to describe a network address which is described by URL's and other service
@@ -120,7 +121,7 @@ public class KeystoneEndpoint implements Endpoint {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, versionId, region, publicURL, internalURL, adminURL, versionInfo, versionList,
+        return Objects.hash(id, versionId, region, publicURL, internalURL, adminURL, versionInfo, versionList,
                 tenantId, type);
     }
 
@@ -131,11 +132,11 @@ public class KeystoneEndpoint implements Endpoint {
         if (obj == null || getClass() != obj.getClass())
             return false;
         KeystoneEndpoint that = KeystoneEndpoint.class.cast(obj);
-        return Objects.equal(this.id, that.id) && Objects.equal(this.versionId, that.versionId)
-                && Objects.equal(this.region, that.region) && Objects.equal(this.publicURL, that.publicURL)
-                && Objects.equal(this.internalURL, that.internalURL) && Objects.equal(this.adminURL, that.adminURL)
-                && Objects.equal(this.versionInfo, that.versionInfo) && Objects.equal(this.versionList, that.versionList)
-                && Objects.equal(this.tenantId, that.tenantId) && Objects.equal(this.type, that.type);
+        return Objects.equals(this.id, that.id) && Objects.equals(this.versionId, that.versionId)
+                && Objects.equals(this.region, that.region) && Objects.equals(this.publicURL, that.publicURL)
+                && Objects.equals(this.internalURL, that.internalURL) && Objects.equals(this.adminURL, that.adminURL)
+                && Objects.equals(this.versionInfo, that.versionInfo) && Objects.equals(this.versionList, that.versionList)
+                && Objects.equals(this.tenantId, that.tenantId) && Objects.equals(this.type, that.type);
     }
 
     public String toString() {

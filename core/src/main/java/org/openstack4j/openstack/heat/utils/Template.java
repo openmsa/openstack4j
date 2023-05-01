@@ -5,16 +5,17 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.google.common.base.Charsets;
-import com.google.common.io.Resources;
+import org.openstack4j.api.Resources;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
+
+import com.fasterxml.jackson.core.JsonParseException;
 
 public class Template {
 
@@ -22,11 +23,11 @@ public class Template {
     private final static String GET_FILE = "get_file";
     // template Resource is used for represent the template file or template URL
     private String tplContent;
-    private Map<String, String> files = new HashMap<String, String>();
+    private Map<String, String> files = new HashMap<>();
     private URL baseUrl;
 
-    public Template(URL templateRes) throws JsonParseException, IOException {
-        setTplContent(Resources.toString(templateRes, Charsets.UTF_8));
+    public Template(URL templateRes) throws IOException {
+        setTplContent(Resources.toString(templateRes, Charset.defaultCharset()));
         baseUrl = TemplateUtils.baseUrl(templateRes.toString());
         getFileContents();
     }

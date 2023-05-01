@@ -2,11 +2,12 @@ package org.openstack4j.openstack.networking.domain;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.network.AvailabilityZone;
 import org.openstack4j.openstack.common.ListResult;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * An availability zone groups network nodes that run services like DHCP, L3, FW, and others.

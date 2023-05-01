@@ -16,11 +16,12 @@
 
 package org.openstack4j.openstack.heat.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.heat.ResourceHealth;
 import org.openstack4j.model.heat.StackCreate;
 import org.openstack4j.model.heat.builder.ResourceHealthBuilder;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * This is a model of a HeatResourceHealth. It uses Jackson annotations for

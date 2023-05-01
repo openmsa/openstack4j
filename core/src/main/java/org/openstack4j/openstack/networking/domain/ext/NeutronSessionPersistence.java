@@ -1,12 +1,13 @@
 package org.openstack4j.openstack.networking.domain.ext;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.network.ext.SessionPersistence;
 import org.openstack4j.model.network.ext.SessionPersistenceType;
 import org.openstack4j.model.network.ext.builder.SessionPersistenceBuilder;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName("session_persistence")
 @JsonIgnoreProperties(ignoreUnknown = true)

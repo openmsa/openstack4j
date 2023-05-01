@@ -1,11 +1,13 @@
 package org.openstack4j.openstack.manila.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.collect.Maps;
+import java.util.HashMap;
+
 import org.openstack4j.model.manila.ExtraSpecs;
 import org.openstack4j.model.manila.ShareTypeCreate;
 import org.openstack4j.model.manila.builder.ShareTypeCreateBuilder;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Object used to create new share types.
@@ -61,7 +63,7 @@ public class ManilaShareTypeCreate implements ShareTypeCreate {
         public ShareTypeCreateBuilder addExtraSpec(String key, String value) {
             if (shareTypeCreate.extraSpecs == null)
                 shareTypeCreate.extraSpecs = ExtraSpecs.toExtraSpecs(
-                        Maps.<String, String>newHashMap());
+                        new HashMap<>());
 
             shareTypeCreate.extraSpecs.put(key, value);
             return this;

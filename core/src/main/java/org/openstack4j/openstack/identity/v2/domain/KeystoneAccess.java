@@ -1,15 +1,14 @@
 package org.openstack4j.openstack.identity.v2.domain;
 
+import static org.openstack4j.openstack.identity.functions.ServiceFunctions.TYPE_WITHOUT_VERSION;
+import static org.openstack4j.openstack.identity.functions.ServiceFunctions.VERSION_FROM_TYPE;
+
 import java.io.Serializable;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import com.google.common.collect.SortedSetMultimap;
-import com.google.common.collect.TreeMultimap;
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.api.SortedSetMultimap;
+import org.openstack4j.api.TreeMultimap;
 import org.openstack4j.api.types.ServiceType;
 import org.openstack4j.model.common.Link;
 import org.openstack4j.model.identity.AuthStore;
@@ -21,8 +20,10 @@ import org.openstack4j.model.identity.v2.TokenV2;
 import org.openstack4j.openstack.common.GenericLink;
 import org.openstack4j.openstack.common.ListResult;
 
-import static org.openstack4j.openstack.identity.functions.ServiceFunctions.TYPE_WITHOUT_VERSION;
-import static org.openstack4j.openstack.identity.functions.ServiceFunctions.VERSION_FROM_TYPE;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName("access")
 public class KeystoneAccess implements Access {

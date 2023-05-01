@@ -2,7 +2,7 @@ package org.openstack4j.openstack.storage.object.domain;
 
 import java.util.Map;
 
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.storage.object.SwiftAccount;
 
 /**

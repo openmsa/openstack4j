@@ -3,16 +3,17 @@ package org.openstack4j.openstack.networking.domain;
 import java.util.List;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.ModelEntity;
 import org.openstack4j.model.common.builder.ResourceBuilder;
 import org.openstack4j.model.network.TrunkSubport;
 import org.openstack4j.model.network.builder.TrunkSubportBuilder;
 import org.openstack4j.openstack.common.ListEntity;
 import org.openstack4j.openstack.common.ListResult;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * A Subport ONLY used for adding to trunks

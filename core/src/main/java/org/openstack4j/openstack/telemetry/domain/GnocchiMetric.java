@@ -4,8 +4,9 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.openstack4j.api.MoreObjects;
+
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.google.common.base.MoreObjects;
 
 public class GnocchiMetric implements Serializable {
     /** Serial. */

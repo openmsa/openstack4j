@@ -1,10 +1,11 @@
 package org.openstack4j.openstack.networking.domain.ext;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.network.ext.HealthMonitorAssociate;
 import org.openstack4j.model.network.ext.builder.HealthMonitorAssociateBuilder;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * A  entity used to associate a healthMonitor with a pool

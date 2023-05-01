@@ -2,6 +2,7 @@ package org.openstack4j.openstack.storage.block.internal;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.openstack4j.api.Apis;
 import org.openstack4j.api.Builders;
@@ -13,11 +14,24 @@ import org.openstack4j.model.storage.block.VolumeType;
 import org.openstack4j.model.storage.block.VolumeTypeEncryption;
 import org.openstack4j.model.storage.block.VolumeUploadImage;
 import org.openstack4j.model.storage.block.options.UploadImageData;
-import org.openstack4j.openstack.storage.block.domain.*;
+import org.openstack4j.openstack.storage.block.domain.AttachAction;
+import org.openstack4j.openstack.storage.block.domain.CinderUploadImageData;
+import org.openstack4j.openstack.storage.block.domain.CinderVolume;
 import org.openstack4j.openstack.storage.block.domain.CinderVolume.Volumes;
+import org.openstack4j.openstack.storage.block.domain.CinderVolumeMigration;
+import org.openstack4j.openstack.storage.block.domain.CinderVolumeType;
 import org.openstack4j.openstack.storage.block.domain.CinderVolumeType.VolumeTypes;
-
-import static com.google.common.base.Preconditions.checkNotNull;
+import org.openstack4j.openstack.storage.block.domain.CinderVolumeTypeEncryption;
+import org.openstack4j.openstack.storage.block.domain.CinderVolumeTypeEncryptionFetch;
+import org.openstack4j.openstack.storage.block.domain.CinderVolumeUploadImage;
+import org.openstack4j.openstack.storage.block.domain.DetachAction;
+import org.openstack4j.openstack.storage.block.domain.ExtendAction;
+import org.openstack4j.openstack.storage.block.domain.ForceDeleteAction;
+import org.openstack4j.openstack.storage.block.domain.ForceDetachAction;
+import org.openstack4j.openstack.storage.block.domain.ForceDetachConnector;
+import org.openstack4j.openstack.storage.block.domain.ResetStatusAction;
+import org.openstack4j.openstack.storage.block.domain.SetBootableAction;
+import org.openstack4j.openstack.storage.block.domain.UpdateReadOnlyFlagAction;
 
 /**
  * Manages Volumes and Volume Type based operations against Block Storage (Cinder)
@@ -64,7 +78,7 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
      */
     @Override
     public Volume get(String volumeId) {
-        checkNotNull(volumeId);
+        Objects.requireNonNull(volumeId);
         return get(CinderVolume.class, uri("/volumes/%s", volumeId)).execute();
     }
 
@@ -73,7 +87,7 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
      */
     @Override
     public ActionResponse delete(String volumeId) {
-        checkNotNull(volumeId);
+        Objects.requireNonNull(volumeId);
         return deleteWithResponse(uri("/volumes/%s", volumeId)).execute();
     }
 
@@ -82,7 +96,7 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
      */
     @Override
     public ActionResponse forceDelete(String volumeId) {
-        checkNotNull(volumeId);
+        Objects.requireNonNull(volumeId);
         return post(ActionResponse.class, uri("/volumes/%s/action", volumeId))
                 .entity(new ForceDeleteAction())
                 .execute();
@@ -93,8 +107,8 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
      */
     @Override
     public ActionResponse resetState(String volumeId, Volume.Status status) {
-        checkNotNull(volumeId);
-        checkNotNull(status);
+        Objects.requireNonNull(volumeId);
+        Objects.requireNonNull(status);
         return post(ActionResponse.class, uri("/volumes/%s/action", volumeId))
                 .entity(new ResetStatusAction(status))
                 .execute();
@@ -105,8 +119,8 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
      */
     @Override
     public ActionResponse extend(String volumeId, Integer newSize) {
-        checkNotNull(volumeId);
-        checkNotNull(newSize);
+        Objects.requireNonNull(volumeId);
+        Objects.requireNonNull(newSize);
         return post(ActionResponse.class, uri("/volumes/%s/action", volumeId))
                 .entity(new ExtendAction(newSize))
                 .execute();
@@ -118,8 +132,8 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
      */
     @Override
     public ActionResponse bootable(String volumeId, Boolean bootable) {
-        checkNotNull(volumeId);
-        checkNotNull(bootable);
+        Objects.requireNonNull(volumeId);
+        Objects.requireNonNull(bootable);
         return post(ActionResponse.class, uri("/volumes/%s/action", volumeId))
                 .entity(new SetBootableAction(bootable))
                 .execute();
@@ -131,7 +145,7 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
      */
     @Override
     public Volume create(Volume volume) {
-        checkNotNull(volume);
+        Objects.requireNonNull(volume);
         return post(CinderVolume.class, uri("/volumes")).entity(volume).execute();
     }
 
@@ -140,7 +154,7 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
      */
     @Override
     public ActionResponse update(String volumeId, String name, String description) {
-        checkNotNull(volumeId);
+        Objects.requireNonNull(volumeId);
         if (name == null && description == null)
             return ActionResponse.actionFailed("Name and Description are both required", 412);
 
@@ -154,7 +168,7 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
      */
     @Override
     public void deleteVolumeType(String volumeTypeId) {
-        checkNotNull(volumeTypeId);
+        Objects.requireNonNull(volumeTypeId);
         delete(Void.class, uri("/types/%s", volumeTypeId)).execute();
 
     }
@@ -164,7 +178,7 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
      */
     @Override
     public VolumeType createVolumeType(VolumeType volumeType) {
-        checkNotNull(volumeType);
+        Objects.requireNonNull(volumeType);
         return post(CinderVolumeType.class, uri("/types")).entity(volumeType).execute();
     }
 
@@ -174,8 +188,8 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
     @Override
     public VolumeTypeEncryption createVolumeTypeEncryption(String volumeTypeId,
             VolumeTypeEncryption volumeTypeEncryption) {
-        checkNotNull(volumeTypeEncryption);
-        checkNotNull(volumeTypeId);
+        Objects.requireNonNull(volumeTypeEncryption);
+        Objects.requireNonNull(volumeTypeId);
         return post(CinderVolumeTypeEncryption.class, uri("/types/%s/encryption", volumeTypeId))
                 .entity(volumeTypeEncryption).execute();
     }
@@ -185,7 +199,7 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
      */
     @Override
     public VolumeTypeEncryption getVolumeTypeEncryption(String volumeTypeId) {
-        checkNotNull(volumeTypeId);
+        Objects.requireNonNull(volumeTypeId);
         return get(CinderVolumeTypeEncryptionFetch.class, uri("/types/%s/encryption", volumeTypeId)).execute();
     }
 
@@ -194,8 +208,8 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
      */
     @Override
     public void deleteVolumeTypeEncryption(String volumeTypeId, String encryptionId) {
-        checkNotNull(encryptionId);
-        checkNotNull(volumeTypeId);
+        Objects.requireNonNull(encryptionId);
+        Objects.requireNonNull(volumeTypeId);
         delete(Void.class, uri("/types/%s/encryption/%s", volumeTypeId, encryptionId)).execute();
     }
 
@@ -209,8 +223,8 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
 
     @Override
     public VolumeUploadImage uploadToImage(String volumeId, UploadImageData data) {
-        checkNotNull(volumeId, "volumeId");
-        checkNotNull(data, "UploadImageData");
+        Objects.requireNonNull(volumeId, "volumeId");
+        Objects.requireNonNull(data, "UploadImageData");
 
         return post(CinderVolumeUploadImage.class, uri("/volumes/%s/action", volumeId))
                 .entity(CinderUploadImageData.create(data))
@@ -239,7 +253,7 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
      */
     @Override
     public ActionResponse readOnlyModeUpdate(String volumeId, boolean readonly) {
-        checkNotNull(volumeId);
+        Objects.requireNonNull(volumeId);
         return post(ActionResponse.class, uri("/volumes/%s/action", volumeId))
                 .entity(new UpdateReadOnlyFlagAction(readonly))
                 .execute();
@@ -255,10 +269,10 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
      */
     @Override
     public ActionResponse attach(String volumeId, String instanceId, String mountpoint, String hostName) {
-        checkNotNull(volumeId);
-        checkNotNull(instanceId);
-        checkNotNull(mountpoint);
-        checkNotNull(hostName);
+        Objects.requireNonNull(volumeId);
+        Objects.requireNonNull(instanceId);
+        Objects.requireNonNull(mountpoint);
+        Objects.requireNonNull(hostName);
         AttachAction attach = new AttachAction(instanceId, mountpoint, hostName);
         return post(ActionResponse.class, uri("/volumes/%s/action", volumeId)).entity(attach).execute();
     }
@@ -272,9 +286,9 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
      */
     @Override
     public ActionResponse forceDetach(String volumeId, String initiator, String attachmentId) {
-        checkNotNull(volumeId);
-        checkNotNull(initiator);
-        checkNotNull(attachmentId);
+        Objects.requireNonNull(volumeId);
+        Objects.requireNonNull(initiator);
+        Objects.requireNonNull(attachmentId);
         ForceDetachConnector connector = new ForceDetachConnector(initiator);
         ForceDetachAction detach = new ForceDetachAction(attachmentId, connector);
         return post(ActionResponse.class, uri("/volumes/%s/action", volumeId)).entity(detach).execute();
@@ -287,8 +301,8 @@ public class BlockVolumeServiceImpl extends BaseBlockStorageServices implements 
      */
     @Override
     public ActionResponse detach(String volumeId, String attachmentId) {
-        checkNotNull(volumeId);
-        checkNotNull(attachmentId);
+        Objects.requireNonNull(volumeId);
+        Objects.requireNonNull(attachmentId);
         DetachAction detach = new DetachAction(attachmentId);
         return post(ActionResponse.class, uri("/volumes/%s/action", volumeId)).entity(detach).execute();
     }

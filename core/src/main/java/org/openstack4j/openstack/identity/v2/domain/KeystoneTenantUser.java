@@ -2,10 +2,11 @@ package org.openstack4j.openstack.identity.v2.domain;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.identity.v2.TenantUser;
 import org.openstack4j.openstack.common.ListResult;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * A User from a Tenant perspective implemenation

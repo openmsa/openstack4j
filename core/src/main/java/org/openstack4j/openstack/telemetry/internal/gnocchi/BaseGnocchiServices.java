@@ -16,14 +16,13 @@
  */
 package org.openstack4j.openstack.telemetry.internal.gnocchi;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 import org.openstack4j.api.types.ServiceType;
 import org.openstack4j.openstack.common.functions.EnforceVersionToURL;
 import org.openstack4j.openstack.internal.BaseOpenStackService;
-
-import com.google.common.collect.Lists;
 
 public class BaseGnocchiServices extends BaseOpenStackService {
     protected BaseGnocchiServices() {
@@ -32,7 +31,7 @@ public class BaseGnocchiServices extends BaseOpenStackService {
 
     protected <T> List<T> wrapList(final T[] type) {
         if (type != null) {
-            return Lists.newArrayList(type);
+            return Arrays.asList(type);
         }
         return Collections.emptyList();
     }

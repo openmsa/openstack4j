@@ -3,11 +3,12 @@ package org.openstack4j.openstack.telemetry.domain;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.common.builder.BasicResourceBuilder;
 import org.openstack4j.model.telemetry.Alarm;
 import org.openstack4j.model.telemetry.builder.AlarmBuilder;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * An Alarm is triggered when a specificied rule is satisfied

@@ -3,14 +3,14 @@ package org.openstack4j.openstack.storage.block.domain;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.storage.block.BlockQuotaSet;
+import org.openstack4j.model.storage.block.builder.BlockQuotaSetBuilder;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.model.storage.block.BlockQuotaSet;
-import org.openstack4j.model.storage.block.builder.BlockQuotaSetBuilder;
-
-import static com.google.common.base.MoreObjects.toStringHelper;
 
 /**
  * An OpenStack Quota-Set
@@ -78,7 +78,7 @@ public class CinderBlockQuotaSet implements BlockQuotaSet {
 
     @Override
     public String toString() {
-        return toStringHelper(this).add("snapshots", snapshots).add("volumes", volumes).add("gigabytes", gigabytes).toString();
+        return MoreObjects.toStringHelper(this).add("snapshots", snapshots).add("volumes", volumes).add("gigabytes", gigabytes).toString();
     }
 
     public static class BlockQuotaSetConcreteBuilder implements BlockQuotaSetBuilder {

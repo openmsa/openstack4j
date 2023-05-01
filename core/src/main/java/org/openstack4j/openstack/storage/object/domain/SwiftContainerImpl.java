@@ -2,11 +2,12 @@ package org.openstack4j.openstack.storage.object.domain;
 
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
 import org.openstack4j.api.Apis;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.api.storage.ObjectStorageContainerService;
 import org.openstack4j.model.storage.object.SwiftContainer;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Represents an OpenStack Swift Container which holds Objects

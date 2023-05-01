@@ -1,15 +1,13 @@
 package org.openstack4j.openstack.image.domain;
 
-import javax.annotation.Nullable;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import com.google.common.collect.Maps;
+import javax.annotation.Nullable;
+
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.common.builder.BasicResourceBuilder;
 import org.openstack4j.model.image.ContainerFormat;
 import org.openstack4j.model.image.DiskFormat;
@@ -17,6 +15,10 @@ import org.openstack4j.model.image.Image;
 import org.openstack4j.model.image.StoreType;
 import org.openstack4j.model.image.builder.ImageBuilder;
 import org.openstack4j.openstack.common.ListResult;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * A Glance v1.1 Image model implementation
@@ -430,7 +432,7 @@ public class GlanceImage implements Image {
         public ImageBuilder property(String key, String value) {
             if (key != null && value != null) {
                 if (m.properties == null)
-                    m.properties = Maps.newHashMap();
+                    m.properties = new HashMap<>();
                 m.properties.put(key, value);
             }
             return this;

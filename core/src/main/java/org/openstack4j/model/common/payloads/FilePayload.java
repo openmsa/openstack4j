@@ -1,8 +1,12 @@
 package org.openstack4j.model.common.payloads;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 
-import com.google.common.base.Throwables;
+import org.openstack4j.api.Throwables;
 import org.openstack4j.model.common.Payload;
 
 /**

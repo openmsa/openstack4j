@@ -2,15 +2,16 @@ package org.openstack4j.openstack.identity.v3.domain;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.identity.v3.Credential;
+import org.openstack4j.model.identity.v3.builder.CredentialBuilder;
+import org.openstack4j.openstack.common.ListResult;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
-import org.openstack4j.model.identity.v3.Credential;
-import org.openstack4j.model.identity.v3.builder.CredentialBuilder;
-import org.openstack4j.openstack.common.ListResult;
 
 @JsonRootName("credential")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -82,7 +83,7 @@ public class KeystoneCredential implements Credential {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, userId, projectId, type, blob, links);
+        return Objects.hash(id, userId, projectId, type, blob, links);
     }
 
     public static class CredentialConcreteBuilder implements CredentialBuilder {

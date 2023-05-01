@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.compute.ext.AvailabilityZone;
 import org.openstack4j.openstack.common.ListResult;
 
-import static com.google.common.base.MoreObjects.toStringHelper;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 public class ExtAvailabilityZone implements AvailabilityZone {
 
@@ -53,7 +53,7 @@ public class ExtAvailabilityZone implements AvailabilityZone {
 
     @Override
     public String toString() {
-        return toStringHelper(this).omitNullValues()
+        return MoreObjects.toStringHelper(this).omitNullValues()
                 .add("zoneState", zoneState).add("zoneName", zoneName).add("hosts", hosts)
                 .toString();
     }
@@ -74,7 +74,7 @@ public class ExtAvailabilityZone implements AvailabilityZone {
 
         @Override
         public String toString() {
-            return toStringHelper(this).omitNullValues()
+            return MoreObjects.toStringHelper(this).omitNullValues()
                     .add("available", available)
                     .toString();
         }
@@ -115,7 +115,7 @@ public class ExtAvailabilityZone implements AvailabilityZone {
 
         @Override
         public String toString() {
-            return toStringHelper(this).omitNullValues()
+            return MoreObjects.toStringHelper(this).omitNullValues()
                     .add("available", available).add("active", statusActive).add("updateTime", updateTime)
                     .toString();
         }

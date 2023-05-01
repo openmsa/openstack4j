@@ -2,16 +2,17 @@ package org.openstack4j.openstack.dns.v2.domain;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.dns.v2.Action;
 import org.openstack4j.model.dns.v2.Recordset;
 import org.openstack4j.model.dns.v2.Status;
 import org.openstack4j.model.dns.v2.builder.RecordsetBuilder;
 import org.openstack4j.openstack.common.ListResult;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * zone model class for designate/v2 zone
@@ -156,7 +157,7 @@ public class DesignateRecordset implements Recordset {
      */
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, projectId, name, ttl, status, action, zoneId, zoneName, description, type, version, createdAt, updatedAt, links);
+        return Objects.hash(id, projectId, name, ttl, status, action, zoneId, zoneName, description, type, version, createdAt, updatedAt, links);
     }
 
     /**
@@ -169,20 +170,20 @@ public class DesignateRecordset implements Recordset {
         if (obj == null || getClass() != obj.getClass())
             return false;
         DesignateRecordset that = DesignateRecordset.class.cast(obj);
-        return Objects.equal(this.id, that.id)
-                && Objects.equal(this.projectId, that.projectId)
-                && Objects.equal(this.name, that.name)
-                && Objects.equal(this.ttl, that.ttl)
-                && Objects.equal(this.status, that.status)
-                && Objects.equal(this.action, that.action)
-                && Objects.equal(this.zoneId, that.zoneId)
-                && Objects.equal(this.zoneName, that.zoneName)
-                && Objects.equal(this.description, that.description)
-                && Objects.equal(this.type, that.type)
-                && Objects.equal(this.version, that.version)
-                && Objects.equal(this.createdAt, that.createdAt)
-                && Objects.equal(this.updatedAt, that.updatedAt)
-                && Objects.equal(this.links, that.links);
+        return Objects.equals(this.id, that.id)
+                && Objects.equals(this.projectId, that.projectId)
+                && Objects.equals(this.name, that.name)
+                && Objects.equals(this.ttl, that.ttl)
+                && Objects.equals(this.status, that.status)
+                && Objects.equals(this.action, that.action)
+                && Objects.equals(this.zoneId, that.zoneId)
+                && Objects.equals(this.zoneName, that.zoneName)
+                && Objects.equals(this.description, that.description)
+                && Objects.equals(this.type, that.type)
+                && Objects.equals(this.version, that.version)
+                && Objects.equals(this.createdAt, that.createdAt)
+                && Objects.equals(this.updatedAt, that.updatedAt)
+                && Objects.equals(this.links, that.links);
     }
 
     public static class RecordsetConcreteBuilder implements RecordsetBuilder {

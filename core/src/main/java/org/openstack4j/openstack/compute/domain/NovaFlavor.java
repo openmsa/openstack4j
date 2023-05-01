@@ -2,13 +2,18 @@ package org.openstack4j.openstack.compute.domain;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.*;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.common.Link;
 import org.openstack4j.model.compute.Flavor;
 import org.openstack4j.model.compute.builder.FlavorBuilder;
 import org.openstack4j.openstack.common.GenericLink;
 import org.openstack4j.openstack.common.ListResult;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * An OpenStack Flavor which is a template used for configuration against running Instances

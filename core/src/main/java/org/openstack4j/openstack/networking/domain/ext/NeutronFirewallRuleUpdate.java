@@ -1,14 +1,15 @@
 package org.openstack4j.openstack.networking.domain.ext;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.network.IPVersionType;
 import org.openstack4j.model.network.ext.FirewallRuleUpdate;
 import org.openstack4j.model.network.ext.builder.FirewallRuleUpdateBuilder;
 import org.openstack4j.openstack.networking.domain.ext.NeutronFirewallRule.FirewallRuleAction;
 import org.openstack4j.openstack.networking.domain.ext.NeutronFirewallRule.IPProtocol;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * An entity used to update Neutron Firewall Rule (FwaaS).

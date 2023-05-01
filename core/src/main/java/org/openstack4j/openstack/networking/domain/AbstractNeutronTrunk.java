@@ -3,13 +3,14 @@ package org.openstack4j.openstack.networking.domain;
 import java.util.List;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.common.builder.ResourceBuilder;
 import org.openstack4j.model.network.State;
 import org.openstack4j.model.network.Trunk;
 import org.openstack4j.model.network.builder.TrunkBuilder;
 import org.openstack4j.openstack.common.ListResult;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * A Neutron Trunk

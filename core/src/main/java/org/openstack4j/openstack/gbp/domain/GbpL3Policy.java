@@ -1,16 +1,17 @@
 package org.openstack4j.openstack.gbp.domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import com.google.common.collect.Maps;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.gbp.L3Policy;
 import org.openstack4j.model.gbp.builder.L3PolicyBuilder;
 import org.openstack4j.openstack.common.ListResult;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Model implementation for L3 Policy
@@ -198,9 +199,9 @@ public class GbpL3Policy implements L3Policy {
 
         @Override
         public L3PolicyBuilder externalSegments(List<String> extSegmentIds) {
-            this.l3Policy.externalSegments = Maps.newHashMap();
+            this.l3Policy.externalSegments = new HashMap<>();
             for (String extSegId : extSegmentIds) {
-                this.l3Policy.externalSegments.put(extSegId, new ArrayList<String>());
+                this.l3Policy.externalSegments.put(extSegId, new ArrayList<>());
             }
             return this;
         }

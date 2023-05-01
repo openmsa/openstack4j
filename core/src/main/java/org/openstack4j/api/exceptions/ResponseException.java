@@ -2,7 +2,7 @@ package org.openstack4j.api.exceptions;
 
 import javax.annotation.Nullable;
 
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.core.transport.HttpRequest;
 import org.openstack4j.core.transport.HttpResponse;
 

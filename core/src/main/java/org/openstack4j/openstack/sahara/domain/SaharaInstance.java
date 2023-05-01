@@ -3,12 +3,13 @@ package org.openstack4j.openstack.sahara.domain;
 import java.util.Date;
 import java.util.List;
 
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.sahara.Instance;
+import org.openstack4j.openstack.common.ListResult;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
-import org.openstack4j.model.sahara.Instance;
-import org.openstack4j.openstack.common.ListResult;
 
 /**
  * For mapping JSON response to java objects

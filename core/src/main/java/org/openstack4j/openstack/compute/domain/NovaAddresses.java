@@ -1,27 +1,28 @@
 package org.openstack4j.openstack.compute.domain;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.compute.Address;
 import org.openstack4j.model.compute.Addresses;
+
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class NovaAddresses implements Addresses {
 
     private static final long serialVersionUID = 1L;
 
     @JsonProperty("addresses")
-    private Map<String, List<NovaAddress>> addresses = Maps.newHashMap();
+    private Map<String, List<NovaAddress>> addresses = new HashMap<>();
 
     @Override
     public void add(String key, Address value) {
         if (!addresses.containsKey(key))
-            addresses.put(key, Lists.<NovaAddress>newArrayList());
+            addresses.put(key, new ArrayList<>());
 
         addresses.get(key).add((NovaAddress) value);
     }

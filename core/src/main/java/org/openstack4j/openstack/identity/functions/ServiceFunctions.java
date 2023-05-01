@@ -1,9 +1,8 @@
 package org.openstack4j.openstack.identity.functions;
 
+import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import com.google.common.base.Function;
 
 /**
  * Functions to help resolve specific Services and Versions

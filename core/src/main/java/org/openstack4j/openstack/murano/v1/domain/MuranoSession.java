@@ -1,8 +1,9 @@
 package org.openstack4j.openstack.murano.v1.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.murano.v1.domain.AppCatalogSession;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author Nikolay Mahotkin.

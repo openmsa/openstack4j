@@ -1,11 +1,12 @@
 package org.openstack4j.openstack.networking.domain.ext;
 
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.network.ext.HealthMonitorV2Update;
+import org.openstack4j.model.network.ext.builder.HealthMonitorV2UpdateBuilder;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import org.openstack4j.model.network.ext.HealthMonitorV2Update;
-import org.openstack4j.model.network.ext.builder.HealthMonitorV2UpdateBuilder;
 
 /**
  * Entity used to update lbaas v2 heathmonitor

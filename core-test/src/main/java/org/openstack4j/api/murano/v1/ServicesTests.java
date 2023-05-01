@@ -1,12 +1,14 @@
 package org.openstack4j.api.murano.v1;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.io.ByteStreams;
 import org.openstack4j.api.AbstractTest;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.murano.v1.domain.ActionInfo;
@@ -14,9 +16,7 @@ import org.openstack4j.model.murano.v1.domain.Application;
 import org.openstack4j.model.murano.v1.domain.ServiceInfo;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
-import static org.testng.Assert.assertTrue;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author nmakhotkin
@@ -30,7 +30,7 @@ public class ServicesTests extends AbstractTest {
 
     private String getResourceAsString(String path) throws IOException {
         InputStream is = getClass().getResourceAsStream(path);
-        return new String(ByteStreams.toByteArray(is));
+        return new String(is.readAllBytes());
     }
 
     public void testListServices() throws IOException {

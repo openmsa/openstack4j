@@ -1,11 +1,12 @@
 package org.openstack4j.openstack.octavia.domain;
 
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.octavia.ListenerV2Update;
+import org.openstack4j.model.octavia.builder.ListenerV2UpdateBuilder;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import org.openstack4j.model.octavia.ListenerV2Update;
-import org.openstack4j.model.octavia.builder.ListenerV2UpdateBuilder;
 
 /**
  * Entity for updating lbaas v2 listener

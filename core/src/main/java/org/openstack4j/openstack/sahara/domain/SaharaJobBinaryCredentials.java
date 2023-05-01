@@ -1,9 +1,10 @@
 package org.openstack4j.openstack.sahara.domain;
 
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.sahara.JobBinaryCredentials;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import org.openstack4j.model.sahara.JobBinaryCredentials;
 
 /**
  * For mapping JSON response to/from java objects

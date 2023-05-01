@@ -2,15 +2,16 @@ package org.openstack4j.openstack.identity.v3.domain;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.identity.v3.Policy;
+import org.openstack4j.model.identity.v3.builder.PolicyBuilder;
+import org.openstack4j.openstack.common.ListResult;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
-import org.openstack4j.model.identity.v3.Policy;
-import org.openstack4j.model.identity.v3.builder.PolicyBuilder;
-import org.openstack4j.openstack.common.ListResult;
 
 @JsonRootName("policy")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -106,7 +107,7 @@ public class KeystonePolicy implements Policy {
      */
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, projectId, userId, type, blob, links);
+        return Objects.hash(id, projectId, userId, type, blob, links);
     }
 
 
@@ -120,12 +121,12 @@ public class KeystonePolicy implements Policy {
         if (obj == null || getClass() != obj.getClass())
             return false;
         KeystonePolicy that = KeystonePolicy.class.cast(obj);
-        return Objects.equal(this.id, that.id)
-                && Objects.equal(this.type, that.type)
-                && Objects.equal(this.projectId, that.projectId)
-                && Objects.equal(this.userId, that.userId)
-                && Objects.equal(this.blob, that.blob)
-                && Objects.equal(this.links, that.links);
+        return Objects.equals(this.id, that.id)
+                && Objects.equals(this.type, that.type)
+                && Objects.equals(this.projectId, that.projectId)
+                && Objects.equals(this.userId, that.userId)
+                && Objects.equals(this.blob, that.blob)
+                && Objects.equals(this.links, that.links);
     }
 
 

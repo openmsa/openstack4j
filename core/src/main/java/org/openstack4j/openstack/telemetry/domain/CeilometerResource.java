@@ -3,9 +3,10 @@ package org.openstack4j.openstack.telemetry.domain;
 import java.util.Date;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.telemetry.Resource;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * A single measurement for resource.

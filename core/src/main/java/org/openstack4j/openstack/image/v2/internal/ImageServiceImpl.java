@@ -1,14 +1,21 @@
 package org.openstack4j.openstack.image.v2.internal;
 
-import javax.annotation.Nullable;
-import java.io.*;
+import static org.openstack4j.core.transport.ClientConstants.CONTENT_TYPE_IMAGE_V2_PATCH;
+import static org.openstack4j.core.transport.ClientConstants.CONTENT_TYPE_OCTECT_STREAM;
+import static org.openstack4j.core.transport.ClientConstants.HEADER_ACCEPT;
+import static org.openstack4j.core.transport.ClientConstants.HEADER_CONTENT_TYPE;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.github.fge.jsonpatch.diff.JsonDiff;
+import javax.annotation.Nullable;
+
 import org.openstack4j.api.Apis;
 import org.openstack4j.api.exceptions.ResponseException;
 import org.openstack4j.api.image.v2.ImageService;
@@ -27,11 +34,10 @@ import org.openstack4j.openstack.image.v2.domain.GlanceImage;
 import org.openstack4j.openstack.image.v2.domain.GlanceImageUpdate;
 import org.openstack4j.openstack.image.v2.domain.GlanceMember;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-import static org.openstack4j.core.transport.ClientConstants.CONTENT_TYPE_IMAGE_V2_PATCH;
-import static org.openstack4j.core.transport.ClientConstants.CONTENT_TYPE_OCTECT_STREAM;
-import static org.openstack4j.core.transport.ClientConstants.HEADER_ACCEPT;
-import static org.openstack4j.core.transport.ClientConstants.HEADER_CONTENT_TYPE;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.github.fge.jsonpatch.diff.JsonDiff;
 
 /**
  * Implementation of Glance V2 Image Service
@@ -73,7 +79,7 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public Image get(String imageId) {
-        checkNotNull(imageId);
+        Objects.requireNonNull(imageId);
         return get(GlanceImage.class, uri("/images/%s", imageId)).execute();
     }
 
@@ -82,7 +88,7 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public Image create(Image image) {
-        checkNotNull(image);
+        Objects.requireNonNull(image);
         return post(GlanceImage.class, uri("/images")).entity(image).execute();
     }
 
@@ -91,7 +97,7 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public Image update(Image image) {
-        checkNotNull(image);
+        Objects.requireNonNull(image);
 
         ObjectMapper objectMapper = new ObjectMapper();
         Image origImage = get(image.getId());
@@ -120,8 +126,8 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public Image update(String imageId, ImageUpdate imageUpdate) {
-        checkNotNull(imageId);
-        checkNotNull(imageUpdate);
+        Objects.requireNonNull(imageId);
+        Objects.requireNonNull(imageUpdate);
         return patch(GlanceImage.class, uri("/images/%s", imageId)).header(HEADER_CONTENT_TYPE, CONTENT_TYPE_IMAGE_V2_PATCH).entity(imageUpdate).execute();
     }
 
@@ -130,7 +136,7 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public ActionResponse delete(String imageId) {
-        checkNotNull(imageId);
+        Objects.requireNonNull(imageId);
         return deleteWithResponse(uri("/images/%s", imageId)).param("format", "json").execute();
     }
 
@@ -139,7 +145,7 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public ActionResponse deactivate(String imageId) {
-        checkNotNull(imageId);
+        Objects.requireNonNull(imageId);
         return post(ActionResponse.class, uri("/images/%s/actions/deactivate", imageId)).execute();
     }
 
@@ -148,7 +154,7 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public ActionResponse reactivate(String imageId) {
-        checkNotNull(imageId);
+        Objects.requireNonNull(imageId);
         return post(ActionResponse.class, uri("/images/%s/actions/reactivate", imageId)).execute();
     }
 
@@ -157,8 +163,8 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public ActionResponse upload(String imageId, Payload<?> payload, @Nullable Image image) {
-        checkNotNull(imageId);
-        checkNotNull(payload);
+        Objects.requireNonNull(imageId);
+        Objects.requireNonNull(payload);
         return put(ActionResponse.class, uri("/images/%s/file", imageId)).header(HEADER_CONTENT_TYPE, CONTENT_TYPE_OCTECT_STREAM).entity(payload).execute();
     }
 
@@ -167,8 +173,8 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public ActionResponse download(String imageId, File filename) {
-        checkNotNull(imageId);
-        checkNotNull(filename);
+        Objects.requireNonNull(imageId);
+        Objects.requireNonNull(filename);
 
         HttpResponse response = get(Void.class, uri("/images/%s/file", imageId)).header(HEADER_ACCEPT, CONTENT_TYPE_OCTECT_STREAM).executeWithResponse();
         if (response.getStatus() < 400) {
@@ -198,8 +204,8 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public ActionResponse updateTag(String imageId, String tag) {
-        checkNotNull(imageId);
-        checkNotNull(tag);
+        Objects.requireNonNull(imageId);
+        Objects.requireNonNull(tag);
         return put(ActionResponse.class, uri("/images/%s/tags/%s", imageId, tag)).execute();
     }
 
@@ -208,8 +214,8 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public ActionResponse deleteTag(String imageId, String tag) {
-        checkNotNull(imageId);
-        checkNotNull(tag);
+        Objects.requireNonNull(imageId);
+        Objects.requireNonNull(tag);
         return deleteWithResponse(uri("/images/%s/tags/%s", imageId, tag)).execute();
     }
 
@@ -218,7 +224,7 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public List<? extends Member> listMembers(String imageId) {
-        checkNotNull(imageId);
+        Objects.requireNonNull(imageId);
         return get(GlanceMember.Members.class, uri("/images/%s/members", imageId)).execute().getList();
     }
 
@@ -227,7 +233,7 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public List<? extends Member> listMembers(String imageId, Map<String, String> filteringParams) {
-        checkNotNull(imageId);
+        Objects.requireNonNull(imageId);
         Invocation<GlanceMember.Members> req = get(GlanceMember.Members.class, uri("/images/%s/members", imageId));
         if (filteringParams != null) {
             for (Map.Entry<String, String> entry : filteringParams.entrySet()) {
@@ -242,8 +248,8 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public Member getMember(String imageId, String memberId) {
-        checkNotNull(imageId);
-        checkNotNull(memberId);
+        Objects.requireNonNull(imageId);
+        Objects.requireNonNull(memberId);
         return get(Member.class, uri("/images/%s/members/%s", imageId, memberId)).execute();
     }
 
@@ -252,8 +258,8 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public Member createMember(String imageId, String memberId) {
-        checkNotNull(imageId);
-        checkNotNull(memberId);
+        Objects.requireNonNull(imageId);
+        Objects.requireNonNull(memberId);
         return post(Member.class, uri("/images/%s/members", imageId)).entity(new GlanceMember(memberId)).execute();
     }
 
@@ -262,8 +268,8 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public Member updateMember(String imageId, String memberId, Member.MemberStatus memberStatus) {
-        checkNotNull(imageId);
-        checkNotNull(memberId);
+        Objects.requireNonNull(imageId);
+        Objects.requireNonNull(memberId);
         return put(Member.class, uri("/images/%s/members/%s", imageId, memberId)).entity(new GlanceMember(memberStatus)).execute();
     }
 
@@ -272,8 +278,8 @@ public class ImageServiceImpl extends BaseImageServices implements ImageService 
      */
     @Override
     public ActionResponse deleteMember(String imageId, String memberId) {
-        checkNotNull(imageId);
-        checkNotNull(memberId);
+        Objects.requireNonNull(imageId);
+        Objects.requireNonNull(memberId);
         return deleteWithResponse(uri("/images/%s/members/%s", imageId, memberId)).execute();
     }
 

@@ -1,6 +1,6 @@
 package org.openstack4j.model.heat;
 
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 
 /**
  * Response returned during Template validation

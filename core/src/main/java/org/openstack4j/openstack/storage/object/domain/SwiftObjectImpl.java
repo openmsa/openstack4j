@@ -1,19 +1,20 @@
 package org.openstack4j.openstack.storage.object.domain;
 
+import static org.openstack4j.core.transport.ClientConstants.CONTENT_TYPE_DIRECTORY;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
 import org.openstack4j.api.Apis;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.api.storage.ObjectStorageObjectService;
 import org.openstack4j.model.common.DLPayload;
 import org.openstack4j.model.storage.block.options.DownloadOptions;
 import org.openstack4j.model.storage.object.SwiftObject;
 
-import static org.openstack4j.core.transport.ClientConstants.CONTENT_TYPE_DIRECTORY;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Represents an Object which is a File or Directory within a Container

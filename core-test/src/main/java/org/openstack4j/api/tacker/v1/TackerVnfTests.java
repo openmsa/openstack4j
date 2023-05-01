@@ -1,10 +1,14 @@
 package org.openstack4j.api.tacker.v1;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Logger;
 
-import com.google.common.base.Preconditions;
 import org.openstack4j.api.AbstractTest;
 import org.openstack4j.api.Builders;
 import org.openstack4j.model.common.ActionResponse;
@@ -13,10 +17,6 @@ import org.openstack4j.model.tacker.VnfUpdate;
 import org.openstack4j.openstack.tacker.domain.TackerVnfStatus;
 import org.openstack4j.openstack.tacker.domain.VnfUpdateAttributes;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
-import static org.testng.Assert.assertTrue;
 
 /**
  * @author Vishvesh Deshmukh
@@ -40,7 +40,7 @@ public class TackerVnfTests extends AbstractTest {
         respondWith(TACKER_VNFS);
         List<? extends Vnf> vnfs = osv3().tacker().vnf().list();
         assertEquals(1, vnfs.size());
-        Preconditions.checkNotNull(vnfs.get(0));
+        Objects.requireNonNull(vnfs.get(0));
         Logger.getLogger(getClass().getName())
                 .info(getClass().getName() + " : Tacker VNF from List : " + vnfs.get(0));
         assertEquals(vnfs.get(0).getName(), "test-vnf");

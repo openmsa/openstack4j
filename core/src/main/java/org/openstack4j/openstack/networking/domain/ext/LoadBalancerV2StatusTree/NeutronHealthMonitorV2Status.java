@@ -1,11 +1,12 @@
 package org.openstack4j.openstack.networking.domain.ext.LoadBalancerV2StatusTree;
 
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.network.ext.HealthMonitorType;
+import org.openstack4j.model.network.ext.status.HealthMonitorV2Status;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import org.openstack4j.model.network.ext.HealthMonitorType;
-import org.openstack4j.model.network.ext.status.HealthMonitorV2Status;
 
 /**
  * An object to hold status of lbaas v2 healthmonitor

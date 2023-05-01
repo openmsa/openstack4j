@@ -1,17 +1,18 @@
 package org.openstack4j.openstack.networking.domain.ext;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import com.google.common.collect.Lists;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.network.ext.NetworkIPAvailability;
 import org.openstack4j.model.network.ext.SubnetIPAvailability;
 import org.openstack4j.model.network.ext.builder.NetworkIPAvailabilityBuilder;
 import org.openstack4j.openstack.common.ListResult;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * A network IP availability is used to list and show the network IP usage stats of a specified network
@@ -202,7 +203,7 @@ public class NeutronNetworkIPAvailability implements NetworkIPAvailability {
         @Override
         public NetworkIPAvailabilityBuilder subnetIPAvailability(SubnetIPAvailability subnetIPAvailability) {
             if (model.subnetIPAvailabilities == null)
-                model.subnetIPAvailabilities = Lists.newArrayList();
+                model.subnetIPAvailabilities = new ArrayList<>();
             model.subnetIPAvailabilities.add((NeutronSubnetIPAvailability) subnetIPAvailability);
             return this;
         }

@@ -1,19 +1,19 @@
 package org.openstack4j.api.senlin.v1;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Logger;
 
-import com.google.common.base.Preconditions;
 import org.openstack4j.api.AbstractTest;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.senlin.Policy;
 import org.openstack4j.model.senlin.PolicyCreate;
 import org.openstack4j.openstack.senlin.domain.SenlinPolicyCreate;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
-import static org.testng.Assert.assertTrue;
 
 /**
  * Test cases for policy on Senlin
@@ -36,7 +36,7 @@ public class PolicyServiceTest extends AbstractTest {
         respondWith(POLICYS);
         List<? extends Policy> policyList = osv3().senlin().policy().list();
         assertEquals(9, policyList.size());
-        Preconditions.checkNotNull(policyList.get(0));
+        Objects.requireNonNull(policyList.get(0));
         Logger.getLogger(getClass().getName()).info(getClass().getName() + " : Policy from List : " + policyList.get(0));
         assertEquals(policyList.get(0).getId(), "be24729e-c60c-4f06-9ba4-2d3872c23199");
     }

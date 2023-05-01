@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.common.builder.BasicResourceBuilder;
 import org.openstack4j.model.telemetry.gnocchi.Resource;
 import org.openstack4j.model.telemetry.gnocchi.builder.ResourceBuilder;
@@ -11,7 +12,6 @@ import org.openstack4j.model.telemetry.gnocchi.builder.ResourceBuilder;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
 
 public class GnocchiResource implements Resource {
     private static final long serialVersionUID = 1L;

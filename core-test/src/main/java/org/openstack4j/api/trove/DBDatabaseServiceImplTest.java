@@ -1,10 +1,13 @@
 package org.openstack4j.api.trove;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Logger;
 
-import com.google.common.base.Preconditions;
 import org.openstack4j.api.AbstractTest;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.trove.Database;
@@ -12,9 +15,6 @@ import org.openstack4j.openstack.trove.builder.TroveBuilders;
 import org.openstack4j.openstack.trove.domain.TroveDatabase;
 import org.openstack4j.openstack.trove.domain.TroveDatabase.Databases;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 /**
  * Created by sumit gandhi on 8/22/2016.
@@ -36,7 +36,7 @@ public class DBDatabaseServiceImplTest extends AbstractTest {
         respondWith(TROVE_DATABASES);
         List<? extends Database> databases = osv2().trove().databaseService().list(databaseInstanceId);
         assertEquals(5, databases.size());
-        Preconditions.checkNotNull(databases.get(0));
+        Objects.requireNonNull(databases.get(0));
         Logger.getLogger(getClass().getName()).info(getClass().getName() + " : Database from List : " + databases.get(0));
     }
 

@@ -1,16 +1,15 @@
 package org.openstack4j.api.dns.v2;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
+
 import java.util.List;
 
-import com.google.common.collect.ImmutableList;
 import org.openstack4j.api.AbstractTest;
 import org.openstack4j.model.dns.v2.Action;
 import org.openstack4j.model.dns.v2.Recordset;
 import org.openstack4j.model.dns.v2.Status;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertFalse;
 
 /**
  * Tests the DNS/Designate API version 2 ZoneService
@@ -24,7 +23,7 @@ public class DesignateRecordsetServiceTest extends AbstractTest {
     private static final String ZONE_ID = "2150b1bf-dee2-4221-9d85-11f7886fb15f";
     private static final String RECORDSET_NAME = "example.org.";
     private static final String RECORDSET_TYPE = "A";
-    private static final ImmutableList<String> RECORDSET_RECORDS = ImmutableList.of("10.1.0.2");
+    private static final List<String> RECORDSET_RECORDS = List.of("10.1.0.2");
     private static final Status RECORDSET_STATUS = Status.PENDING;
     private static final Action RECORDSET_ACTION = Action.CREATE;
     private static final Integer RECORDSET_VERSION = 1;

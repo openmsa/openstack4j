@@ -1,25 +1,25 @@
 package org.openstack4j.openstack.heat.utils;
 
+import static org.openstack4j.core.transport.ClientConstants.URI_SEP;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.charset.Charset;
 
-import com.google.common.base.Charsets;
-import com.google.common.io.Resources;
-
-import static org.openstack4j.core.transport.ClientConstants.URI_SEP;
+import org.openstack4j.api.Resources;
 
 public class TemplateUtils {
 
     public static String readToString(String filename) throws IOException {
-        return Resources.toString(new URL(filename), Charsets.UTF_8);
+        return Resources.toString(new URL(filename), Charset.defaultCharset());
     }
 
-    public static String readToString(URL url) throws IOException {
-        return Resources.toString(url, Charsets.UTF_8);
+    public static String readToString(URL url) {
+        return Resources.toString(url, Charset.defaultCharset());
     }
 
     public static URL baseUrl(String url) throws MalformedURLException {

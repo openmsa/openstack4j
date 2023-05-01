@@ -1,6 +1,6 @@
 package org.openstack4j.api.exceptions;
 
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 
 /**
  * Captures Server based Errors (Return Codes between 400 - 499)

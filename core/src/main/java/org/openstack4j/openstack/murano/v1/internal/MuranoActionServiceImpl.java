@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openstack4j.api.murano.v1.MuranoActionService;
 import org.openstack4j.model.murano.v1.domain.ActionInfo;
 import org.openstack4j.model.murano.v1.domain.ActionResult;
@@ -15,7 +15,7 @@ import org.openstack4j.openstack.common.MapEntity;
 import org.openstack4j.openstack.murano.v1.domain.MuranoActionResult;
 import org.openstack4j.openstack.murano.v1.domain.MuranoEnvironment;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author Nikolay Mahotkin.
@@ -27,8 +27,8 @@ public class MuranoActionServiceImpl extends BaseMuranoServices implements Muran
      */
     @Override
     public List<? extends ActionInfo> list(String envId, String serviceId) {
-        checkNotNull(envId);
-        checkNotNull(serviceId);
+        Objects.requireNonNull(envId);
+        Objects.requireNonNull(serviceId);
 
         Environment env = get(MuranoEnvironment.class, uri("/environments/%s", envId)).execute();
 
@@ -46,7 +46,7 @@ public class MuranoActionServiceImpl extends BaseMuranoServices implements Muran
      */
     @Override
     public List<? extends ActionInfo> list(String envId) {
-        checkNotNull(envId);
+        Objects.requireNonNull(envId);
 
         return getAllActions(envId);
     }
@@ -56,8 +56,8 @@ public class MuranoActionServiceImpl extends BaseMuranoServices implements Muran
      */
     @Override
     public ActionInfo get(String envId, String actionId) {
-        checkNotNull(envId);
-        checkNotNull(actionId);
+        Objects.requireNonNull(envId);
+        Objects.requireNonNull(actionId);
 
         for (ActionInfo action : getAllActions(envId)) {
             if (action.getId().equals(actionId)) {
@@ -73,8 +73,8 @@ public class MuranoActionServiceImpl extends BaseMuranoServices implements Muran
      */
     @Override
     public ActionInfo find(String envId, String actionName) {
-        checkNotNull(envId);
-        checkNotNull(actionName);
+        Objects.requireNonNull(envId);
+        Objects.requireNonNull(actionName);
 
         for (ActionInfo action : getAllActions(envId)) {
             if (action.getName().equals(actionName)) {
@@ -90,8 +90,8 @@ public class MuranoActionServiceImpl extends BaseMuranoServices implements Muran
      */
     @Override
     public List<? extends ActionInfo> findAll(String envId, String actionName) {
-        checkNotNull(envId);
-        checkNotNull(actionName);
+        Objects.requireNonNull(envId);
+        Objects.requireNonNull(actionName);
 
         List<ActionInfo> actions = new ArrayList<>();
 

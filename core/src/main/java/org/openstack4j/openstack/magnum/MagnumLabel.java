@@ -1,9 +1,10 @@
 package org.openstack4j.openstack.magnum;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.magnum.Label;
 import org.openstack4j.model.magnum.LabelBuilder;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MagnumLabel implements Label {
     private static final long serialVersionUID = 1L;

@@ -1,19 +1,19 @@
 package org.openstack4j.api.senlin.v1;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Logger;
 
-import com.google.common.base.Preconditions;
 import org.openstack4j.api.AbstractTest;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.senlin.Profile;
 import org.openstack4j.model.senlin.ProfileCreate;
 import org.openstack4j.openstack.senlin.domain.SenlinProfileCreate;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
-import static org.testng.Assert.assertTrue;
 
 /**
  * Test cases for profile on Senlin
@@ -37,7 +37,7 @@ public class ProfileServiceTest extends AbstractTest {
         respondWith(PROFILES);
         List<? extends Profile> profileList = osv3().senlin().profile().list();
         assertEquals(4, profileList.size());
-        Preconditions.checkNotNull(profileList.get(0));
+        Objects.requireNonNull(profileList.get(0));
         Logger.getLogger(getClass().getName()).info(getClass().getName() + " : Profile from List : " + profileList.get(0));
         assertEquals(profileList.get(0).getId(), "ddf94acb-492a-41cb-a278-9ba7fbb31bb7");
     }

@@ -1,8 +1,8 @@
 package org.openstack4j.openstack.manila.internal;
 
 import java.util.List;
+import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.openstack4j.api.manila.ShareTypeService;
 import org.openstack4j.model.ModelEntity;
 import org.openstack4j.model.common.ActionResponse;
@@ -15,7 +15,7 @@ import org.openstack4j.openstack.manila.domain.ManilaShareType;
 import org.openstack4j.openstack.manila.domain.actions.ShareTypeAction;
 import org.openstack4j.openstack.manila.domain.actions.ShareTypeActions;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Share Types Service for Manila Shared Filesystems.
@@ -28,7 +28,7 @@ public class ShareTypeServiceImpl extends BaseShareServices implements ShareType
      */
     @Override
     public ShareType create(ShareTypeCreate shareTypeCreate) {
-        checkNotNull(shareTypeCreate);
+        Objects.requireNonNull(shareTypeCreate);
         return post(ShareVolumeTypeWrapper.class, uri("/types"))
                 .entity(shareTypeCreate)
                 .execute().shareType;
@@ -57,7 +57,7 @@ public class ShareTypeServiceImpl extends BaseShareServices implements ShareType
      */
     @Override
     public ActionResponse delete(String shareTypeId) {
-        checkNotNull(shareTypeId);
+        Objects.requireNonNull(shareTypeId);
         return ToActionResponseFunction.INSTANCE.apply(
                 delete(Void.class, uri("/types/%s", shareTypeId)).executeWithResponse());
     }
@@ -67,7 +67,7 @@ public class ShareTypeServiceImpl extends BaseShareServices implements ShareType
      */
     @Override
     public ExtraSpecs listExtraSpecs(String shareTypeId) {
-        checkNotNull(shareTypeId);
+        Objects.requireNonNull(shareTypeId);
         return get(ExtraSpecs.class, uri("/types/%s/extra_specs", shareTypeId)).execute();
     }
 
@@ -76,8 +76,8 @@ public class ShareTypeServiceImpl extends BaseShareServices implements ShareType
      */
     @Override
     public ExtraSpecs setExtraSpec(String shareTypeId, ExtraSpecs extraSpecs) {
-        checkNotNull(shareTypeId);
-        checkNotNull(extraSpecs);
+        Objects.requireNonNull(shareTypeId);
+        Objects.requireNonNull(extraSpecs);
 
         return post(ExtraSpecs.class, uri("/types/%s/extra_specs", shareTypeId))
                 .entity(extraSpecs)
@@ -89,8 +89,8 @@ public class ShareTypeServiceImpl extends BaseShareServices implements ShareType
      */
     @Override
     public ActionResponse unsetExtraSpec(String shareTypeId, String extraSpecKey) {
-        checkNotNull(shareTypeId);
-        checkNotNull(extraSpecKey);
+        Objects.requireNonNull(shareTypeId);
+        Objects.requireNonNull(extraSpecKey);
 
         return ToActionResponseFunction.INSTANCE.apply(
                 delete(Void.class, uri("/types/%s/extra_specs/%s", shareTypeId, extraSpecKey)).executeWithResponse());
@@ -101,8 +101,8 @@ public class ShareTypeServiceImpl extends BaseShareServices implements ShareType
      */
     @Override
     public ActionResponse addShareTypeAccess(String shareTypeId, String projectId) {
-        checkNotNull(shareTypeId);
-        checkNotNull(projectId);
+        Objects.requireNonNull(shareTypeId);
+        Objects.requireNonNull(projectId);
 
         return invokeAction(shareTypeId, ShareTypeActions.addShareTypeAccess(projectId));
     }
@@ -112,8 +112,8 @@ public class ShareTypeServiceImpl extends BaseShareServices implements ShareType
      */
     @Override
     public ActionResponse removeShareTypeAccess(String shareTypeId, String projectId) {
-        checkNotNull(shareTypeId);
-        checkNotNull(projectId);
+        Objects.requireNonNull(shareTypeId);
+        Objects.requireNonNull(projectId);
 
         return invokeAction(shareTypeId, ShareTypeActions.removeShareTypeAccess(projectId));
     }
@@ -137,7 +137,7 @@ public class ShareTypeServiceImpl extends BaseShareServices implements ShareType
      */
     @Override
     public List<? extends ShareTypeAccess> shareTypeAccessDetails(String shareTypeId) {
-        checkNotNull(shareTypeId);
+        Objects.requireNonNull(shareTypeId);
         return get(ShareTypeAccess.ShareTypeAccessList.class, uri("/types/%s/os-share-type-access", shareTypeId))
                 .execute().getList();
     }

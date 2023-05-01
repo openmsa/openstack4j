@@ -4,17 +4,18 @@ package org.openstack4j.openstack.identity.v2.domain;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.identity.v2.Service;
 import org.openstack4j.model.identity.v2.ServiceEndpoint;
 import org.openstack4j.model.identity.v2.builder.ServiceEndpointBuilder;
 import org.openstack4j.openstack.common.ListResult;
 import org.slf4j.LoggerFactory;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 
 /**
@@ -103,7 +104,7 @@ public class KeystoneServiceEndpoint implements ServiceEndpoint {
      */
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, region, publicURL, internalURL, adminURL, serviceId);
+        return Objects.hash(id, region, publicURL, internalURL, adminURL, serviceId);
     }
 
     /**
@@ -116,10 +117,10 @@ public class KeystoneServiceEndpoint implements ServiceEndpoint {
         if (obj == null || getClass() != obj.getClass())
             return false;
         KeystoneServiceEndpoint that = KeystoneServiceEndpoint.class.cast(obj);
-        return Objects.equal(this.id, that.id)
-                && Objects.equal(this.publicURL, that.publicURL) && Objects.equal(this.region, that.region)
-                && Objects.equal(this.internalURL, that.internalURL) && Objects.equal(this.adminURL, that.adminURL)
-                && Objects.equal(this.serviceId, that.serviceId);
+        return Objects.equals(this.id, that.id)
+                && Objects.equals(this.publicURL, that.publicURL) && Objects.equals(this.region, that.region)
+                && Objects.equals(this.internalURL, that.internalURL) && Objects.equals(this.adminURL, that.adminURL)
+                && Objects.equals(this.serviceId, that.serviceId);
     }
 
     /**

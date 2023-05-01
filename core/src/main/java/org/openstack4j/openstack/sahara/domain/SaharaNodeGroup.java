@@ -1,20 +1,21 @@
 package org.openstack4j.openstack.sahara.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import com.google.common.collect.Lists;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.sahara.Instance;
 import org.openstack4j.model.sahara.NodeGroup;
 import org.openstack4j.model.sahara.ServiceConfig;
 import org.openstack4j.model.sahara.builder.NodeGroupBuilder;
 import org.openstack4j.openstack.common.ListResult;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * An OpenStack Sahara
@@ -309,7 +310,7 @@ public class SaharaNodeGroup implements NodeGroup {
         public NodeGroupBuilder addSecurityGroup(String id) {
             if (id != null && !id.isEmpty()) {
                 if (m.securityGroups == null)
-                    m.securityGroups = Lists.newArrayList();
+                    m.securityGroups = new ArrayList<>();
                 m.securityGroups.add(id);
             }
             return this;
@@ -319,7 +320,7 @@ public class SaharaNodeGroup implements NodeGroup {
         public NodeGroupBuilder addNodeProcess(String name) {
             if (name != null && !name.isEmpty()) {
                 if (m.nodeProcesses == null)
-                    m.nodeProcesses = Lists.newArrayList();
+                    m.nodeProcesses = new ArrayList<>();
                 m.nodeProcesses.add(name);
             }
             return this;
@@ -329,7 +330,7 @@ public class SaharaNodeGroup implements NodeGroup {
         public NodeGroupBuilder addServiceConfig(String name, ServiceConfig config) {
             if (name != null && !name.isEmpty()) {
                 if (m.serviceConfigs == null)
-                    m.serviceConfigs = new HashMap<String, SaharaServiceConfig>();
+                    m.serviceConfigs = new HashMap<>();
                 m.serviceConfigs.put(name, (SaharaServiceConfig) config);
             }
             return this;

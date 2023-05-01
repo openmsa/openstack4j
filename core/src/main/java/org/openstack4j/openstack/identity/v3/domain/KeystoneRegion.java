@@ -1,15 +1,16 @@
 package org.openstack4j.openstack.identity.v3.domain;
 
 import java.util.List;
+import java.util.Objects;
+
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.identity.v3.Region;
+import org.openstack4j.model.identity.v3.builder.RegionBuilder;
+import org.openstack4j.openstack.common.ListResult;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
-import org.openstack4j.model.identity.v3.Region;
-import org.openstack4j.model.identity.v3.builder.RegionBuilder;
-import org.openstack4j.openstack.common.ListResult;
 
 /**
  * Region model class for identity v3
@@ -74,9 +75,9 @@ public class KeystoneRegion implements Region {
         if (obj == null || getClass() != obj.getClass())
             return false;
         KeystoneRegion that = KeystoneRegion.class.cast(obj);
-        return Objects.equal(this.id, that.id)
-                && Objects.equal(this.description, that.description)
-                && Objects.equal(this.parentRegionId, that.parentRegionId);
+        return Objects.equals(this.id, that.id)
+                && Objects.equals(this.description, that.description)
+                && Objects.equals(this.parentRegionId, that.parentRegionId);
     }
 
     public static class Regions extends ListResult<KeystoneRegion> {

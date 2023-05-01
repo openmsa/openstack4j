@@ -2,11 +2,12 @@ package org.openstack4j.openstack.telemetry.domain;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.telemetry.Statistics;
 import org.openstack4j.openstack.common.TelemetryDateDeserializer;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * Computed Statistics for a Query against a Meter

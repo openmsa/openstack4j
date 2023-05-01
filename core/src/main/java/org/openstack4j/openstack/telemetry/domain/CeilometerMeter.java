@@ -1,8 +1,9 @@
 package org.openstack4j.openstack.telemetry.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.telemetry.Meter;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * A Meter is a category of Measurement

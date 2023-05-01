@@ -1,19 +1,19 @@
 package org.openstack4j.api.senlin.v1;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Logger;
 
-import com.google.common.base.Preconditions;
 import org.openstack4j.api.AbstractTest;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.senlin.Receiver;
 import org.openstack4j.model.senlin.ReceiverCreate;
 import org.openstack4j.openstack.senlin.domain.SenlinReceiverCreate;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
-import static org.testng.Assert.assertTrue;
 
 /**
  * Test cases for receiver on Senlin
@@ -37,7 +37,7 @@ public class ReceiverServiceTest extends AbstractTest {
         respondWith(RECEIVERS);
         List<? extends Receiver> receiverList = osv3().senlin().receiver().list();
         assertEquals(5, receiverList.size());
-        Preconditions.checkNotNull(receiverList.get(0));
+        Objects.requireNonNull(receiverList.get(0));
         Logger.getLogger(getClass().getName()).info(getClass().getName() + " : Receiver from List : " + receiverList.get(0));
         assertEquals(receiverList.get(0).getId(), "05f72ca7-d0cd-4e9c-9f84-caec408e7580");
     }

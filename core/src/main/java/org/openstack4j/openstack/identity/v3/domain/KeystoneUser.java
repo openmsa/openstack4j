@@ -2,16 +2,17 @@ package org.openstack4j.openstack.identity.v3.domain;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.identity.v3.Domain;
 import org.openstack4j.model.identity.v3.User;
 import org.openstack4j.model.identity.v3.builder.UserBuilder;
 import org.openstack4j.openstack.common.ListResult;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * User model class for identity/v3
@@ -164,15 +165,15 @@ public class KeystoneUser implements User {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         KeystoneUser that = KeystoneUser.class.cast(obj);
-        return Objects.equal(this.name, that.name)
-                && Objects.equal(this.id, that.id)
-                && Objects.equal(this.email, that.email)
-                && Objects.equal(this.password, that.password)
-                && Objects.equal(this.description, that.description)
-                && Objects.equal(this.domainId, that.domainId)
-                && Objects.equal(this.links, that.domainId)
-                && Objects.equal(this.enabled, that.enabled)
-                && Objects.equal(this.defaultProjectId, that.defaultProjectId);
+        return Objects.equals(this.name, that.name)
+                && Objects.equals(this.id, that.id)
+                && Objects.equals(this.email, that.email)
+                && Objects.equals(this.password, that.password)
+                && Objects.equals(this.description, that.description)
+                && Objects.equals(this.domainId, that.domainId)
+                && Objects.equals(this.links, that.domainId)
+                && Objects.equals(this.enabled, that.enabled)
+                && Objects.equals(this.defaultProjectId, that.defaultProjectId);
     }
 
 

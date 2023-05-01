@@ -1,8 +1,9 @@
 package org.openstack4j.openstack.networking.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.network.RouterInterface;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * An interface data model which is returned during interface association with a router

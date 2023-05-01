@@ -1,8 +1,12 @@
 package org.openstack4j.api.identity.v3;
 
-import java.util.List;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
 
-import com.google.common.collect.ImmutableMap;
+import java.util.List;
+import java.util.Map;
+
 import org.openstack4j.api.AbstractTest;
 import org.openstack4j.api.OSClient.OSClientV3;
 import org.openstack4j.api.exceptions.RegionEndpointNotFoundException;
@@ -11,10 +15,6 @@ import org.openstack4j.model.identity.AuthVersion;
 import org.openstack4j.model.identity.v3.User;
 import org.openstack4j.openstack.OSFactory;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
-import static org.testng.Assert.assertTrue;
 
 /**
  * Tests the Identity/Keystone API version 3 Authentication
@@ -29,10 +29,10 @@ public class KeystoneAuthenticationTests extends AbstractTest {
     private static final String JSON_AUTH_UNSCOPED = "/identity/v3/authv3_unscoped.json";
     private static final String JSON_AUTH_ERROR_401 = "/identity/v3/authv3_authorizationerror.json";
     private static final String JSON_USERS = "/identity/v3/users.json";
-    private static final ImmutableMap<String, String> HEADER_AUTH_PROJECT_RESPONSE = ImmutableMap.of("X-Subject-Token", "763fd7e197ab4e00b2e6e0a8d22a8e87", "Content-Type", "application/json");
-    private static final ImmutableMap<String, String> HEADER_AUTH_TOKEN_RESPONSE = ImmutableMap.of("X-Subject-Token", "3ecb5c2063904566be4b10406c0f7568", "Content-Type", "application/json");
-    private static final ImmutableMap<String, String> HEADER_REAUTH_TOKEN_RESPONSE = ImmutableMap.of("X-Subject-Token", "3e3f7ec1180e4f1b8ca884d32e04ccfb", "Content-Type", "application/json");
-    private static final ImmutableMap<String, String> HEADER_REAUTH_PROJECT_RESPONSE = ImmutableMap.of("X-Subject-Token", "8f57cce49fd04b3cb72afdf8c0445b87", "Content-Type", "application/json");
+    private static final Map<String, String> HEADER_AUTH_PROJECT_RESPONSE = Map.of("X-Subject-Token", "763fd7e197ab4e00b2e6e0a8d22a8e87", "Content-Type", "application/json");
+    private static final Map<String, String> HEADER_AUTH_TOKEN_RESPONSE = Map.of("X-Subject-Token", "3ecb5c2063904566be4b10406c0f7568", "Content-Type", "application/json");
+    private static final Map<String, String> HEADER_REAUTH_TOKEN_RESPONSE = Map.of("X-Subject-Token", "3e3f7ec1180e4f1b8ca884d32e04ccfb", "Content-Type", "application/json");
+    private static final Map<String, String> HEADER_REAUTH_PROJECT_RESPONSE = Map.of("X-Subject-Token", "8f57cce49fd04b3cb72afdf8c0445b87", "Content-Type", "application/json");
 
     private static final String USER_NAME = "admin";
     private static final String USER_ID = "aa9f25defa6d4cafb48466df83106065";

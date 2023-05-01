@@ -16,11 +16,10 @@
  */
 package org.openstack4j.openstack.telemetry.internal.gnocchi;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import org.openstack4j.api.telemetry.gnocchi.MeasuresService;
@@ -37,7 +36,7 @@ public class MeasuresServiceImpl extends BaseGnocchiServices implements Measures
 
     @Override
     public List<? extends Measure> read(final String id, final MeasureFilter filter) {
-        checkNotNull(id);
+        Objects.requireNonNull(id);
         final Invocation<Object[][]> inv = get(Object[][].class, uri("/metric/%s/measures", id));
         if (filter != null) {
             inv.params(filter.getConstraints());

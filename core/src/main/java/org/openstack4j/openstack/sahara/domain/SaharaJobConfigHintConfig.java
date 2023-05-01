@@ -1,8 +1,9 @@
 package org.openstack4j.openstack.sahara.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.sahara.JobConfigHintConfig;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * For mapping JSON response to/from java objects

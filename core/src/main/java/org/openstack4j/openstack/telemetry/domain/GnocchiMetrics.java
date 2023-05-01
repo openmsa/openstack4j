@@ -1,12 +1,12 @@
 package org.openstack4j.openstack.telemetry.domain;
 
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.common.builder.BasicResourceBuilder;
 import org.openstack4j.model.telemetry.gnocchi.ArchivePolicy;
 import org.openstack4j.model.telemetry.gnocchi.Metrics;
 import org.openstack4j.model.telemetry.gnocchi.builder.MetricsBuilder;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
 
 public class GnocchiMetrics implements Metrics {
 

@@ -1,18 +1,18 @@
 package org.openstack4j.api.gbp;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Logger;
 
-import com.google.common.base.Preconditions;
 import org.openstack4j.api.AbstractTest;
 import org.openstack4j.api.Builders;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.gbp.PolicyRule;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
-import static org.testng.Assert.assertTrue;
 
 /**
  * Test cases for policy rule on GBP
@@ -37,7 +37,7 @@ public class PolicyRuleServiceTest extends AbstractTest {
         respondWith(POLICY_RULES);
         List<? extends PolicyRule> policyRuleList = osv2().gbp().policyRule().list();
         assertEquals(10, policyRuleList.size());
-        Preconditions.checkNotNull(policyRuleList.get(0));
+        Objects.requireNonNull(policyRuleList.get(0));
         Logger.getLogger(getClass().getName()).info(getClass().getName() + " : Policy Rule from List : " + policyRuleList.get(0));
         assertEquals(policyRuleList.get(0).getId(), "059909d1-7f20-40cf-a78a-27c340a5aaac");
     }

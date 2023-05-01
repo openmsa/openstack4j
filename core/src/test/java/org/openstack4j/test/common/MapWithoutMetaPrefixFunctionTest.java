@@ -1,12 +1,11 @@
 package org.openstack4j.test.common;
 
+import static org.testng.Assert.assertTrue;
+
 import java.util.Map;
 
-import com.google.common.collect.ImmutableMap;
 import org.openstack4j.openstack.storage.object.functions.MapWithoutMetaPrefixFunction;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertTrue;
 
 /**
  * Tests HeaderNameValue based transformation
@@ -15,7 +14,7 @@ import static org.testng.Assert.assertTrue;
  */
 public class MapWithoutMetaPrefixFunctionTest {
 
-    private static Map<String, String> VALUES = ImmutableMap.of(
+    private static Map<String, String> VALUES = Map.of(
             "X-Meta-Value1", "Value1",
             "X-Meta-Value2", "value2",
             "x-meta-value3", "Value3",

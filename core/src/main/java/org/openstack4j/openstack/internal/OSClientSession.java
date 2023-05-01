@@ -4,6 +4,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.openstack4j.api.Apis;
 import org.openstack4j.api.EndpointTokenProvider;
@@ -47,10 +48,6 @@ import org.openstack4j.openstack.identity.internal.DefaultEndpointURLResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.annotations.VisibleForTesting;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Sets;
-
 /**
  * A client which has been identified. Any calls spawned from this session will
  * automatically utilize the original authentication that was successfully
@@ -78,7 +75,7 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
     }
 
     @SuppressWarnings("unchecked")
-    @VisibleForTesting
+    //@VisibleForTesting
     public R useConfig(final Config config) {
         this.config = config;
         return (R) this;
@@ -492,8 +489,9 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
         @Override
         public Set<ServiceType> getSupportedServices() {
             if (supports == null) {
-                supports = Sets.immutableEnumSet(Iterables.transform(access.getServiceCatalog(),
-                        new org.openstack4j.openstack.identity.v2.functions.ServiceToServiceType()));
+                supports = access.getServiceCatalog().stream()
+                        .map(new org.openstack4j.openstack.identity.v2.functions.ServiceToServiceType()).
+                        collect(Collectors.toSet());
             }
             return supports;
         }
@@ -599,8 +597,9 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
         @Override
         public Set<ServiceType> getSupportedServices() {
             if (supports == null) {
-                supports = Sets.immutableEnumSet(Iterables.transform(token.getCatalog(),
-                        new org.openstack4j.openstack.identity.v3.functions.ServiceToServiceType()));
+                supports = token.getCatalog().stream()
+                        .map(new org.openstack4j.openstack.identity.v3.functions.ServiceToServiceType())
+                        .collect(Collectors.toSet());
             }
             return supports;
         }

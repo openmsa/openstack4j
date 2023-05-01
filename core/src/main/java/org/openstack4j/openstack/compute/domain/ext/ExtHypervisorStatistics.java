@@ -1,9 +1,10 @@
 package org.openstack4j.openstack.compute.domain.ext;
 
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.compute.ext.HypervisorStatistics;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import org.openstack4j.model.compute.ext.HypervisorStatistics;
 
 @JsonRootName("hypervisor_statistics")
 public class ExtHypervisorStatistics implements HypervisorStatistics {

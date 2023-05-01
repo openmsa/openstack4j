@@ -5,22 +5,23 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.google.common.base.Charsets;
-import com.google.common.io.Resources;
+import org.openstack4j.api.Resources;
 import org.yaml.snakeyaml.Yaml;
+
+import com.fasterxml.jackson.core.JsonParseException;
 
 public class Environment {
 
     private String envContent;
-    private Map<String, String> files = new HashMap<String, String>();
+    private Map<String, String> files = new HashMap<>();
     private URL baseUrl;
 
     public Environment(URL environmentRes) throws JsonParseException, IOException, URISyntaxException {
-        setEnvContent(Resources.toString(environmentRes, Charsets.UTF_8));
+        setEnvContent(Resources.toString(environmentRes, Charset.defaultCharset()));
         setBaseUrl(TemplateUtils.baseUrl(environmentRes.toString()));
         getFileContent();
     }

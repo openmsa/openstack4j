@@ -1,15 +1,15 @@
 package org.openstack4j.api.senlin.v1;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Logger;
 
-import com.google.common.base.Preconditions;
 import org.openstack4j.api.AbstractTest;
 import org.openstack4j.model.senlin.Event;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
 
 /**
  * Test cases for event on Senlin
@@ -32,7 +32,7 @@ public class EventServiceTest extends AbstractTest {
         respondWith(EVENTS);
         List<? extends Event> eventList = osv3().senlin().event().list();
         assertEquals(4, eventList.size());
-        Preconditions.checkNotNull(eventList.get(0));
+        Objects.requireNonNull(eventList.get(0));
         Logger.getLogger(getClass().getName()).info(getClass().getName() + " : Event from List : " + eventList.get(0));
         assertEquals(eventList.get(0).getId(), "b6d7b823-1811-492b-8a54-fb15a5a0bafe");
     }

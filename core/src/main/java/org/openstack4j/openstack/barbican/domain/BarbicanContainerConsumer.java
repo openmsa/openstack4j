@@ -1,8 +1,9 @@
 package org.openstack4j.openstack.barbican.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.barbican.ContainerConsumer;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class BarbicanContainerConsumer implements ContainerConsumer {
     private static final long serialVersionUID = 1L;

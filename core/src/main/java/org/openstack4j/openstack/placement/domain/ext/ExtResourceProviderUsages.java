@@ -1,10 +1,10 @@
 package org.openstack4j.openstack.placement.domain.ext;
 
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.placement.ext.ResourceProviderUsages;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
 
 /**
  * The resource provider usages instance

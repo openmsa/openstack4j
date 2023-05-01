@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
-import com.google.common.base.Throwables;
+import org.openstack4j.api.Throwables;
 import org.openstack4j.model.common.Payload;
 
 /**

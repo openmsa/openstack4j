@@ -1,23 +1,27 @@
 package org.openstack4j.api.network;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Objects;
 
-import com.google.common.base.Objects;
 import org.openstack4j.api.AbstractTest;
 import org.openstack4j.api.Builders;
 import org.openstack4j.core.transport.ObjectMapperSingleton;
 import org.openstack4j.model.common.ActionResponse;
-import org.openstack4j.model.network.ext.*;
+import org.openstack4j.model.network.ext.Ethertype;
+import org.openstack4j.model.network.ext.FlowClassifier;
+import org.openstack4j.model.network.ext.PortChain;
+import org.openstack4j.model.network.ext.PortPair;
+import org.openstack4j.model.network.ext.PortPairGroup;
 import org.openstack4j.openstack.networking.domain.ext.NeutronFlowClassifier;
 import org.openstack4j.openstack.networking.domain.ext.NeutronPortChain;
 import org.openstack4j.openstack.networking.domain.ext.NeutronPortPair;
 import org.openstack4j.openstack.networking.domain.ext.NeutronPortPairGroup;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
-import static org.testng.Assert.assertTrue;
 
 @Test(suiteName = "ServiceFunctionChain")
 public class ServiceFunctionChainTests extends AbstractTest {
@@ -63,7 +67,7 @@ public class ServiceFunctionChainTests extends AbstractTest {
         assertEquals(returned.getSourcePortRangeMax(), original.getSourcePortRangeMax());
         assertEquals(returned.getDestinationPortRangeMax(), original.getDestinationPortRangeMax());
         assertEquals(returned.getEthertype(), original.getEthertype());
-        assertTrue(Objects.equal(returned.getL7Parameters(), original.getL7Parameters()));
+        assertTrue(Objects.equals(returned.getL7Parameters(), original.getL7Parameters()));
     }
 
     private static void assertPortPairsEqual(PortPair returned, PortPair original) {
@@ -73,7 +77,7 @@ public class ServiceFunctionChainTests extends AbstractTest {
         assertEquals(returned.getTenantId(), original.getTenantId());
         assertEquals(returned.getIngressId(), original.getIngressId());
         assertEquals(returned.getEgressId(), original.getEgressId());
-        assertTrue(Objects.equal(returned.getServiceFunctionParameters(), original.getServiceFunctionParameters()));
+        assertTrue(Objects.equals(returned.getServiceFunctionParameters(), original.getServiceFunctionParameters()));
     }
 
     private static void assertPortChainsEqual(PortChain returned, PortChain original) {
@@ -83,8 +87,8 @@ public class ServiceFunctionChainTests extends AbstractTest {
         assertEquals(returned.getTenantId(), original.getTenantId());
         assertEquals(returned.getChainId(), original.getChainId());
         assertEquals(returned.getChainParameters(), original.getChainParameters());
-        assertTrue(Objects.equal(returned.getPortPairGroups(), original.getPortPairGroups()));
-        assertTrue(Objects.equal(returned.getFlowClassifiers(), original.getFlowClassifiers()));
+        assertTrue(Objects.equals(returned.getPortPairGroups(), original.getPortPairGroups()));
+        assertTrue(Objects.equals(returned.getFlowClassifiers(), original.getFlowClassifiers()));
     }
 
     private static void assertPortPairGroupsEqual(PortPairGroup returned, PortPairGroup original) {
@@ -92,8 +96,8 @@ public class ServiceFunctionChainTests extends AbstractTest {
         assertEquals(returned.getName(), original.getName());
         assertEquals(returned.getDescription(), original.getDescription());
         assertEquals(returned.getTenantId(), original.getTenantId());
-        assertTrue(Objects.equal(returned.getPortPairGroupParameters(), original.getPortPairGroupParameters()));
-        assertTrue(Objects.equal(returned.getPortPairs(), original.getPortPairs()));
+        assertTrue(Objects.equals(returned.getPortPairGroupParameters(), original.getPortPairGroupParameters()));
+        assertTrue(Objects.equals(returned.getPortPairs(), original.getPortPairs()));
     }
 
     @Test

@@ -1,14 +1,15 @@
 package org.openstack4j.openstack.sahara.domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
-import com.google.common.collect.Lists;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.sahara.JobConfig;
 import org.openstack4j.model.sahara.builder.JobConfigBuilder;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * For mapping JSON response to/from java objects
@@ -102,7 +103,7 @@ public class SaharaJobConfig implements JobConfig {
         @Override
         public JobConfigBuilder addConfig(String name, Object value) {
             if (m.configs == null)
-                m.configs = new HashMap<String, Object>();
+                m.configs = new HashMap<>();
             m.configs.put(name, value);
             return this;
         }
@@ -110,7 +111,7 @@ public class SaharaJobConfig implements JobConfig {
         @Override
         public JobConfigBuilder addArg(Object arg) {
             if (m.args == null)
-                m.args = Lists.newArrayList();
+                m.args = new ArrayList<>();
             m.args.add(arg);
             return this;
         }
@@ -118,7 +119,7 @@ public class SaharaJobConfig implements JobConfig {
         @Override
         public JobConfigBuilder addParam(String param, Object value) {
             if (m.params == null)
-                m.params = new HashMap<String, Object>();
+                m.params = new HashMap<>();
             m.params.put(param, value);
             return this;
         }

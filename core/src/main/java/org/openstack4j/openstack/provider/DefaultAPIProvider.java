@@ -1,6 +1,8 @@
 package org.openstack4j.openstack.provider;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.openstack4j.api.APIProvider;
 import org.openstack4j.api.artifact.ArtifactService;
@@ -378,8 +380,6 @@ import org.openstack4j.openstack.workflow.internal.WorkflowEnvironmentServiceImp
 import org.openstack4j.openstack.workflow.internal.WorkflowExecutionServiceImpl;
 import org.openstack4j.openstack.workflow.internal.WorkflowServiceImpl;
 
-import com.google.common.collect.Maps;
-
 /**
  * Simple API Provider which keeps internally Maps interface implementations as
  * singletons
@@ -388,8 +388,8 @@ import com.google.common.collect.Maps;
  */
 public class DefaultAPIProvider implements APIProvider {
 
-    private static final Map<Class<?>, Class<?>> bindings = Maps.newHashMap();
-    private static final Map<Class<?>, Object> instances = Maps.newConcurrentMap();
+    private static final Map<Class<?>, Class<?>> bindings = new HashMap<>();
+    private static final Map<Class<?>, Object> instances = new ConcurrentHashMap<>();
 
     /**
      * {@inheritDoc}

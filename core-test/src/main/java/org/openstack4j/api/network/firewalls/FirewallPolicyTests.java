@@ -1,11 +1,15 @@
 package org.openstack4j.api.network.firewalls;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Logger;
 
-import com.google.common.base.Preconditions;
 import org.openstack4j.api.AbstractTest;
 import org.openstack4j.api.Builders;
 import org.openstack4j.model.common.ActionResponse;
@@ -13,10 +17,6 @@ import org.openstack4j.model.network.ext.FirewallPolicy;
 import org.openstack4j.model.network.ext.FirewallPolicyUpdate;
 import org.openstack4j.openstack.networking.domain.ext.FirewallRuleStrategy.RuleInsertStrategyType;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
-import static org.testng.Assert.assertTrue;
 
 /**
  * Test suite for FirewallPolicy As a Service : FirewallPolicy Policy {@link FirewallPolicy} (FwaaS)
@@ -35,7 +35,7 @@ public class FirewallPolicyTests extends AbstractTest {
         respondWith(FIREWALL_POLICIES);
         List<? extends FirewallPolicy> list = osv3().networking().firewalls().firewallpolicy().list();
         assertEquals(1, list.size());
-        Preconditions.checkNotNull(list.get(0));
+        Objects.requireNonNull(list.get(0));
         Logger.getLogger(getClass().getName()).info(getClass().getName() + " : FirewallPolicy from List : " + list.get(0));
         assertEquals(list.get(0).getId(), "c69933c1-b472-44f9-8226-30dc4ffd454c");
     }

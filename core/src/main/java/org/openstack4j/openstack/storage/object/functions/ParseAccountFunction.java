@@ -1,15 +1,16 @@
 package org.openstack4j.openstack.storage.object.functions;
 
-import com.google.common.base.Function;
-import org.openstack4j.core.transport.HttpResponse;
-import org.openstack4j.model.storage.object.SwiftAccount;
-import org.openstack4j.openstack.storage.object.domain.SwiftAccountImpl;
-
 import static org.openstack4j.model.storage.object.SwiftHeaders.ACCOUNT_BYTES_USED;
 import static org.openstack4j.model.storage.object.SwiftHeaders.ACCOUNT_CONTAINER_COUNT;
 import static org.openstack4j.model.storage.object.SwiftHeaders.ACCOUNT_OBJECT_COUNT;
 import static org.openstack4j.model.storage.object.SwiftHeaders.ACCOUNT_TEMPORARY_URL_KEY;
 import static org.openstack4j.openstack.internal.Parser.asLong;
+
+import java.util.function.Function;
+
+import org.openstack4j.core.transport.HttpResponse;
+import org.openstack4j.model.storage.object.SwiftAccount;
+import org.openstack4j.openstack.storage.object.domain.SwiftAccountImpl;
 
 /**
  * Parses an HttpResponse from an Account call into a SwiftAccount object

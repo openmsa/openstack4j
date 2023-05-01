@@ -1,12 +1,26 @@
 package org.openstack4j.openstack.manila.internal;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.openstack4j.api.Apis;
-import org.openstack4j.api.manila.*;
+import org.openstack4j.api.manila.QuotaSetService;
+import org.openstack4j.api.manila.SchedulerStatsService;
+import org.openstack4j.api.manila.SecurityServiceService;
+import org.openstack4j.api.manila.ShareInstanceService;
+import org.openstack4j.api.manila.ShareNetworkService;
+import org.openstack4j.api.manila.ShareServerService;
+import org.openstack4j.api.manila.ShareService;
+import org.openstack4j.api.manila.ShareSnapshotService;
+import org.openstack4j.api.manila.ShareTypeService;
+import org.openstack4j.api.manila.SharesService;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.common.Extension;
-import org.openstack4j.model.manila.*;
+import org.openstack4j.model.manila.AvailabilityZone;
+import org.openstack4j.model.manila.Limits;
+import org.openstack4j.model.manila.Service;
+import org.openstack4j.model.manila.Share;
+import org.openstack4j.model.manila.ShareManage;
 import org.openstack4j.openstack.common.ExtensionValue;
 import org.openstack4j.openstack.compute.functions.ToActionResponseFunction;
 import org.openstack4j.openstack.manila.domain.ManilaAvailabilityZone;
@@ -14,8 +28,6 @@ import org.openstack4j.openstack.manila.domain.ManilaLimits;
 import org.openstack4j.openstack.manila.domain.ManilaService;
 import org.openstack4j.openstack.manila.domain.ManilaShare;
 import org.openstack4j.openstack.manila.domain.actions.ServiceAction;
-
-import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Shared File Systems API (Manila)
@@ -115,8 +127,8 @@ public class ShareServiceImpl extends BaseShareServices implements ShareService 
      */
     @Override
     public ManilaService.ServiceStatus enableService(String binary, String host) {
-        checkNotNull(binary);
-        checkNotNull(host);
+        Objects.requireNonNull(binary);
+        Objects.requireNonNull(host);
 
         return put(ManilaService.ServiceStatus.class, uri("/os-services/enable"))
                 .entity(ServiceAction.enable(binary, host))
@@ -128,8 +140,8 @@ public class ShareServiceImpl extends BaseShareServices implements ShareService 
      */
     @Override
     public ManilaService.ServiceStatus disableService(String binary, String host) {
-        checkNotNull(binary);
-        checkNotNull(host);
+        Objects.requireNonNull(binary);
+        Objects.requireNonNull(host);
 
         return put(ManilaService.ServiceStatus.class, uri("/os-services/disable"))
                 .entity(ServiceAction.disable(binary, host))
@@ -149,7 +161,7 @@ public class ShareServiceImpl extends BaseShareServices implements ShareService 
      */
     @Override
     public Share manageShare(ShareManage shareManage) {
-        checkNotNull(shareManage);
+        Objects.requireNonNull(shareManage);
 
         return post(ManilaShare.class, uri("/os-share-manage"))
                 .entity(shareManage)
@@ -161,7 +173,7 @@ public class ShareServiceImpl extends BaseShareServices implements ShareService 
      */
     @Override
     public ActionResponse unmanageShare(String shareId) {
-        checkNotNull(shareId);
+        Objects.requireNonNull(shareId);
 
         return ToActionResponseFunction.INSTANCE.apply(
                 post(Void.class, uri("/os-share-unmanage/%s/unmanage", shareId)).executeWithResponse());

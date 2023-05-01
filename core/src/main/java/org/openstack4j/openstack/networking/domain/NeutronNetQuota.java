@@ -2,14 +2,14 @@ package org.openstack4j.openstack.networking.domain;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.network.NetQuota;
 import org.openstack4j.model.network.builder.NetQuotaBuilder;
 import org.openstack4j.openstack.common.ListResult;
 
-import static com.google.common.base.MoreObjects.toStringHelper;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Network quotas that are bound to a Tenant
@@ -97,7 +97,7 @@ public class NeutronNetQuota implements NetQuota {
 
     @Override
     public String toString() {
-        return toStringHelper(this)
+        return MoreObjects.toStringHelper(this)
                 .add("subnet", subnet).add("router", router).add("port", port)
                 .add("network", network).add("floatingIp", floatingIp).add("subnetpool", subnetpool)
                 .add("rbacPolicy", rbacPolicy).toString();

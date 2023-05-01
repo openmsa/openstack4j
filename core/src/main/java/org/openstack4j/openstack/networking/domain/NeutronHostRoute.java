@@ -1,6 +1,6 @@
 package org.openstack4j.openstack.networking.domain;
 
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.network.HostRoute;
 
 /**

@@ -2,13 +2,14 @@ package org.openstack4j.openstack.networking.domain.ext;
 
 import java.util.List;
 
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.network.ext.FirewallPolicyUpdate;
+import org.openstack4j.model.network.ext.builder.FirewallPolicyUpdateBuilder;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import org.openstack4j.model.network.ext.FirewallPolicyUpdate;
-import org.openstack4j.model.network.ext.builder.FirewallPolicyUpdateBuilder;
 
 /**
  * An entity used to update Neutron Firewall Policy (FwaaS).

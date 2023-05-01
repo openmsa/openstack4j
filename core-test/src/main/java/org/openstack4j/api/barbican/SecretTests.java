@@ -1,20 +1,19 @@
 package org.openstack4j.api.barbican;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import com.google.common.collect.ImmutableMap;
 import org.openstack4j.api.AbstractTest;
 import org.openstack4j.api.Builders;
 import org.openstack4j.model.barbican.Secret;
 import org.openstack4j.model.common.ActionResponse;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
-import static org.testng.Assert.assertTrue;
 
 /**
  * Created by reneschollmeyer on 18.08.17.
@@ -41,7 +40,7 @@ public class SecretTests extends AbstractTest {
 
     public void testListSecretWithFilter() throws IOException {
         respondWith(SECRETS_JSON);
-        Map<String, String> filters = ImmutableMap.of("limit", "1");
+        Map<String, String> filters = Map.of("limit", "1");
         List<? extends Secret> list = osv3().barbican().secrets().list(filters);
         assertEquals(list.size(), 1);
     }

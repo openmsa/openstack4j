@@ -3,13 +3,14 @@ package org.openstack4j.openstack.barbican.domain;
 import java.util.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.barbican.Container;
 import org.openstack4j.model.barbican.ContainerConsumer;
 import org.openstack4j.model.barbican.ContainerSecret;
 import org.openstack4j.model.barbican.builder.ContainerCreateBuilder;
 import org.openstack4j.openstack.common.ListResult;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class BarbicanContainer implements Container {
     private static final long serialVersionUID = 1L;

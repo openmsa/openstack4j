@@ -1,9 +1,10 @@
 package org.openstack4j.openstack.networking.domain.ext;
 
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.network.ext.LoadBalancerV2Stats;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import org.openstack4j.model.network.ext.LoadBalancerV2Stats;
 
 /**
  * The statistics about an lbaas v2 loadbalancer

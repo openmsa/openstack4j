@@ -2,7 +2,7 @@ package org.openstack4j.model.common;
 
 import java.io.Serializable;
 
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 
 /**
  * A response that is returned when an Action is performed against the server.

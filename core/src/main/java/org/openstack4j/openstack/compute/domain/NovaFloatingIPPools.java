@@ -2,11 +2,11 @@ package org.openstack4j.openstack.compute.domain;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Function;
+
+import org.openstack4j.openstack.common.ListResult;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.Function;
-import com.google.common.collect.Lists;
-import org.openstack4j.openstack.common.ListResult;
 
 /**
  * Maps to the OpenStack Floating IP Pool specification and used internally to retrieve the list of pool names
@@ -26,7 +26,7 @@ public class NovaFloatingIPPools extends ListResult<String> {
     @Override
     protected List<String> value() {
         if (values != null)
-            return Lists.transform(values, WrapperToStringFunc.instance);
+            return values.stream().map(WrapperToStringFunc.instance).toList();
         return Collections.emptyList();
     }
 

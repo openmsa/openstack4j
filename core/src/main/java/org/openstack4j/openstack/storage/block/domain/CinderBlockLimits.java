@@ -1,10 +1,11 @@
 package org.openstack4j.openstack.storage.block.domain;
 
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.storage.block.BlockLimits;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
-import org.openstack4j.model.storage.block.BlockLimits;
 
 /**
  * Show absolute limits for a tenant

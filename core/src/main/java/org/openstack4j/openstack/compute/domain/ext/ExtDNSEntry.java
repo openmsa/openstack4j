@@ -2,13 +2,13 @@ package org.openstack4j.openstack.compute.domain.ext;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.compute.ext.DNSEntry;
 import org.openstack4j.model.compute.ext.DNSRecordType;
 import org.openstack4j.openstack.common.ListResult;
 
-import static com.google.common.base.MoreObjects.toStringHelper;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * A Floating IP DNS Extension - DNS Entry
@@ -71,7 +71,7 @@ public class ExtDNSEntry implements DNSEntry {
 
     @Override
     public String toString() {
-        return toStringHelper(this).omitNullValues()
+        return MoreObjects.toStringHelper(this).omitNullValues()
                 .add("id", id).add("domain", domain).add("ip", ipAddress)
                 .add("name", name).add("type", type)
                 .toString();

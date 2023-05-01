@@ -48,17 +48,19 @@
     </mailingLists>
     <modules>
         <module>core</module>
-        <!--<module>core-test</module>-->
+        <module>core-test</module>
         <module>connectors</module>
         <!--<module>core-integration-test</module>
         <module>distribution</module>-->
     </modules>
     <dependencies>
+		<!--
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>31.1-jre</version>
         </dependency>
+        -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -296,11 +298,11 @@
     <distributionManagement>
 		<snapshotRepository>
 			<id>nexus-snapshots</id>
-			<url>http://nexus.ubiqube.com:8081/repository/maven-snapshots/</url>
+			<url>http://nexus.ubiqube.com/repository/maven-snapshots/</url>
 		</snapshotRepository>
 		<repository>
 			<id>nexus-releases</id>
-			<url>http://nexus.ubiqube.com:8081/repository/maven-releases/</url>
+			<url>http://nexus.ubiqube.com/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
     <profiles>

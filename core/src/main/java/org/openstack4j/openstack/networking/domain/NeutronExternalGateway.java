@@ -1,9 +1,10 @@
 package org.openstack4j.openstack.networking.domain;
 
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.network.ExternalGateway;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
-import org.openstack4j.model.network.ExternalGateway;
 
 /**
  * Configurable external gateway modes extension model.  By default, when a gateway is attached to a router using the Neutron L3 extension,

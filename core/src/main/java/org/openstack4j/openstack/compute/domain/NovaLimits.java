@@ -2,11 +2,12 @@ package org.openstack4j.openstack.compute.domain;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.compute.AbsoluteLimit;
 import org.openstack4j.model.compute.Limits;
 import org.openstack4j.model.compute.RateLimit;
+
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Accounts may be pre-configured with a set of thresholds (or limits) to manage capacity and prevent abuse of the system.

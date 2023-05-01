@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import com.google.common.collect.ImmutableMap;
 import org.openstack4j.api.AbstractTest;
 import org.openstack4j.api.Builders;
 import org.openstack4j.model.barbican.Container;
@@ -35,7 +34,7 @@ public class ContainerTests extends AbstractTest {
 
     public void testListContainersWithFilter() throws IOException {
         respondWith(CONTAINERS_JSON);
-        Map<String, String> filters = ImmutableMap.of("limit", "1");
+        Map<String, String> filters = Map.of("limit", "1");
         List<? extends Container> list = osv3().barbican().containers().list(filters);
         assertEquals(list.size(), 1);
     }

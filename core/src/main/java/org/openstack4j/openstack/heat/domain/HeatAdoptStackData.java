@@ -2,10 +2,11 @@ package org.openstack4j.openstack.heat.domain;
 
 import java.util.Map;
 
+import org.openstack4j.api.MoreObjects;
+import org.openstack4j.model.heat.AdoptStackData;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
-import org.openstack4j.model.heat.AdoptStackData;
 
 /**
  * This class contains all elements required for the creation of <code>adopt_stack_data</code> element. It is used for stack adoption and as a return value for stack abandoning.

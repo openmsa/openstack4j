@@ -2,6 +2,7 @@ package org.openstack4j.openstack.client;
 
 import org.openstack4j.api.OSClient.OSClientV2;
 import org.openstack4j.api.OSClient.OSClientV3;
+import org.openstack4j.api.Preconditions;
 import org.openstack4j.api.client.CloudProvider;
 import org.openstack4j.api.client.IOSClientBuilder;
 import org.openstack4j.api.exceptions.AuthenticationException;
@@ -15,8 +16,6 @@ import org.openstack4j.openstack.identity.v2.domain.TokenAuth;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneAuth;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneAuth.AuthScope;
 import org.openstack4j.openstack.internal.OSAuthenticator;
-
-import static com.google.common.base.Preconditions.checkArgument;
 
 /**
  * Builder definitions for creating a Client
@@ -104,7 +103,7 @@ public abstract class OSClientBuilder<R, T extends IOSClientBuilder<R, T>> imple
         @Override
         public OSClientV2 authenticate() throws AuthenticationException {
             if (tokenId != null) {
-                checkArgument(tenantName != null || tenantId != null,
+                Preconditions.checkArgument(tenantName != null || tenantId != null,
                         "TenantId or TenantName is required when using Token Auth");
                 return (OSClientV2) OSAuthenticator.invoke(new TokenAuth(tokenId, tenantName, tenantId), endpoint, perspective,
                         config, provider);

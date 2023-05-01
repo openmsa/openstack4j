@@ -2,15 +2,16 @@ package org.openstack4j.openstack.octavia.domain;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.octavia.LbOperatingStatus;
 import org.openstack4j.model.octavia.LbProvisioningStatus;
 import org.openstack4j.model.octavia.LoadBalancerV2;
 import org.openstack4j.model.octavia.builder.LoadBalancerV2Builder;
 import org.openstack4j.openstack.common.ListResult;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * lbaas v2 loadbalancer

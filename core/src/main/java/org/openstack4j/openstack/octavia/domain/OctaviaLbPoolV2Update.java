@@ -1,13 +1,14 @@
 package org.openstack4j.openstack.octavia.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.octavia.LbMethod;
 import org.openstack4j.model.octavia.LbPoolV2Update;
 import org.openstack4j.model.octavia.SessionPersistence;
 import org.openstack4j.model.octavia.builder.LbPoolV2UpdateBuilder;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Used to update lbaas V2 lb pool

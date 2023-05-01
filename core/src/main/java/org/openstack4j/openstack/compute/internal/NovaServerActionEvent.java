@@ -1,9 +1,10 @@
 package org.openstack4j.openstack.compute.internal;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.compute.ServerActionEvent;
 import org.openstack4j.model.compute.builder.ServerActionEventBuilder;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Events hold information about start_time, finish_time, event and result

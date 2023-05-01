@@ -1,8 +1,9 @@
 package org.openstack4j.openstack.common;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.common.IdEntity;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Basic Id based Entity Model implementation

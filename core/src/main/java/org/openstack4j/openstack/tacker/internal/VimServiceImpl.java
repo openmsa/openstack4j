@@ -2,6 +2,7 @@ package org.openstack4j.openstack.tacker.internal;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.openstack4j.api.tacker.VimService;
 import org.openstack4j.core.transport.ExecutionOptions;
@@ -12,8 +13,6 @@ import org.openstack4j.openstack.compute.functions.ToActionResponseFunction;
 import org.openstack4j.openstack.tacker.domain.TackerVim;
 import org.openstack4j.openstack.tacker.domain.TackerVim.TackerVims;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 /**
  * @author Vishvesh Deshmukh
  * @date Aug 18, 2016
@@ -23,7 +22,7 @@ public class VimServiceImpl extends BaseTackerServices implements VimService {
     /**
      * {@inheritDoc}
      */
-    @Override
+    @Override   
     public List<? extends TackerVim> list() {
         return get(TackerVims.class, uri("/vims")).execute().getList();
     }
@@ -47,7 +46,7 @@ public class VimServiceImpl extends BaseTackerServices implements VimService {
      */
     @Override
     public TackerVim show(String vimId) {
-        checkNotNull(vimId);
+        Objects.requireNonNull(vimId);
         return get(TackerVim.class, uri("/vims/%s", vimId)).execute();
     }
 
@@ -56,7 +55,7 @@ public class VimServiceImpl extends BaseTackerServices implements VimService {
      */
     @Override
     public ActionResponse delete(String vimId) {
-        checkNotNull(vimId);
+        Objects.requireNonNull(vimId);
         return ToActionResponseFunction.INSTANCE.apply(delete(Void.class, uri("/vims/%s", vimId)).executeWithResponse());
     }
 
@@ -73,8 +72,8 @@ public class VimServiceImpl extends BaseTackerServices implements VimService {
      */
 	/*@Override
 	public Vim update(String vimId, VimUpdate vimUpdate) {
-		checkNotNull(vimId);
-        checkNotNull(vimUpdate);
+		Objects.requireNonNull(vimId);
+        Objects.requireNonNull(vimUpdate);
         return put(TackerVim.class, uri("/vims/%s", vimId)).entity(vimUpdate).execute();
 	}*/
 }

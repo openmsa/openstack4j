@@ -1,14 +1,25 @@
 package org.openstack4j.openstack.internal;
 
-import java.util.*;
+import static org.openstack4j.core.transport.ClientConstants.HEADER_USER_AGENT;
+import static org.openstack4j.core.transport.ClientConstants.USER_AGENT;
 
-import com.google.common.base.Function;
-import com.google.common.base.Joiner;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.SortedSet;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 import org.openstack4j.api.client.CloudProvider;
 import org.openstack4j.api.exceptions.OS4JException;
 import org.openstack4j.api.types.ServiceType;
-import org.openstack4j.core.transport.*;
+import org.openstack4j.core.transport.ClientConstants;
+import org.openstack4j.core.transport.ExecutionOptions;
+import org.openstack4j.core.transport.HttpMethod;
+import org.openstack4j.core.transport.HttpRequest;
 import org.openstack4j.core.transport.HttpRequest.RequestBuilder;
+import org.openstack4j.core.transport.HttpResponse;
 import org.openstack4j.core.transport.internal.HttpExecutor;
 import org.openstack4j.model.ModelEntity;
 import org.openstack4j.model.common.ActionResponse;
@@ -16,9 +27,6 @@ import org.openstack4j.model.common.Payload;
 import org.openstack4j.model.identity.AuthVersion;
 import org.openstack4j.model.identity.v2.Access;
 import org.openstack4j.model.identity.v3.Service;
-
-import static org.openstack4j.core.transport.ClientConstants.HEADER_USER_AGENT;
-import static org.openstack4j.core.transport.ClientConstants.USER_AGENT;
 
 public class BaseOpenStackService {
 
@@ -97,7 +105,8 @@ public class BaseOpenStackService {
     }
 
     private <R> Invocation<R> builder(Class<R> returnType, String[] path, HttpMethod method) {
-        return builder(returnType, Joiner.on("").join(path), method);
+        String str = Arrays.asList(path).stream().collect(Collectors.joining(""));
+        return builder(returnType, str, method);
     }
 
     private <R> Invocation<R> builder(Class<R> returnType, String path, HttpMethod method) {

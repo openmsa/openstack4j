@@ -1,14 +1,14 @@
 package org.openstack4j.model.storage.object.options;
 
+import static org.openstack4j.model.storage.object.SwiftHeaders.CONTENT_TYPE;
+import static org.openstack4j.model.storage.object.SwiftHeaders.OBJECT_METADATA_PREFIX;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.google.common.collect.Maps;
 import org.openstack4j.openstack.storage.object.functions.MetadataToHeadersFunction;
-
-import static org.openstack4j.model.storage.object.SwiftHeaders.CONTENT_TYPE;
-import static org.openstack4j.model.storage.object.SwiftHeaders.OBJECT_METADATA_PREFIX;
 
 /**
  * Options used for the creation and update of Objects
@@ -18,8 +18,8 @@ import static org.openstack4j.model.storage.object.SwiftHeaders.OBJECT_METADATA_
 public final class ObjectPutOptions {
 
     public static final ObjectPutOptions NONE = new ObjectPutOptions();
-    Map<String, String> headers = Maps.newHashMap();
-    private Map<String, List<Object>> queryParams = Maps.newHashMap();
+    Map<String, String> headers = new HashMap<>();
+    private Map<String, List<Object>> queryParams = new HashMap<>();
     private String path;
 
     private ObjectPutOptions() {

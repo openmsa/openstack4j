@@ -3,14 +3,14 @@ package org.openstack4j.openstack.storage.block.domain;
 import java.util.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.common.Link;
 import org.openstack4j.model.storage.block.VolumeTransfer;
 import org.openstack4j.openstack.common.GenericLink;
 import org.openstack4j.openstack.common.ListResult;
 
-import static com.google.common.base.MoreObjects.toStringHelper;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Represents a Volume Transfer Entity which is used for creating a volume transfer
@@ -73,7 +73,7 @@ public class CinderVolumeTransfer implements VolumeTransfer {
 
     @Override
     public String toString() {
-        return toStringHelper(this).omitNullValues()
+        return MoreObjects.toStringHelper(this).omitNullValues()
                 .add("id", id).add("name", name).add("authKey", authKey)
                 .add("volumeId", volumeId).add("createdAt", createdAt).add("links", links)
                 .toString();

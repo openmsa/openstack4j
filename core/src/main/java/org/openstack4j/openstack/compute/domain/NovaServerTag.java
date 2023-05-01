@@ -3,13 +3,13 @@ package org.openstack4j.openstack.compute.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.ModelEntity;
 
 public class NovaServerTag implements ModelEntity {
     private static final long serialVersionUID = 1L;
 
-    private List<String> tags = new ArrayList<String>();
+    private List<String> tags = new ArrayList<>();
 
     public List<String> getTags() {
         return tags;

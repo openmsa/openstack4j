@@ -2,11 +2,11 @@ package org.openstack4j.openstack.placement.domain.ext;
 
 import java.util.List;
 
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.placement.ext.ResourceProvider;
 import org.openstack4j.openstack.common.ListResult;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
 
 /**
  * The resource provider instance

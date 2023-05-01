@@ -1,15 +1,14 @@
 package org.openstack4j.api.storage;
 
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
 import java.util.Map;
 
-import com.google.common.collect.ImmutableMap;
 import org.openstack4j.api.AbstractTest;
 import org.openstack4j.model.storage.block.BlockQuotaSet;
 import org.openstack4j.openstack.storage.block.domain.CinderBlockQuotaSet;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
 
 @Test(suiteName = "Block Storage Tests")
 public class VolumeTypeQuotaTests extends AbstractTest {
@@ -31,7 +30,7 @@ public class VolumeTypeQuotaTests extends AbstractTest {
         BlockQuotaSet blockQuotaSet = new CinderBlockQuotaSet()
                 .toBuilder()
                 .volumeTypesQuotas(
-                        ImmutableMap.of(
+                        Map.of(
                                 volumeTypeGigabytesQuotaKey, 100,
                                 volumeTypeSnapshotsQuotaKey, 5,
                                 volumeTypeVolumesQuotaKey, -1

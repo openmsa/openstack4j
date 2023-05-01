@@ -48,7 +48,7 @@
     </mailingLists>
     <modules>
         <module>core</module>
-        <!--<module>core-test</module>-->
+        <module>core-test</module>
         <module>connectors</module>
         <!--<module>core-integration-test</module>
         <module>distribution</module>-->
@@ -291,11 +291,11 @@
     <distributionManagement>
 		<snapshotRepository>
 			<id>nexus-snapshots</id>
-			<url>http://nexus.ubiqube.com:8081/repository/maven-snapshots/</url>
+			<url>http://nexus.ubiqube.com/repository/maven-snapshots/</url>
 		</snapshotRepository>
 		<repository>
 			<id>nexus-releases</id>
-			<url>http://nexus.ubiqube.com:8081/repository/maven-releases/</url>
+			<url>http://nexus.ubiqube.com/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
     <profiles>

@@ -5,10 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.openstack4j.util.ToStringHelper;
 import org.openstack4j.model.sahara.JobConfig;
 import org.openstack4j.model.sahara.builder.JobConfigBuilder;
+import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * For mapping JSON response to/from java objects
@@ -102,7 +103,7 @@ public class SaharaJobConfig implements JobConfig {
         @Override
         public JobConfigBuilder addConfig(String name, Object value) {
             if (m.configs == null)
-                m.configs = new HashMap<String, Object>();
+                m.configs = new HashMap<>();
             m.configs.put(name, value);
             return this;
         }
@@ -118,7 +119,7 @@ public class SaharaJobConfig implements JobConfig {
         @Override
         public JobConfigBuilder addParam(String param, Object value) {
             if (m.params == null)
-                m.params = new HashMap<String, Object>();
+                m.params = new HashMap<>();
             m.params.put(param, value);
             return this;
         }

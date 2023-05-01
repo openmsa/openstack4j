@@ -103,7 +103,7 @@ public abstract class AbstractTest {
      * @param jsonBody the json body
      */
     protected void respondWith(int statusCode, String jsonBody) {
-        Map<String, String> headers = new HashMap<String, String>();
+        Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         respondWith(headers, statusCode, jsonBody);
     }
@@ -143,7 +143,7 @@ public abstract class AbstractTest {
 
     protected void respondWithCodeAndResource(int statusCode, String resource) throws IOException {
         InputStream is = getClass().getResourceAsStream(resource);
-        Map<String, String> headers = new HashMap<String, String>();
+        Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         respondWith(headers, statusCode, new String(IOUtil.readBytes(is)));
     }

@@ -3,7 +3,6 @@ package org.openstack4j.model.network.options;
 import java.util.HashMap;
 import java.util.Map;
 
-
 /**
  * Provides server-side filtering options for listing ports
  *

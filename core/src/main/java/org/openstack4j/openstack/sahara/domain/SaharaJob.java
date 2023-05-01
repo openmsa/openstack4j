@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
 import org.openstack4j.model.sahara.Job;
 import org.openstack4j.model.sahara.JobBinary;
 import org.openstack4j.model.sahara.builder.JobBuilder;
 import org.openstack4j.openstack.common.ListResult;
+import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * For mapping JSON response to/from java objects

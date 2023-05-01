@@ -1,10 +1,15 @@
 package org.openstack4j.openstack.image.internal;
 
-import javax.annotation.Nullable;
+import static org.openstack4j.core.transport.ClientConstants.CONTENT_TYPE_OCTECT_STREAM;
+import static org.openstack4j.core.transport.ClientConstants.HEADER_ACCEPT;
+import static org.openstack4j.core.transport.HttpEntityHandler.statusAndClose;
+
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
+import javax.annotation.Nullable;
 
 import org.openstack4j.api.client.CloudProvider;
 import org.openstack4j.api.exceptions.ResponseException;
@@ -24,11 +29,6 @@ import org.openstack4j.openstack.image.domain.GlanceImageMember;
 import org.openstack4j.openstack.image.domain.GlanceImageMember.Members;
 import org.openstack4j.openstack.image.domain.functions.ImageForUpdateToHeaders;
 import org.openstack4j.openstack.image.domain.functions.ImageFromHeadersFunction;
-
-import static org.openstack4j.core.transport.ClientConstants.CONTENT_TYPE_OCTECT_STREAM;
-import static org.openstack4j.core.transport.ClientConstants.HEADER_ACCEPT;
-import static org.openstack4j.core.transport.HttpEntityHandler.statusAndClose;
-
 
 /**
  * OpenStack (Glance) Image based Operations

@@ -1,14 +1,14 @@
 package org.openstack4j.test.common;
 
 import java.util.Arrays;
+import static org.testng.Assert.assertTrue;
+
 import java.util.List;
 import java.util.Map;
 
 import org.openstack4j.model.common.header.HeaderNameValue;
 import org.openstack4j.openstack.common.functions.HeaderNameValuesToHeaderMap;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertTrue;
 
 /**
  * Tests HeaderNameValue based transformation

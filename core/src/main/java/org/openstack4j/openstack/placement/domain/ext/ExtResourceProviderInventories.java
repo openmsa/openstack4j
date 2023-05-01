@@ -2,10 +2,10 @@ package org.openstack4j.openstack.placement.domain.ext;
 
 import org.openstack4j.model.ModelEntity;
 import org.openstack4j.model.placement.ext.ResourceProviderInventories;
+import org.openstack4j.util.ToStringHelper;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
 
 /**
  * The resource provider inventories instance

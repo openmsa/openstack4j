@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
 import org.openstack4j.model.common.Identifier;
 import org.openstack4j.model.identity.AuthStore;
 import org.openstack4j.model.identity.AuthVersion;
@@ -15,6 +12,10 @@ import org.openstack4j.model.identity.v3.Authentication;
 import org.openstack4j.openstack.common.Auth.Type;
 import org.openstack4j.openstack.common.BasicResourceEntity;
 import org.openstack4j.openstack.common.IdResourceEntity;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Represents an v3 Auth object.

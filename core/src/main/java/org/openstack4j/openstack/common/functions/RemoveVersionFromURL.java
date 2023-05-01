@@ -1,8 +1,8 @@
 package org.openstack4j.openstack.common.functions;
 
-import java.util.function.Function;
-
 import static org.openstack4j.core.transport.ClientConstants.URI_SEP;
+
+import java.util.function.Function;
 
 /**
  * A function that removes the API version from the tail end of a URL as well as any trailing "/".

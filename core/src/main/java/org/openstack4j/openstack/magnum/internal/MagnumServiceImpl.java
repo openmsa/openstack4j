@@ -1,23 +1,6 @@
 package org.openstack4j.openstack.magnum.internal;
 
 
-import java.util.List;
-import java.util.Objects;
-
-import org.openstack4j.api.magnum.MagnumService;
-import org.openstack4j.api.types.ServiceType;
-import org.openstack4j.model.common.ActionResponse;
-import org.openstack4j.model.magnum.*;
-import org.openstack4j.openstack.internal.BaseOpenStackService;
-import org.openstack4j.openstack.magnum.*;
-import org.openstack4j.openstack.magnum.MagnumBay.BayConcreteBuilder.Bays;
-import org.openstack4j.openstack.magnum.MagnumBaymodel.Baymodels;
-import org.openstack4j.openstack.magnum.MagnumCluster.Clusters;
-import org.openstack4j.openstack.magnum.MagnumClustertemplate.Clustertemplates;
-import org.openstack4j.openstack.magnum.MagnumContainer.Containers;
-import org.openstack4j.openstack.magnum.MagnumMservice.Mservices;
-import org.openstack4j.openstack.magnum.MagnumPod.Pods;
-
 import static org.openstack4j.core.transport.ClientConstants.MAGNUM_BAYMODELS;
 import static org.openstack4j.core.transport.ClientConstants.MAGNUM_BAYS;
 import static org.openstack4j.core.transport.ClientConstants.MAGNUM_CERTIFICATES;
@@ -26,6 +9,37 @@ import static org.openstack4j.core.transport.ClientConstants.MAGNUM_CLUSTERTEMPL
 import static org.openstack4j.core.transport.ClientConstants.MAGNUM_CONTAINERS;
 import static org.openstack4j.core.transport.ClientConstants.MAGNUM_MSERVICES;
 import static org.openstack4j.core.transport.ClientConstants.MAGNUM_PODS;
+
+import java.util.List;
+import java.util.Objects;
+
+import org.openstack4j.api.magnum.MagnumService;
+import org.openstack4j.api.types.ServiceType;
+import org.openstack4j.model.common.ActionResponse;
+import org.openstack4j.model.magnum.Bay;
+import org.openstack4j.model.magnum.Baymodel;
+import org.openstack4j.model.magnum.Carequest;
+import org.openstack4j.model.magnum.Certificate;
+import org.openstack4j.model.magnum.Cluster;
+import org.openstack4j.model.magnum.Clustertemplate;
+import org.openstack4j.model.magnum.Container;
+import org.openstack4j.model.magnum.Mservice;
+import org.openstack4j.model.magnum.Pod;
+import org.openstack4j.openstack.internal.BaseOpenStackService;
+import org.openstack4j.openstack.magnum.MagnumBay;
+import org.openstack4j.openstack.magnum.MagnumBay.BayConcreteBuilder.Bays;
+import org.openstack4j.openstack.magnum.MagnumBaymodel;
+import org.openstack4j.openstack.magnum.MagnumBaymodel.Baymodels;
+import org.openstack4j.openstack.magnum.MagnumCertificate;
+import org.openstack4j.openstack.magnum.MagnumCluster;
+import org.openstack4j.openstack.magnum.MagnumCluster.Clusters;
+import org.openstack4j.openstack.magnum.MagnumClustertemplate;
+import org.openstack4j.openstack.magnum.MagnumClustertemplate.Clustertemplates;
+import org.openstack4j.openstack.magnum.MagnumContainer;
+import org.openstack4j.openstack.magnum.MagnumContainer.Containers;
+import org.openstack4j.openstack.magnum.MagnumMservice.Mservices;
+import org.openstack4j.openstack.magnum.MagnumPod;
+import org.openstack4j.openstack.magnum.MagnumPod.Pods;
 
 
 /**

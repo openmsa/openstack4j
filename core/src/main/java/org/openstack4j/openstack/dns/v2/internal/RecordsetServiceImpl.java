@@ -1,5 +1,8 @@
 package org.openstack4j.openstack.dns.v2.internal;
 
+import static org.openstack4j.core.transport.ClientConstants.PATH_RECORDSETS;
+import static org.openstack4j.core.transport.ClientConstants.PATH_ZONES;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -7,9 +10,6 @@ import org.openstack4j.api.dns.v2.RecordsetService;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.dns.v2.Recordset;
 import org.openstack4j.openstack.dns.v2.domain.DesignateRecordset;
-
-import static org.openstack4j.core.transport.ClientConstants.PATH_RECORDSETS;
-import static org.openstack4j.core.transport.ClientConstants.PATH_ZONES;
 
 public class RecordsetServiceImpl extends BaseDNSServices implements RecordsetService {
 

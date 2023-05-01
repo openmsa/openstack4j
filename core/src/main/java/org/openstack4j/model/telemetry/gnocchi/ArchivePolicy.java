@@ -18,8 +18,9 @@ package org.openstack4j.model.telemetry.gnocchi;
 
 import java.util.List;
 
+import org.openstack4j.api.MoreObjects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
 
 public class ArchivePolicy {
 

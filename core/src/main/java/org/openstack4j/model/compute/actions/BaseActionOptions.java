@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-
 public class BaseActionOptions {
 
     private static final String OPT_FMT = "\"%s\": \"%s\"";

@@ -1,5 +1,7 @@
 package org.openstack4j.openstack.identity.v3.internal;
 
+import static org.openstack4j.core.transport.ClientConstants.PATH_GROUPS;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -12,8 +14,6 @@ import org.openstack4j.openstack.identity.v3.domain.KeystoneGroup;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneGroup.Groups;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneRole.Roles;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneUser.Users;
-
-import static org.openstack4j.core.transport.ClientConstants.PATH_GROUPS;
 
 public class GroupServiceImpl extends BaseIdentityServices implements GroupService {
 

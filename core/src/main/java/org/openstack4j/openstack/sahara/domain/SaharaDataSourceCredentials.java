@@ -1,9 +1,10 @@
 package org.openstack4j.openstack.sahara.domain;
 
+import org.openstack4j.model.sahara.DataSourceCredentials;
+import org.openstack4j.util.ToStringHelper;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
-import org.openstack4j.model.sahara.DataSourceCredentials;
 
 /**
  * For mapping JSON response to/from java objects

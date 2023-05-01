@@ -1,10 +1,11 @@
 package org.openstack4j.openstack.image.v2.domain;
 
+import org.openstack4j.model.ModelEntity;
+import org.openstack4j.util.ToStringHelper;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openstack4j.util.ToStringHelper;
-import org.openstack4j.model.ModelEntity;
 
 /**
  * Representation of a json patch operation for an openstack image update

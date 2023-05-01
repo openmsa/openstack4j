@@ -8,13 +8,14 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.fasterxml.jackson.core.JsonParseException;
 import org.yaml.snakeyaml.Yaml;
+
+import com.fasterxml.jackson.core.JsonParseException;
 
 public class Environment {
 
     private String envContent;
-    private Map<String, String> files = new HashMap<String, String>();
+    private Map<String, String> files = new HashMap<>();
     private URL baseUrl;
 
     public Environment(URL environmentRes) throws JsonParseException, IOException, URISyntaxException {

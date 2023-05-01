@@ -1,10 +1,9 @@
 package org.openstack4j.openstack.telemetry.internal.gnocchi;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
@@ -19,13 +18,13 @@ public class ResourcesServiceImpl extends BaseGnocchiServices implements Resourc
 
     @Override
     public Resource create(final Resource resource) {
-        checkNotNull(resource);
+        Objects.requireNonNull(resource);
         return post(GnocchiResource.class, uri("/resource")).entity((resource)).execute();
     }
 
     @Override
     public Resource read(final String resourceId) {
-        checkNotNull(resourceId);
+        Objects.requireNonNull(resourceId);
         return get(GnocchiResource.class, uri("/resource/%s", resourceId)).execute();
     }
 
@@ -60,28 +59,28 @@ public class ResourcesServiceImpl extends BaseGnocchiServices implements Resourc
 
     @Override
     public Resource update(final String resourceType, final Resource resource) {
-        checkNotNull(resourceType);
-        checkNotNull(resource);
-        checkNotNull(resource.getId());
+        Objects.requireNonNull(resourceType);
+        Objects.requireNonNull(resource);
+        Objects.requireNonNull(resource.getId());
         return patch(GnocchiResource.class, uri("/resource/%s/%s", resourceType, resource.getId())).execute();
     }
 
     @Override
     public List<Resource> history(final String instanceId) {
-        checkNotNull(instanceId);
+        Objects.requireNonNull(instanceId);
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public void delete(final String resourceId) {
-        checkNotNull(resourceId);
+        Objects.requireNonNull(resourceId);
         delete(resourceId);
     }
 
     @Override
     public GnocchiResource instance(final String instanceId) {
-        checkNotNull(instanceId);
+        Objects.requireNonNull(instanceId);
         return get(GnocchiResource.class, uri("/resource/instance/%s", instanceId)).execute();
     }
 }

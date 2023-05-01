@@ -1,11 +1,12 @@
 package org.openstack4j.openstack.networking.domain.ext;
 
+import org.openstack4j.model.network.ext.LoadBalancerV2Update;
+import org.openstack4j.model.network.ext.builder.LoadBalancerV2UpdateBuilder;
+import org.openstack4j.util.ToStringHelper;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
-import org.openstack4j.model.network.ext.LoadBalancerV2Update;
-import org.openstack4j.model.network.ext.builder.LoadBalancerV2UpdateBuilder;
 
 /**
  * Entity used to update lbaas v2 loadbalancer

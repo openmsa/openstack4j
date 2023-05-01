@@ -1,13 +1,14 @@
 package org.openstack4j.openstack.networking.domain.ext;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
 import org.openstack4j.model.network.ext.LbMethod;
 import org.openstack4j.model.network.ext.LbPoolUpdate;
 import org.openstack4j.model.network.ext.builder.LbPoolUpdateBuilder;
+import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * A entity used to update a lb pool

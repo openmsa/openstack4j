@@ -2,9 +2,10 @@ package org.openstack4j.openstack.tacker.domain;
 
 import java.util.List;
 
+import org.openstack4j.util.ToStringHelper;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
 
 /**
  * @author Vishvesh Deshmukh

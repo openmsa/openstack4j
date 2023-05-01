@@ -1,17 +1,18 @@
 package org.openstack4j.openstack.storage.object.functions;
 
-import java.util.function.Function;
-import org.openstack4j.core.transport.HttpResponse;
-import org.openstack4j.model.storage.object.SwiftObject;
-import org.openstack4j.model.storage.object.options.ObjectLocation;
-import org.openstack4j.openstack.internal.Parser;
-import org.openstack4j.openstack.storage.object.domain.SwiftObjectImpl;
-
 import static org.openstack4j.model.storage.object.SwiftHeaders.CONTENT_LENGTH;
 import static org.openstack4j.model.storage.object.SwiftHeaders.CONTENT_TYPE;
 import static org.openstack4j.model.storage.object.SwiftHeaders.ETAG;
 import static org.openstack4j.model.storage.object.SwiftHeaders.LAST_MODIFIED;
 import static org.openstack4j.openstack.internal.Parser.asLong;
+
+import java.util.function.Function;
+
+import org.openstack4j.core.transport.HttpResponse;
+import org.openstack4j.model.storage.object.SwiftObject;
+import org.openstack4j.model.storage.object.options.ObjectLocation;
+import org.openstack4j.openstack.internal.Parser;
+import org.openstack4j.openstack.storage.object.domain.SwiftObjectImpl;
 
 /**
  * Transforms an HttpResponse into a SwiftObject

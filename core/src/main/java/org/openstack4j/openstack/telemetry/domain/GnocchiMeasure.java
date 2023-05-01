@@ -2,9 +2,8 @@ package org.openstack4j.openstack.telemetry.domain;
 
 import java.time.OffsetDateTime;
 
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.telemetry.gnocchi.Measure;
-
-import com.google.common.base.MoreObjects;
 
 public class GnocchiMeasure implements Measure {
     private static final long serialVersionUID = 1L;

@@ -5,11 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.openstack4j.util.ToStringHelper;
 import org.openstack4j.model.compute.Address;
 import org.openstack4j.model.compute.Addresses;
+import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class NovaAddresses implements Addresses {
 
@@ -21,7 +22,7 @@ public class NovaAddresses implements Addresses {
     @Override
     public void add(String key, Address value) {
         if (!addresses.containsKey(key))
-            addresses.put(key, new ArrayList());
+            addresses.put(key, new ArrayList<>());
 
         addresses.get(key).add((NovaAddress) value);
     }

@@ -5,12 +5,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import org.openstack4j.model.heat.SoftwareConfig;
+import org.openstack4j.model.heat.builder.SoftwareConfigBuilder;
+import org.openstack4j.util.ToStringHelper;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
-import org.openstack4j.model.heat.SoftwareConfig;
-import org.openstack4j.model.heat.builder.SoftwareConfigBuilder;
 
 /**
  * Model implementation for Software Config

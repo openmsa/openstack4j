@@ -9,9 +9,14 @@ import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.network.Trunk;
 import org.openstack4j.model.network.TrunkSubport;
 import org.openstack4j.openstack.networking.domain.AbstractNeutronTrunk.Trunks;
-import org.openstack4j.openstack.networking.domain.*;
+import org.openstack4j.openstack.networking.domain.NeutronTrunk;
+import org.openstack4j.openstack.networking.domain.NeutronTrunkCreate;
+import org.openstack4j.openstack.networking.domain.NeutronTrunkSubport;
 import org.openstack4j.openstack.networking.domain.NeutronTrunkSubport.TrunkSubports;
+import org.openstack4j.openstack.networking.domain.NeutronTrunkSubportAddRemove;
+import org.openstack4j.openstack.networking.domain.NeutronTrunkSubportCreate;
 import org.openstack4j.openstack.networking.domain.NeutronTrunkSubportCreate.NeutronTrunkSubportDelete.NeutronTrunkSubportsDelete;
+import org.openstack4j.openstack.networking.domain.NeutronTrunkUpdate;
 
 /**
  * OpenStack Network Trunk operations implementation

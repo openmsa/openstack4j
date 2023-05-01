@@ -1,5 +1,11 @@
 package org.openstack4j.openstack.storage.object.internal;
 
+import static org.openstack4j.core.transport.ClientConstants.CONTENT_TYPE_DIRECTORY;
+import static org.openstack4j.core.transport.ClientConstants.URI_SEP;
+import static org.openstack4j.core.transport.HttpEntityHandler.closeQuietly;
+import static org.openstack4j.model.storage.object.SwiftHeaders.CONTAINER_METADATA_PREFIX;
+import static org.openstack4j.model.storage.object.SwiftHeaders.CONTAINER_REMOVE_METADATA_PREFIX;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -17,12 +23,6 @@ import org.openstack4j.openstack.compute.functions.ToActionResponseFunction;
 import org.openstack4j.openstack.storage.object.domain.SwiftContainerImpl;
 import org.openstack4j.openstack.storage.object.functions.MapWithoutMetaPrefixFunction;
 import org.openstack4j.openstack.storage.object.functions.MetadataToHeadersFunction;
-
-import static org.openstack4j.core.transport.ClientConstants.CONTENT_TYPE_DIRECTORY;
-import static org.openstack4j.core.transport.ClientConstants.URI_SEP;
-import static org.openstack4j.core.transport.HttpEntityHandler.closeQuietly;
-import static org.openstack4j.model.storage.object.SwiftHeaders.CONTAINER_METADATA_PREFIX;
-import static org.openstack4j.model.storage.object.SwiftHeaders.CONTAINER_REMOVE_METADATA_PREFIX;
 
 /**
  * Provides access to the OpenStack Object Storage (Swift) Container API features.

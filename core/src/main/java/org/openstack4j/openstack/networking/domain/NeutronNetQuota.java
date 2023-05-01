@@ -2,13 +2,14 @@ package org.openstack4j.openstack.networking.domain;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
+import org.openstack4j.util.ToStringHelper;
 import org.openstack4j.model.network.NetQuota;
 import org.openstack4j.model.network.builder.NetQuotaBuilder;
 import org.openstack4j.openstack.common.ListResult;
-import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Network quotas that are bound to a Tenant

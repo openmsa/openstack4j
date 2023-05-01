@@ -3,17 +3,17 @@ package org.openstack4j.openstack.identity.internal;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map;
-import java.util.Optional;
 import java.util.SortedSet;
 import java.util.concurrent.ConcurrentHashMap;
 
-import com.google.common.collect.SortedSetMultimap;
+import org.openstack4j.api.SortedSetMultimap;
 import org.openstack4j.api.exceptions.RegionEndpointNotFoundException;
 import org.openstack4j.api.identity.EndpointURLResolver;
 import org.openstack4j.api.types.Facing;
 import org.openstack4j.api.types.ServiceType;
 import org.openstack4j.model.identity.URLResolverParams;
 import org.openstack4j.model.identity.v2.Access;
+import org.openstack4j.model.identity.v2.Access.Service;
 import org.openstack4j.model.identity.v2.Endpoint;
 import org.openstack4j.model.identity.v3.Token;
 import org.slf4j.Logger;
@@ -79,7 +79,7 @@ public class DefaultEndpointURLResolver implements EndpointURLResolver {
     }
 
     private String resolveV2(URLResolverParams p) {
-        SortedSetMultimap<String, ? extends Access.Service> catalog = p.access.getAggregatedCatalog();
+        SortedSetMultimap<String, ? extends Service> catalog = p.access.getAggregatedCatalog();
         SortedSet<? extends Access.Service> services = catalog.get(p.type.getServiceName());
 
         if (services.isEmpty()) {

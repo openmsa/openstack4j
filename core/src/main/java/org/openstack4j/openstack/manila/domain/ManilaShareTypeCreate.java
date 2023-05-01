@@ -1,12 +1,13 @@
 package org.openstack4j.openstack.manila.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
+import java.util.HashMap;
+
 import org.openstack4j.model.manila.ExtraSpecs;
 import org.openstack4j.model.manila.ShareTypeCreate;
 import org.openstack4j.model.manila.builder.ShareTypeCreateBuilder;
 
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Object used to create new share types.

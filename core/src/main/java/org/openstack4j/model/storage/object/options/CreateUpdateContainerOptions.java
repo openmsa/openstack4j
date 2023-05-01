@@ -1,16 +1,16 @@
 package org.openstack4j.model.storage.object.options;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.openstack4j.openstack.storage.object.functions.MetadataToHeadersFunction;
-
 import static org.openstack4j.model.storage.object.SwiftHeaders.CONTAINER_ACL_ANYBODY_READ;
 import static org.openstack4j.model.storage.object.SwiftHeaders.CONTAINER_METADATA_PREFIX;
 import static org.openstack4j.model.storage.object.SwiftHeaders.CONTAINER_READ;
 import static org.openstack4j.model.storage.object.SwiftHeaders.CONTAINER_WRITE;
 import static org.openstack4j.model.storage.object.SwiftHeaders.HISTORY_LOCATION;
 import static org.openstack4j.model.storage.object.SwiftHeaders.VERSIONS_LOCATION;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.openstack4j.openstack.storage.object.functions.MetadataToHeadersFunction;
 
 /**
  * Options for creating or updating a container

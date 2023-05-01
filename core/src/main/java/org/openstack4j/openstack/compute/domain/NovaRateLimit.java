@@ -4,9 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.openstack4j.util.ToStringHelper;
 import org.openstack4j.model.compute.RateLimit;
+import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Rate limits are specified in terms of both a human-readable wild-card URI and a machine-processable regular expression.

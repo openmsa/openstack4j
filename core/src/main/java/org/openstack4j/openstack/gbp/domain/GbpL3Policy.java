@@ -5,12 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
 import org.openstack4j.model.gbp.L3Policy;
 import org.openstack4j.model.gbp.builder.L3PolicyBuilder;
 import org.openstack4j.openstack.common.ListResult;
+import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Model implementation for L3 Policy
@@ -200,7 +201,7 @@ public class GbpL3Policy implements L3Policy {
         public L3PolicyBuilder externalSegments(List<String> extSegmentIds) {
             this.l3Policy.externalSegments = new HashMap<>();
             for (String extSegId : extSegmentIds) {
-                this.l3Policy.externalSegments.put(extSegId, new ArrayList<String>());
+                this.l3Policy.externalSegments.put(extSegId, new ArrayList<>());
             }
             return this;
         }

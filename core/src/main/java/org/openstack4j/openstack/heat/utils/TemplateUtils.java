@@ -1,5 +1,7 @@
 package org.openstack4j.openstack.heat.utils;
 
+import static org.openstack4j.core.transport.ClientConstants.URI_SEP;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -8,8 +10,6 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
-
-import static org.openstack4j.core.transport.ClientConstants.URI_SEP;
 
 public class TemplateUtils {
 

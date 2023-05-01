@@ -1,10 +1,11 @@
 package org.openstack4j.openstack.compute.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
 import org.openstack4j.model.ModelEntity;
 import org.openstack4j.model.compute.VNCConsole;
+import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Represents a VNC Console which provides VNC connection information for a remote server

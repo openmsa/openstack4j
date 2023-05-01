@@ -6,11 +6,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
 import org.openstack4j.model.compute.ext.AvailabilityZone;
 import org.openstack4j.openstack.common.ListResult;
 import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 public class ExtAvailabilityZone implements AvailabilityZone {
 

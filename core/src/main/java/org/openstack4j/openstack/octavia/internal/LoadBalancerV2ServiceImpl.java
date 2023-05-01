@@ -11,9 +11,9 @@ import org.openstack4j.model.octavia.LoadBalancerV2Stats;
 import org.openstack4j.model.octavia.LoadBalancerV2StatusTree;
 import org.openstack4j.model.octavia.LoadBalancerV2Update;
 import org.openstack4j.openstack.compute.functions.ToActionResponseFunction;
-import org.openstack4j.openstack.octavia.domain.LoadBalancerV2StatusTree.OctaviaLoadBalancerV2StatusTree;
 import org.openstack4j.openstack.octavia.domain.OctaviaLoadBalancerV2;
 import org.openstack4j.openstack.octavia.domain.OctaviaLoadBalancerV2Stats;
+import org.openstack4j.openstack.octavia.domain.LoadBalancerV2StatusTree.OctaviaLoadBalancerV2StatusTree;
 
 /**
  * Openstack (Octavia) lbaas v2 load balancer operations

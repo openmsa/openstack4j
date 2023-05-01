@@ -22,7 +22,7 @@ public class VimServiceImpl extends BaseTackerServices implements VimService {
     /**
      * {@inheritDoc}
      */
-    @Override
+    @Override   
     public List<? extends TackerVim> list() {
         return get(TackerVims.class, uri("/vims")).execute().getList();
     }
@@ -72,8 +72,8 @@ public class VimServiceImpl extends BaseTackerServices implements VimService {
      */
 	/*@Override
 	public Vim update(String vimId, VimUpdate vimUpdate) {
-		checkNotNull(vimId);
-        checkNotNull(vimUpdate);
+		Objects.requireNonNull(vimId);
+        Objects.requireNonNull(vimUpdate);
         return put(TackerVim.class, uri("/vims/%s", vimId)).entity(vimUpdate).execute();
 	}*/
 }

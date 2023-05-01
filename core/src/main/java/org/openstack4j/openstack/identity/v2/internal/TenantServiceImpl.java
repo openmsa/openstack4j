@@ -1,5 +1,7 @@
 package org.openstack4j.openstack.identity.v2.internal;
 
+import static org.openstack4j.core.transport.ClientConstants.PATH_TENANTS;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -12,8 +14,6 @@ import org.openstack4j.openstack.identity.v2.domain.KeystoneTenant.BackwardsComp
 import org.openstack4j.openstack.identity.v2.domain.KeystoneTenant.Tenants;
 import org.openstack4j.openstack.identity.v2.domain.KeystoneTenantUser.TenantUsers;
 import org.openstack4j.openstack.internal.BaseOpenStackService;
-
-import static org.openstack4j.core.transport.ClientConstants.PATH_TENANTS;
 
 public class TenantServiceImpl extends BaseOpenStackService implements TenantService {
 

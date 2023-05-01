@@ -1,8 +1,9 @@
 package org.openstack4j.openstack.octavia.domain;
 
+import org.openstack4j.util.ToStringHelper;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.openstack4j.util.ToStringHelper;
 
 /**
  * Lbaas V2 lists of objects take the form

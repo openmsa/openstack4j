@@ -2,12 +2,13 @@ package org.openstack4j.openstack.octavia.domain.LoadBalancerV2StatusTree;
 
 import java.util.List;
 
+import org.openstack4j.model.octavia.status.LbPoolV2Status;
+import org.openstack4j.model.octavia.status.ListenerV2Status;
+import org.openstack4j.util.ToStringHelper;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
-import org.openstack4j.model.octavia.status.LbPoolV2Status;
-import org.openstack4j.model.octavia.status.ListenerV2Status;
 
 /**
  * An object to hold status of lbaas v2 listener

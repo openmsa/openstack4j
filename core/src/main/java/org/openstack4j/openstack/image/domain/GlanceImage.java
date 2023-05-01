@@ -1,15 +1,12 @@
 package org.openstack4j.openstack.image.domain;
 
-import javax.annotation.Nullable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
+import javax.annotation.Nullable;
+
 import org.openstack4j.model.common.builder.BasicResourceBuilder;
 import org.openstack4j.model.image.ContainerFormat;
 import org.openstack4j.model.image.DiskFormat;
@@ -17,6 +14,11 @@ import org.openstack4j.model.image.Image;
 import org.openstack4j.model.image.StoreType;
 import org.openstack4j.model.image.builder.ImageBuilder;
 import org.openstack4j.openstack.common.ListResult;
+import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * A Glance v1.1 Image model implementation

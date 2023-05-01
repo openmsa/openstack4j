@@ -1,8 +1,9 @@
 package org.openstack4j.openstack.compute.internal;
 
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Objects;
+
+import javax.annotation.Nullable;
 
 import org.openstack4j.api.compute.KeypairService;
 import org.openstack4j.model.common.ActionResponse;

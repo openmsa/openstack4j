@@ -3,7 +3,6 @@ package org.openstack4j.openstack.manila.internal;
 import java.util.List;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.openstack4j.api.manila.ShareTypeService;
 import org.openstack4j.model.ModelEntity;
 import org.openstack4j.model.common.ActionResponse;
@@ -15,6 +14,8 @@ import org.openstack4j.openstack.compute.functions.ToActionResponseFunction;
 import org.openstack4j.openstack.manila.domain.ManilaShareType;
 import org.openstack4j.openstack.manila.domain.actions.ShareTypeAction;
 import org.openstack4j.openstack.manila.domain.actions.ShareTypeActions;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Share Types Service for Manila Shared Filesystems.

@@ -41,11 +41,7 @@ public class DLPayloadEntity implements DLPayload {
         Objects.requireNonNull(file);
         try (InputStream inputStream = response.getInputStream();
                 FileOutputStream fileOutputStream = new FileOutputStream(file)) {
-            byte[] buf = new byte[8192];
-            int length;
-            while ((length = inputStream.read(buf)) > 0) {
-                fileOutputStream.write(buf, 0, length);
-            }
+            inputStream.transferTo(fileOutputStream);
         }
     }
 

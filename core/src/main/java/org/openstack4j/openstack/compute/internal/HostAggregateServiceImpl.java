@@ -1,15 +1,21 @@
 package org.openstack4j.openstack.compute.internal;
 
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import javax.annotation.Nullable;
+
 import org.openstack4j.api.compute.HostAggregateService;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.compute.HostAggregate;
-import org.openstack4j.openstack.compute.domain.*;
+import org.openstack4j.openstack.compute.domain.AggregateAddHost;
+import org.openstack4j.openstack.compute.domain.AggregateRemoveHost;
+import org.openstack4j.openstack.compute.domain.HostAggregateMetadata;
+import org.openstack4j.openstack.compute.domain.NovaHostAggregate;
 import org.openstack4j.openstack.compute.domain.NovaHostAggregate.NovaHostAggregates;
+import org.openstack4j.openstack.compute.domain.NovaHostAggregateCreate;
+import org.openstack4j.openstack.compute.domain.NovaHostAggregateUpdate;
 import org.openstack4j.openstack.compute.functions.ToActionResponseFunction;
 
 /**

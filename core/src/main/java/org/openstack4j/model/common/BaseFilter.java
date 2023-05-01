@@ -3,7 +3,6 @@ package org.openstack4j.model.common;
 import java.util.HashMap;
 import java.util.Map;
 
-
 /**
  * Base Filter class for building Filter Request options
  *

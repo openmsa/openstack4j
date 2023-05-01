@@ -1,8 +1,10 @@
 package org.openstack4j.openstack.common;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import org.openstack4j.api.MoreObjects;
 import org.openstack4j.model.common.QuotaDetails;
 import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Quota Details Entity describing quota usage

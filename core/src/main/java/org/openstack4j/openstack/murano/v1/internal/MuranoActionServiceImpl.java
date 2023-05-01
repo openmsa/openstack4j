@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openstack4j.api.murano.v1.MuranoActionService;
 import org.openstack4j.model.murano.v1.domain.ActionInfo;
 import org.openstack4j.model.murano.v1.domain.ActionResult;
@@ -15,6 +14,8 @@ import org.openstack4j.model.murano.v1.domain.Environment;
 import org.openstack4j.openstack.common.MapEntity;
 import org.openstack4j.openstack.murano.v1.domain.MuranoActionResult;
 import org.openstack4j.openstack.murano.v1.domain.MuranoEnvironment;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author Nikolay Mahotkin.

@@ -16,9 +16,8 @@
  */
 package org.openstack4j.openstack.telemetry.internal.gnocchi;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.util.List;
+import java.util.Objects;
 
 import org.openstack4j.api.telemetry.gnocchi.MetricsService;
 import org.openstack4j.model.telemetry.gnocchi.MetricCreate;
@@ -29,13 +28,13 @@ public class MetricsServiceImpl extends BaseGnocchiServices implements MetricsSe
 
     @Override
     public Metrics create(final MetricCreate metrics) {
-        checkNotNull(metrics);
+        Objects.requireNonNull(metrics);
         return post(GnocchiMetrics.class, uri("/metric")).entity((metrics)).execute();
     }
 
     @Override
     public Metrics read(final String id) {
-        checkNotNull(id);
+        Objects.requireNonNull(id);
         return get(GnocchiMetrics.class, uri("/metric/%s", id)).execute();
     }
 
@@ -47,7 +46,7 @@ public class MetricsServiceImpl extends BaseGnocchiServices implements MetricsSe
 
     @Override
     public void delete(final String id) {
-        checkNotNull(id);
+        Objects.requireNonNull(id);
         super.delete(Void.class, uri("metric/%s", id)).execute();
     }
 

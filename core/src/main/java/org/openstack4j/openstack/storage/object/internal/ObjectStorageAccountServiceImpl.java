@@ -1,5 +1,9 @@
 package org.openstack4j.openstack.storage.object.internal;
 
+import static org.openstack4j.model.storage.object.SwiftHeaders.ACCOUNT_METADATA_PREFIX;
+import static org.openstack4j.model.storage.object.SwiftHeaders.ACCOUNT_REMOVE_METADATA_PREFIX;
+import static org.openstack4j.model.storage.object.SwiftHeaders.ACCOUNT_TEMPORARY_URL_KEY;
+
 import java.util.Map;
 import java.util.Objects;
 
@@ -7,10 +11,6 @@ import org.openstack4j.api.storage.ObjectStorageAccountService;
 import org.openstack4j.model.storage.object.SwiftAccount;
 import org.openstack4j.openstack.storage.object.functions.MetadataToHeadersFunction;
 import org.openstack4j.openstack.storage.object.functions.ParseAccountFunction;
-
-import static org.openstack4j.model.storage.object.SwiftHeaders.ACCOUNT_METADATA_PREFIX;
-import static org.openstack4j.model.storage.object.SwiftHeaders.ACCOUNT_REMOVE_METADATA_PREFIX;
-import static org.openstack4j.model.storage.object.SwiftHeaders.ACCOUNT_TEMPORARY_URL_KEY;
 
 /**
  * The Object Storage Account based services

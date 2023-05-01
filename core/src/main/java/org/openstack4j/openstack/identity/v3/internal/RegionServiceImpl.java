@@ -1,5 +1,7 @@
 package org.openstack4j.openstack.identity.v3.internal;
 
+import static org.openstack4j.core.transport.ClientConstants.PATH_REGIONS;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -8,8 +10,6 @@ import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.identity.v3.Region;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneRegion;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneRegion.Regions;
-
-import static org.openstack4j.core.transport.ClientConstants.PATH_REGIONS;
 
 /**
  * Implementation of v3 region service

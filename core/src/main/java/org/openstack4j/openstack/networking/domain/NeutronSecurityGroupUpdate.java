@@ -1,10 +1,11 @@
 package org.openstack4j.openstack.networking.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
 import org.openstack4j.model.network.SecurityGroupUpdate;
 import org.openstack4j.model.network.builder.NetSecurityGroupUpdateBuilder;
+import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * An OpenStack Neutron Security Group Update model.

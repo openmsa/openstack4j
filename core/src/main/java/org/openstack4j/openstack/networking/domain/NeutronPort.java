@@ -1,15 +1,25 @@
 package org.openstack4j.openstack.networking.domain;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.openstack4j.model.common.builder.ResourceBuilder;
+import org.openstack4j.model.network.AllowedAddressPair;
+import org.openstack4j.model.network.ExtraDhcpOptCreate;
+import org.openstack4j.model.network.IP;
+import org.openstack4j.model.network.Port;
+import org.openstack4j.model.network.State;
+import org.openstack4j.model.network.builder.PortBuilder;
+import org.openstack4j.openstack.common.ListResult;
+import org.openstack4j.util.ToStringHelper;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
-import org.openstack4j.model.common.builder.ResourceBuilder;
-import org.openstack4j.model.network.*;
-import org.openstack4j.model.network.builder.PortBuilder;
-import org.openstack4j.openstack.common.ListResult;
 
 /**
  * A Neutron Port

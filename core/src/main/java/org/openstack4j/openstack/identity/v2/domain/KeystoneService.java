@@ -2,12 +2,13 @@ package org.openstack4j.openstack.identity.v2.domain;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
 import org.openstack4j.model.identity.v2.Service;
 import org.openstack4j.model.identity.v2.builder.ServiceBuilder;
 import org.openstack4j.openstack.common.ListResult;
+import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * OpenStack service, such as Compute (Nova), Object Storage (Swift), or Image Service (Glance).

@@ -3,11 +3,12 @@ package org.openstack4j.openstack.manila.domain;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
 import org.openstack4j.model.manila.Share;
 import org.openstack4j.model.manila.ShareManage;
 import org.openstack4j.model.manila.builder.ShareManageBuilder;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Object to configure Shared File Systems to manage a share.

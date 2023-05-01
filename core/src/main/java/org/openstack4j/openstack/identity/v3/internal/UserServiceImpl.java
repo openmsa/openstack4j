@@ -1,5 +1,8 @@
 package org.openstack4j.openstack.identity.v3.internal;
 
+import static org.openstack4j.core.transport.ClientConstants.PATH_DOMAINS;
+import static org.openstack4j.core.transport.ClientConstants.PATH_USERS;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,7 +10,11 @@ import java.util.Objects;
 
 import org.openstack4j.api.identity.v3.UserService;
 import org.openstack4j.model.common.ActionResponse;
-import org.openstack4j.model.identity.v3.*;
+import org.openstack4j.model.identity.v3.Domain;
+import org.openstack4j.model.identity.v3.Group;
+import org.openstack4j.model.identity.v3.Project;
+import org.openstack4j.model.identity.v3.Role;
+import org.openstack4j.model.identity.v3.User;
 import org.openstack4j.openstack.common.MapEntity;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneDomain;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneGroup.Groups;
@@ -15,9 +22,6 @@ import org.openstack4j.openstack.identity.v3.domain.KeystoneProject.Projects;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneRole.Roles;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneUser;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneUser.Users;
-
-import static org.openstack4j.core.transport.ClientConstants.PATH_DOMAINS;
-import static org.openstack4j.core.transport.ClientConstants.PATH_USERS;
 
 /**
  * implementation of v3 user service
@@ -154,7 +158,7 @@ public class UserServiceImpl extends BaseIdentityServices implements UserService
         Objects.requireNonNull(userId);
         Objects.requireNonNull(originalPassword);
         Objects.requireNonNull(password);
-        Map<String, Object> passwordMap = new HashMap<String, Object>();
+        Map<String, Object> passwordMap = new HashMap<>();
         passwordMap.put("original_password", originalPassword);
         passwordMap.put("password", password);
         MapEntity mapEntity = MapEntity.create("user", passwordMap);

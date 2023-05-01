@@ -3,9 +3,10 @@ package org.openstack4j.openstack.senlin.domain;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.openstack4j.model.senlin.PolicyCreate;
 import org.openstack4j.model.senlin.builder.PolicyCreateBuilder;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * This class contains all elements required for the creation of a SenlinPolicy. It

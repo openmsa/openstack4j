@@ -3,7 +3,7 @@ package org.openstack4j.model.identity.v3;
 import java.util.Date;
 import java.util.List;
 
-import com.google.common.collect.SortedSetMultimap;
+import org.openstack4j.api.SortedSetMultimap;
 import org.openstack4j.model.ModelEntity;
 import org.openstack4j.model.identity.AuthStore;
 import org.openstack4j.model.identity.AuthVersion;

@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import org.openstack4j.api.Preconditions;
+
 /**
  * List options used for Object based queries
  *

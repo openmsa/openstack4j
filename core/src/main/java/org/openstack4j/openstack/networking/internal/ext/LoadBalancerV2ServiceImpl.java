@@ -11,9 +11,9 @@ import org.openstack4j.model.network.ext.LoadBalancerV2Stats;
 import org.openstack4j.model.network.ext.LoadBalancerV2StatusTree;
 import org.openstack4j.model.network.ext.LoadBalancerV2Update;
 import org.openstack4j.openstack.compute.functions.ToActionResponseFunction;
-import org.openstack4j.openstack.networking.domain.ext.LoadBalancerV2StatusTree.NeutronLoadBalancerV2StatusTree;
 import org.openstack4j.openstack.networking.domain.ext.NeutronLoadBalancerV2;
 import org.openstack4j.openstack.networking.domain.ext.NeutronLoadBalancerV2Stats;
+import org.openstack4j.openstack.networking.domain.ext.LoadBalancerV2StatusTree.NeutronLoadBalancerV2StatusTree;
 import org.openstack4j.openstack.networking.internal.BaseNetworkingServices;
 
 /**

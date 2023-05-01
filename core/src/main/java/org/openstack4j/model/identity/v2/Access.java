@@ -2,7 +2,7 @@ package org.openstack4j.model.identity.v2;
 
 import java.util.List;
 
-import com.google.common.collect.SortedSetMultimap;
+import org.openstack4j.api.SortedSetMultimap;
 import org.openstack4j.api.types.ServiceType;
 import org.openstack4j.model.ModelEntity;
 import org.openstack4j.model.common.Link;

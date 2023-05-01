@@ -2,12 +2,13 @@ package org.openstack4j.openstack.identity.v2.domain;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.openstack4j.util.ToStringHelper;
 import org.openstack4j.model.identity.AuthVersion;
 import org.openstack4j.model.identity.v2.Tenant;
 import org.openstack4j.model.identity.v2.TokenV2;
+import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public final class KeystoneToken implements TokenV2 {
 

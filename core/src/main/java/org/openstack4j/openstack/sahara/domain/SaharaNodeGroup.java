@@ -1,16 +1,21 @@
 package org.openstack4j.openstack.sahara.domain;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
 import org.openstack4j.model.sahara.Instance;
 import org.openstack4j.model.sahara.NodeGroup;
 import org.openstack4j.model.sahara.ServiceConfig;
 import org.openstack4j.model.sahara.builder.NodeGroupBuilder;
 import org.openstack4j.openstack.common.ListResult;
+import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * An OpenStack Sahara
@@ -325,7 +330,7 @@ public class SaharaNodeGroup implements NodeGroup {
         public NodeGroupBuilder addServiceConfig(String name, ServiceConfig config) {
             if (name != null && !name.isEmpty()) {
                 if (m.serviceConfigs == null)
-                    m.serviceConfigs = new HashMap<String, SaharaServiceConfig>();
+                    m.serviceConfigs = new HashMap<>();
                 m.serviceConfigs.put(name, (SaharaServiceConfig) config);
             }
             return this;

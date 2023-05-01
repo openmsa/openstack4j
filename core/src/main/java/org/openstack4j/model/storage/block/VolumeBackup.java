@@ -3,9 +3,10 @@ package org.openstack4j.model.storage.block;
 import java.util.Date;
 import java.util.Objects;
 
+import org.openstack4j.model.ModelEntity;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openstack4j.model.ModelEntity;
 
 public interface VolumeBackup extends ModelEntity {
 

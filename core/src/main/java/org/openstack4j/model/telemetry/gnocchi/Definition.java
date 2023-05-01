@@ -16,7 +16,7 @@
  */
 package org.openstack4j.model.telemetry.gnocchi;
 
-import com.google.common.base.MoreObjects;
+import org.openstack4j.api.MoreObjects;
 
 public class Definition {
     private String granularity;

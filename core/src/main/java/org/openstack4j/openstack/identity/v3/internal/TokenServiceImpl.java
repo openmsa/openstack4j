@@ -1,5 +1,11 @@
 package org.openstack4j.openstack.identity.v3.internal;
 
+import static org.openstack4j.core.transport.ClientConstants.HEADER_X_SUBJECT_TOKEN;
+import static org.openstack4j.core.transport.ClientConstants.PATH_DOMAIN_SCOPES;
+import static org.openstack4j.core.transport.ClientConstants.PATH_PROJECT_SCOPES;
+import static org.openstack4j.core.transport.ClientConstants.PATH_SERVICE_CATALOGS;
+import static org.openstack4j.core.transport.ClientConstants.PATH_TOKENS;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -13,12 +19,6 @@ import org.openstack4j.openstack.identity.v3.domain.KeystoneDomain.Domains;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneProject.Projects;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneService.Catalog;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneToken;
-
-import static org.openstack4j.core.transport.ClientConstants.HEADER_X_SUBJECT_TOKEN;
-import static org.openstack4j.core.transport.ClientConstants.PATH_DOMAIN_SCOPES;
-import static org.openstack4j.core.transport.ClientConstants.PATH_PROJECT_SCOPES;
-import static org.openstack4j.core.transport.ClientConstants.PATH_SERVICE_CATALOGS;
-import static org.openstack4j.core.transport.ClientConstants.PATH_TOKENS;
 
 public class TokenServiceImpl extends BaseIdentityServices implements TokenService {
 

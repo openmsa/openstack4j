@@ -1,21 +1,22 @@
 package org.openstack4j.openstack.identity.v3.domain;
 
+import static org.openstack4j.openstack.identity.functions.ServiceFunctions.TYPE_WITHOUT_VERSION;
+
 import java.util.Date;
 import java.util.List;
+
+import org.openstack4j.api.SortedSetMultimap;
+import org.openstack4j.api.TreeMultimap;
+import org.openstack4j.model.identity.AuthStore;
+import org.openstack4j.model.identity.AuthVersion;
+import org.openstack4j.model.identity.v3.Service;
+import org.openstack4j.model.identity.v3.Token;
+import org.openstack4j.util.ToStringHelper;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
-import com.google.common.collect.SortedSetMultimap;
-import com.google.common.collect.TreeMultimap;
-import org.openstack4j.model.identity.AuthStore;
-import org.openstack4j.model.identity.AuthVersion;
-import org.openstack4j.model.identity.v3.Service;
-import org.openstack4j.model.identity.v3.Token;
-
-import static org.openstack4j.openstack.identity.functions.ServiceFunctions.TYPE_WITHOUT_VERSION;
 
 @JsonRootName("token")
 @JsonIgnoreProperties(ignoreUnknown = true)

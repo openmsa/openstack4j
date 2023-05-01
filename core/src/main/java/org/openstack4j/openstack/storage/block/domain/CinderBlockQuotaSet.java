@@ -3,13 +3,14 @@ package org.openstack4j.openstack.storage.block.domain;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.openstack4j.model.storage.block.BlockQuotaSet;
+import org.openstack4j.model.storage.block.builder.BlockQuotaSetBuilder;
+import org.openstack4j.util.ToStringHelper;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.model.storage.block.BlockQuotaSet;
-import org.openstack4j.model.storage.block.builder.BlockQuotaSetBuilder;
-import org.openstack4j.util.ToStringHelper;
 
 /**
  * An OpenStack Quota-Set

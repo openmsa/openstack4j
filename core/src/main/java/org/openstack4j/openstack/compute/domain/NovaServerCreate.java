@@ -1,14 +1,25 @@
 package org.openstack4j.openstack.compute.domain;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.openstack4j.model.compute.BlockDeviceMappingCreate;
+import org.openstack4j.model.compute.Flavor;
+import org.openstack4j.model.compute.Image;
+import org.openstack4j.model.compute.NetworkCreate;
+import org.openstack4j.model.compute.Personality;
+import org.openstack4j.model.compute.SecurityGroup;
+import org.openstack4j.model.compute.Server.DiskConfig;
+import org.openstack4j.model.compute.ServerCreate;
+import org.openstack4j.model.compute.builder.ServerCreateBuilder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import com.fasterxml.jackson.databind.node.BinaryNode;
-import org.openstack4j.model.compute.*;
-import org.openstack4j.model.compute.Server.DiskConfig;
-import org.openstack4j.model.compute.builder.ServerCreateBuilder;
 
 @JsonRootName("server")
 public class NovaServerCreate implements ServerCreate {

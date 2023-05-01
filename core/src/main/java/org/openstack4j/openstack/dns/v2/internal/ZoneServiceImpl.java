@@ -1,5 +1,8 @@
 package org.openstack4j.openstack.dns.v2.internal;
 
+import static org.openstack4j.core.transport.ClientConstants.PATH_NAMESERVERS;
+import static org.openstack4j.core.transport.ClientConstants.PATH_ZONES;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -9,9 +12,6 @@ import org.openstack4j.model.dns.v2.Nameserver;
 import org.openstack4j.model.dns.v2.Zone;
 import org.openstack4j.openstack.dns.v2.domain.DesignateNameserver;
 import org.openstack4j.openstack.dns.v2.domain.DesignateZone;
-
-import static org.openstack4j.core.transport.ClientConstants.PATH_NAMESERVERS;
-import static org.openstack4j.core.transport.ClientConstants.PATH_ZONES;
 
 public class ZoneServiceImpl extends BaseDNSServices implements ZoneService {
 

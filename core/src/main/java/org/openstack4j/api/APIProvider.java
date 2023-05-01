@@ -1,5 +1,7 @@
 package org.openstack4j.api;
 
+import org.openstack4j.api.exceptions.ApiNotFoundException;
+
 /**
  * To keep our dependencies simple in the current Openstack4J, we utilize ServiceLoader to load a provider who is responsible
  * for loading the implementation for any of the defined API interfaces.  This allows us to avoid pulling in extra 3rd party

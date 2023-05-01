@@ -380,8 +380,6 @@ import org.openstack4j.openstack.workflow.internal.WorkflowEnvironmentServiceImp
 import org.openstack4j.openstack.workflow.internal.WorkflowExecutionServiceImpl;
 import org.openstack4j.openstack.workflow.internal.WorkflowServiceImpl;
 
-import com.google.common.collect.Maps;
-
 /**
  * Simple API Provider which keeps internally Maps interface implementations as
  * singletons

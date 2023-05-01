@@ -1,14 +1,15 @@
 package org.openstack4j.openstack.dns.v2.domain;
 
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.openstack4j.util.ToStringHelper;
 import java.util.Objects;
+
 import org.openstack4j.model.dns.v2.Nameserver;
 import org.openstack4j.model.dns.v2.builder.NameserverBuilder;
 import org.openstack4j.openstack.common.ListResult;
+import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * model class for designate/v2 nameserver
@@ -53,22 +54,16 @@ public class DesignateNameserver implements Nameserver {
                 .toString();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public int hashCode() {
         return Objects.hash(hostname, priority);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        if (obj == null || getClass() != obj.getClass())
+        if (obj == null)
             return false;
         DesignateNameserver that = DesignateNameserver.class.cast(obj);
         return Objects.equals(this.hostname, that.hostname)
@@ -76,6 +71,23 @@ public class DesignateNameserver implements Nameserver {
     }
 
     public static class NameserverConcreteBuilder implements NameserverBuilder {
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(model);
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj)
+                return true;
+            if (obj == null)
+                return false;
+            if (getClass() != obj.getClass())
+                return false;
+            NameserverConcreteBuilder other = (NameserverConcreteBuilder) obj;
+            return Objects.equals(model, other.model);
+        }
 
         DesignateNameserver model;
 

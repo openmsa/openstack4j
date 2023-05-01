@@ -3,6 +3,8 @@ package org.openstack4j.openstack.internal;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.*;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.openstack4j.api.Apis;
@@ -47,10 +49,6 @@ import org.openstack4j.openstack.identity.internal.DefaultEndpointURLResolver;
 import org.openstack4j.openstack.identity.v2.functions.ServiceToServiceType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.google.common.annotations.VisibleForTesting;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Sets;
 
 /**
  * A client which has been identified. Any calls spawned from this session will

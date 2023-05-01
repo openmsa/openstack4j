@@ -1,15 +1,5 @@
 package org.openstack4j.openstack.image.domain.functions;
 
-import javax.annotation.Nullable;
-import java.util.HashMap;
-import java.util.Map;
-
-import java.util.function.Function;
-import org.openstack4j.model.image.ContainerFormat;
-import org.openstack4j.model.image.DiskFormat;
-import org.openstack4j.model.image.Image;
-import org.openstack4j.openstack.image.domain.ImageHeader;
-
 import static org.openstack4j.openstack.image.domain.ImageHeader.CHECKSUM;
 import static org.openstack4j.openstack.image.domain.ImageHeader.CONTAINER_FORMAT;
 import static org.openstack4j.openstack.image.domain.ImageHeader.COPY_FROM;
@@ -24,6 +14,17 @@ import static org.openstack4j.openstack.image.domain.ImageHeader.PROPERTY;
 import static org.openstack4j.openstack.image.domain.ImageHeader.PROTECTED;
 import static org.openstack4j.openstack.image.domain.ImageHeader.SIZE;
 import static org.openstack4j.openstack.image.domain.ImageHeader.STORE;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Function;
+
+import javax.annotation.Nullable;
+
+import org.openstack4j.model.image.ContainerFormat;
+import org.openstack4j.model.image.DiskFormat;
+import org.openstack4j.model.image.Image;
+import org.openstack4j.openstack.image.domain.ImageHeader;
 
 /**
  * A function which takes an Image and applies the values to headers. The function only applies values that are supported for Update based

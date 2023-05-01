@@ -3,12 +3,13 @@ package org.openstack4j.openstack.storage.block.domain;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
 import org.openstack4j.model.storage.block.VolumeType;
 import org.openstack4j.model.storage.block.builder.VolumeTypeBuilder;
 import org.openstack4j.openstack.common.ListResult;
+import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * The volume type defines the characteristics of a volume. It usually maps to a set of capabilities

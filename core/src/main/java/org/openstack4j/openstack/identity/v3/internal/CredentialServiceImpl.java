@@ -1,5 +1,7 @@
 package org.openstack4j.openstack.identity.v3.internal;
 
+import static org.openstack4j.core.transport.ClientConstants.PATH_CREDENTIALS;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -8,8 +10,6 @@ import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.identity.v3.Credential;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneCredential;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneCredential.Credentials;
-
-import static org.openstack4j.core.transport.ClientConstants.PATH_CREDENTIALS;
 
 public class CredentialServiceImpl extends BaseIdentityServices implements CredentialService {
 

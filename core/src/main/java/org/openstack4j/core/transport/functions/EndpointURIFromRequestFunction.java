@@ -1,9 +1,10 @@
 package org.openstack4j.core.transport.functions;
 
-import java.util.function.Function;
-import org.openstack4j.core.transport.HttpRequest;
-
 import static org.openstack4j.core.transport.ClientConstants.URI_SEP;
+
+import java.util.function.Function;
+
+import org.openstack4j.core.transport.HttpRequest;
 
 /**
  * Builds a URI comprising of Endpoint and Path from a HttpRequest object

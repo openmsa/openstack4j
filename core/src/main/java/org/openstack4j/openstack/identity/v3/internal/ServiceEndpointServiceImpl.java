@@ -1,5 +1,8 @@
 package org.openstack4j.openstack.identity.v3.internal;
 
+import static org.openstack4j.core.transport.ClientConstants.PATH_ENDPOINTS;
+import static org.openstack4j.core.transport.ClientConstants.PATH_SERVICES;
+
 import java.net.URL;
 import java.util.List;
 import java.util.Objects;
@@ -13,9 +16,6 @@ import org.openstack4j.openstack.identity.v3.domain.KeystoneEndpoint;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneEndpoint.Endpoints;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneService;
 import org.openstack4j.openstack.identity.v3.domain.KeystoneService.Services;
-
-import static org.openstack4j.core.transport.ClientConstants.PATH_ENDPOINTS;
-import static org.openstack4j.core.transport.ClientConstants.PATH_SERVICES;
 
 /**
  * implementation of v3 service manager service

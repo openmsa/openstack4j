@@ -1,9 +1,10 @@
 package org.openstack4j.openstack.compute.domain;
 
+import org.openstack4j.model.compute.QuotaSet;
+import org.openstack4j.util.ToStringHelper;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
-import org.openstack4j.model.compute.QuotaSet;
 
 /**
  * An OpenStack Quota-Set

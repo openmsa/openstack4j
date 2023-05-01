@@ -1,5 +1,11 @@
 package org.openstack4j.openstack.storage.object.internal;
 
+import static org.openstack4j.core.transport.HttpEntityHandler.closeQuietly;
+import static org.openstack4j.model.storage.object.SwiftHeaders.CONTENT_LENGTH;
+import static org.openstack4j.model.storage.object.SwiftHeaders.ETAG;
+import static org.openstack4j.model.storage.object.SwiftHeaders.OBJECT_METADATA_PREFIX;
+import static org.openstack4j.model.storage.object.SwiftHeaders.X_COPY_FROM;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -27,12 +33,6 @@ import org.openstack4j.openstack.storage.object.functions.MapWithoutMetaPrefixFu
 import org.openstack4j.openstack.storage.object.functions.MetadataToHeadersFunction;
 import org.openstack4j.openstack.storage.object.functions.ParseObjectFunction;
 
-import static org.openstack4j.core.transport.HttpEntityHandler.closeQuietly;
-import static org.openstack4j.model.storage.object.SwiftHeaders.CONTENT_LENGTH;
-import static org.openstack4j.model.storage.object.SwiftHeaders.ETAG;
-import static org.openstack4j.model.storage.object.SwiftHeaders.OBJECT_METADATA_PREFIX;
-import static org.openstack4j.model.storage.object.SwiftHeaders.X_COPY_FROM;
-
 /**
  * A service responsible for maintaining directory and file objects within containers for
  * an Object Service within OpenStack
@@ -49,7 +49,6 @@ public class ObjectStorageObjectServiceImpl extends BaseObjectStorageService imp
         if (objs == null) {
             return Collections.emptyList();
         }
-
         return objs.stream().map(ApplyContainerToObjectFunction.create(containerName)).collect(Collectors.toList());
     }
 
@@ -64,8 +63,7 @@ public class ObjectStorageObjectServiceImpl extends BaseObjectStorageService imp
         if (objs == null) {
             return Collections.emptyList();
         }
-        return objs.stream().map(ApplyContainerToObjectFunction.create(containerName)).collect(Collectors.toList());
-
+        return objs.stream().map(ApplyContainerToObjectFunction.create(containerName)).toList();
     }
 
     /**

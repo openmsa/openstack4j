@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.databind.JsonNode;
-import org.openstack4j.util.ToStringHelper;
 import org.openstack4j.model.image.v2.ImageUpdate;
 import org.openstack4j.model.image.v2.builder.ImageUpdateBuilder;
+import org.openstack4j.util.ToStringHelper;
+
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.JsonNode;
 
 /**
  * Implementation of updating a glance image

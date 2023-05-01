@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import java.util.function.Function;
+
 import org.openstack4j.api.EndpointTokenProvider;
 import org.openstack4j.api.exceptions.ConnectionException;
 import org.openstack4j.api.types.ServiceType;
@@ -372,7 +372,7 @@ public class HttpRequest<R> {
                 List<Object> values = request.queryParams.get(key);
                 values.add(value);
             } else {
-                List<Object> values = new ArrayList<Object>();
+                List<Object> values = new ArrayList<>();
                 values.add(value);
                 request.queryParams.put(key, values);
             }
@@ -393,7 +393,7 @@ public class HttpRequest<R> {
             if (request.queryParams == null)
                 request.queryParams = new HashMap<>();
 
-            List<Object> values = new ArrayList<Object>();
+            List<Object> values = new ArrayList<>();
             values.add(value);
             request.queryParams.put(key, values);
 

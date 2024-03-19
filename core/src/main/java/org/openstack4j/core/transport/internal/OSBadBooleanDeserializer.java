@@ -8,6 +8,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.util.ClassUtil;
 
 
 /**
@@ -56,7 +58,9 @@ public class OSBadBooleanDeserializer extends JsonDeserializer<Boolean> {
             throw ctxt.weirdStringException(text, Boolean.class, "only \"true\" or \"false\" recognized");
         }
         // Otherwise, no can do:
-        throw ctxt.mappingException(Boolean.class, t);
+        throw JsonMappingException.from(jp,
+                String.format("Cannot deserialize instance of %s out of %s token",
+                        ClassUtil.nameOf(Boolean.class), t));
     }
 
     /**

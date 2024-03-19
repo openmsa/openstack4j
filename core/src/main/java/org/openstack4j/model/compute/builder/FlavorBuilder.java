@@ -16,6 +16,7 @@ public interface FlavorBuilder extends Builder<FlavorBuilder, Flavor> {
     FlavorBuilder name(String name);
 
     /**
+     * In MB
      * @see Flavor#getRam()
      */
     FlavorBuilder ram(int ram);
@@ -26,6 +27,7 @@ public interface FlavorBuilder extends Builder<FlavorBuilder, Flavor> {
     FlavorBuilder vcpus(int vcpus);
 
     /**
+     * In GB
      * @see Flavor#getDisk()
      */
     FlavorBuilder disk(int disk);

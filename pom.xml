@@ -10,8 +10,8 @@
     <properties>
         <release.version>2.0.0</release.version>
         <aries.spifly.version>1.0.0</aries.spifly.version>
-        <slf4j.version>2.0.7</slf4j.version>
-        <jackson.version>2.15.2</jackson.version>
+        <slf4j.version>2.0.9</slf4j.version>
+        <jackson.version>2.16.0</jackson.version>
         <maven.jar.plugin.version>2.6</maven.jar.plugin.version>
         <maven.source.plugin.version>2.4</maven.source.plugin.version>
         <maven.javadoc.plugin.version>3.4.1</maven.javadoc.plugin.version>

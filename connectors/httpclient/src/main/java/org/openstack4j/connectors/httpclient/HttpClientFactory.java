@@ -70,11 +70,11 @@ public class HttpClientFactory {
 		final RequestConfig.Builder rcb = RequestConfig.custom();
 
 		if (config.getConnectTimeout() > 0) {
-			rcb.setConnectTimeout(config.getConnectTimeout());
+			rcb.setConnectTimeout(config.getConnectTimeout() * 1000);
 		}
 
 		if (config.getReadTimeout() > 0) {
-			rcb.setSocketTimeout(config.getReadTimeout());
+			rcb.setSocketTimeout(config.getReadTimeout() * 1000);
 		}
 
 		if (config.getRetry() > 0) {

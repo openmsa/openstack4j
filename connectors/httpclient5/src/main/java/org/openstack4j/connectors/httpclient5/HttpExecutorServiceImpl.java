@@ -21,7 +21,7 @@ import org.slf4j.LoggerFactory;
  */
 public class HttpExecutorServiceImpl implements HttpExecutorService {
 
-	private static final String NAME = "Apache HttpClient Connector";
+	private static final String NAME = "Apache HttpClient5 Connector";
 	private static final Logger LOG = LoggerFactory.getLogger(HttpExecutorServiceImpl.class);
 
 	/**

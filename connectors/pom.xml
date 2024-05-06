@@ -19,6 +19,7 @@
         <module>httpclient5</module>
         <!--<module>okhttp</module>
         <module>http-connector</module>-->
+        <module>ubi-openstack4j-webclient</module>
     </modules>
 
     <dependencies>

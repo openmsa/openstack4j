@@ -26,6 +26,7 @@ public final class Config {
     private ProxyHost proxy;
     private ServiceVersionResolver resolver;
     private EndpointURLResolver endpointURLResolver;
+    private int retry = 0;
 
     private Config() {
     }
@@ -160,6 +161,10 @@ public final class Config {
         return this;
     }
 
+    public Config withRetry(int retry) {
+        this.retry = retry;
+        return this;
+    }
     /**
      * If no SSL Context has been specified and this SSL Verification is disabled we will by pass certificate checks (useful for self signed certificates).
      * <p>
@@ -222,6 +227,10 @@ public final class Config {
 
     public ProxyHost getProxy() {
         return proxy;
+    }
+
+    public int getRetry() {
+        return retry;
     }
 
     @Override

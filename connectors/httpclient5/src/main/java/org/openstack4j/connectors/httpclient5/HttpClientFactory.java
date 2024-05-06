@@ -30,18 +30,7 @@ public class HttpClientFactory {
 	public static final HttpClientFactory INSTANCE = new HttpClientFactory();
 	private static final String USER_AGENT = "OpenStack4j-Agent";
 	private static final Logger LOG = LoggerFactory.getLogger(HttpExecutor.class);
-	private static HttpClientConfigInterceptor INTERCEPTOR;
 	private CloseableHttpClient client;
-
-	/**
-	 * Registers a HttpClientConfigInterceptor that is invoked prior to a new
-	 * HttpClient being created.
-	 *
-	 * @param interceptor the http config interceptor
-	 */
-	public static void registerInterceptor(final HttpClientConfigInterceptor interceptor) {
-		INTERCEPTOR = interceptor;
-	}
 
 	/**
 	 * Creates or Returns an existing HttpClient
@@ -109,8 +98,8 @@ public class HttpClientFactory {
 					.build());
 		}
 
-		if (INTERCEPTOR != null) {
-			INTERCEPTOR.onClientCreate(cb, rcb, config);
+		if (config.getRetry() > 0) {
+			cb.setRetryStrategy(new OsHttpRequestRetryStrategy(config.getRetry()));
 		}
 		cb.setConnectionManager(phccmb.build());
 		return cb.setDefaultRequestConfig(rcb.build()).build();

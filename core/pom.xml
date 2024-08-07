@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.github.openstack4j.core</groupId>
 		<artifactId>ubi-openstack4j-parent</artifactId>
-		<version>3.12</version>
+		<version>3.13-SNAPSHOT</version>
 	</parent>
 	<artifactId>ubi-openstack4j-core</artifactId>
 	<packaging>jar</packaging>

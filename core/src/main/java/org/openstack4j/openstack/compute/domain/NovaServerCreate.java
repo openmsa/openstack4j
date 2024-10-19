@@ -60,6 +60,8 @@ public class NovaServerCreate implements ServerCreate {
     @JsonProperty("block_device_mapping_v2")
     private List<BlockDeviceMappingCreate> blockDeviceMapping;
 
+    public String hostname;
+
     public static ServerCreateBuilder builder() {
         return new ServerCreateConcreteBuilder();
     }
@@ -188,6 +190,11 @@ public class NovaServerCreate implements ServerCreate {
     public void addNetworkPort(String id) {
         initNetworks();
         networks.add(new NovaNetworkCreate(null, null, id));
+    }
+
+    @Override
+    public String getHostname() {
+        return hostname;
     }
 
     private void initNetworks() {
@@ -381,6 +388,12 @@ public class NovaServerCreate implements ServerCreate {
         @Override
         public ServerCreateBuilder configDrive(boolean configDrive) {
             m.configDrive = configDrive;
+            return this;
+        }
+
+        @Override
+        public ServerCreateBuilder hostname(String hostname) {
+            m.hostname = hostname;
             return this;
         }
 

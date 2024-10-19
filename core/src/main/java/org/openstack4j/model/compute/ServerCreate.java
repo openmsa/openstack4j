@@ -164,5 +164,6 @@ public interface ServerCreate extends ModelEntity, Buildable<ServerCreateBuilder
      */
     void addNetworkPort(String id);
 
+    String getHostname();
 
 }

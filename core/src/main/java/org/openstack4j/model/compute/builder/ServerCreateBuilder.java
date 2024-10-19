@@ -159,4 +159,5 @@ public interface ServerCreateBuilder extends Buildable.Builder<ServerCreateBuild
 
     ServerCreateBuilder configDrive(boolean configDrive);
 
+    ServerCreateBuilder hostname(String hostname);
 }

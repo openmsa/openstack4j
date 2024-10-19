@@ -87,4 +87,8 @@ public interface Port extends Resource, TimeEntity, Buildable<PortBuilder> {
     String getvNicType();
 
     Map<String, Object> getProfile();
+
+    String getDnsDomain();
+
+    String getDnsName();
 }

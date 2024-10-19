@@ -101,6 +101,12 @@ public class NeutronPort implements Port {
     @JsonProperty("updated_at")
     private Date updatedTime;
 
+    @JsonProperty("dns_domain")
+    public String dnsDomain;
+
+    @JsonProperty("dns_name")
+    public String dnsName;
+
     public static PortBuilder builder() {
         return new PortConcreteBuilder();
     }
@@ -332,6 +338,16 @@ public class NeutronPort implements Port {
         return portSecurityEnabled;
     }
 
+
+    @Override
+    public String getDnsDomain() {
+        return dnsDomain;
+    }
+
+    @Override
+    public String getDnsName() {
+        return dnsName;
+    }
 
     /**
      * {@inheritDoc}
@@ -585,6 +601,18 @@ public class NeutronPort implements Port {
         @Override
         public PortBuilder profile(Map<String, Object> profile) {
             m.profile = profile;
+            return this;
+        }
+
+        @Override
+        public PortBuilder dnsDomain(String dnsDomain) {
+            m.dnsDomain = dnsDomain;
+            return this;
+        }
+
+        @Override
+        public PortBuilder dnsName(String dnsName) {
+            m.dnsName = dnsName;
             return this;
         }
 

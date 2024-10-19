@@ -139,5 +139,7 @@ public interface PortBuilder extends Builder<PortBuilder, Port> {
 
     PortBuilder profile(Map<String, Object> profile);
 
+    PortBuilder dnsDomain(String dnsDomain); 
 
+    PortBuilder dnsName(String dnsName);
 }
